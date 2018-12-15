@@ -1,0 +1,5 @@
+SettingsText Ajustes
+Language Idioma
+PlayText Jugar
+QuitText Dejar
+GameTitle Titulo del juego

@@ -1,0 +1,5 @@
+SettingsText Settings
+Language Language
+PlayText Play
+QuitText Quit
+GameTitle GameTitle
