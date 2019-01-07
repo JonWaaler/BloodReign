@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{3fdf311d-1eb9-4970-8a22-82b43fd6d378}">
+        <property name="assetPath">
+            <value>Shotgun Reload.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.45201041666666669</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{ff6acfab-b99f-4f5f-ab88-e88d3c977af4}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -334,7 +334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &49213292
 Transform:
   m_ObjectHideFlags: 0
@@ -1300,7 +1300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &664424859
 Transform:
   m_ObjectHideFlags: 0
@@ -4347,52 +4347,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f20f57fcec56243b5f852418fabeb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTXT_01: {fileID: 2122189884}
-  playerTXT_02: {fileID: 1579377965}
-  playerTXT_03: {fileID: 2100771398}
-  playerTXT_04: {fileID: 1261521664}
-  pressA_01: {fileID: 249223015}
-  pressA_02: {fileID: 1252437993}
-  pressA_03: {fileID: 792324343}
-  pressA_04: {fileID: 1551691556}
-  playerSelect: {fileID: 664424858}
   mainMenu: {fileID: 49213291}
-  grappleIMG_01: {fileID: 1150097384}
-  orbIMG_01: {fileID: 1473478796}
-  rollIMG_01: {fileID: 266926640}
-  grappleIMG_02: {fileID: 1214487243}
-  orbIMG_02: {fileID: 8821959}
-  rollIMG_02: {fileID: 1450225976}
-  grappleIMG_03: {fileID: 918506796}
-  orbIMG_03: {fileID: 1211110327}
-  rollIMG_03: {fileID: 521742118}
-  grappleIMG_04: {fileID: 2063824262}
-  orbIMG_04: {fileID: 2038492715}
-  rollIMG_04: {fileID: 1787367227}
-  pistolIMG_01: {fileID: 1195537047}
-  sniperIMG_01: {fileID: 1050891386}
-  shotgunIMG_01: {fileID: 779667066}
-  rocketIMG_01: {fileID: 2037507484}
-  pistolIMG_02: {fileID: 901518733}
-  sniperIMG_02: {fileID: 1603445396}
-  shotgunIMG_02: {fileID: 1453775393}
-  rocketIMG_02: {fileID: 1156082020}
-  pistolIMG_03: {fileID: 1229217811}
-  sniperIMG_03: {fileID: 146812862}
-  shotgunIMG_03: {fileID: 1042648879}
-  rocketIMG_03: {fileID: 1537921406}
-  pistolIMG_04: {fileID: 35154862}
-  sniperIMG_04: {fileID: 28769441}
-  shotgunIMG_04: {fileID: 1993504523}
-  rocketIMG_04: {fileID: 2002343689}
-  charPointers_01: {fileID: 1846927987}
-  gunPointers_01: {fileID: 2063081340}
-  charPointers_02: {fileID: 2017198097}
-  gunPointers_02: {fileID: 783504053}
-  charPointers_03: {fileID: 711443403}
-  gunPointers_03: {fileID: 1073198652}
-  charPointers_04: {fileID: 632188668}
-  gunPointers_04: {fileID: 1427706075}
+  playerSelect: {fileID: 664424858}
+  playerTXT:
+  - {fileID: 2122189884}
+  - {fileID: 1579377965}
+  - {fileID: 2100771398}
+  - {fileID: 1261521664}
+  pressA:
+  - {fileID: 249223015}
+  - {fileID: 1252437993}
+  - {fileID: 792324343}
+  - {fileID: 1551691556}
+  grappleIMG:
+  - {fileID: 1150097384}
+  - {fileID: 1214487243}
+  - {fileID: 918506796}
+  - {fileID: 2063824262}
+  orbIMG:
+  - {fileID: 1473478796}
+  - {fileID: 8821959}
+  - {fileID: 1211110327}
+  - {fileID: 2038492715}
+  rollIMG:
+  - {fileID: 266926640}
+  - {fileID: 1450225976}
+  - {fileID: 521742118}
+  - {fileID: 1787367227}
+  pistolIMG:
+  - {fileID: 1195537047}
+  - {fileID: 901518733}
+  - {fileID: 1229217811}
+  - {fileID: 35154862}
+  sniperIMG:
+  - {fileID: 1050891386}
+  - {fileID: 1603445396}
+  - {fileID: 146812862}
+  - {fileID: 28769441}
+  shotgunIMG:
+  - {fileID: 779667066}
+  - {fileID: 1453775393}
+  - {fileID: 1042648879}
+  - {fileID: 1993504523}
+  rocketIMG:
+  - {fileID: 2037507484}
+  - {fileID: 1156082020}
+  - {fileID: 1537921406}
+  - {fileID: 2002343689}
+  charPointers:
+  - {fileID: 1846927987}
+  - {fileID: 2017198097}
+  - {fileID: 711443403}
+  - {fileID: 632188668}
+  gunPointers:
+  - {fileID: 2063081340}
+  - {fileID: 783504053}
+  - {fileID: 1073198652}
+  - {fileID: 1427706075}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
 --- !u!1 &1484319347
 GameObject:
