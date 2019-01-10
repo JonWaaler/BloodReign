@@ -19,6 +19,7 @@ public class UI_Controller : MonoBehaviour
     public GameObject[] rocketIMG;
     public GameObject[] charPointers;
     public GameObject[] gunPointers;
+    public GameObject PRESSSTART;
 
     private bool[] CharacterSelect;
     private bool[] GunSelect;
@@ -26,6 +27,8 @@ public class UI_Controller : MonoBehaviour
     private bool[] playerWeapon;
     private int[] charCounter;
     private int[] gunCounter;
+    private int readyPlayers;
+    private int joinedPlayers;
 
     public PlayerSettings playerSettings;
 
@@ -40,6 +43,9 @@ public class UI_Controller : MonoBehaviour
         charCounter = new int[4];
         gunCounter = new int[4];
 
+        readyPlayers = 0;
+        joinedPlayers = 0;
+
         // Set everything false by default except for pressA
         for (int i = 0; i < 4; i++)
         {
@@ -53,6 +59,7 @@ public class UI_Controller : MonoBehaviour
             rocketIMG[i].SetActive(false);
             charPointers[i].SetActive(false);
             gunPointers[i].SetActive(false);
+            PRESSSTART.SetActive(false);
 
             CharacterSelect[i] = false;
             GunSelect[i] = false;
@@ -65,10 +72,6 @@ public class UI_Controller : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("AButton4"))
-        {
-            Debug.Log("Pressed A Button");
-        }
         // ---- Back Button ---- //
         for (int i = 0; i < 4; i++)
         {
@@ -88,7 +91,7 @@ public class UI_Controller : MonoBehaviour
             }
         }
 
-        // ---- Gun Selection Player <<_COMMENTED_>> ---- //
+        // ---- Gun Selection Player ---- //
         for (int i = 0; i < 4; i++)
         {
             if (GunSelect[i])
@@ -137,8 +140,22 @@ public class UI_Controller : MonoBehaviour
                 else if (gunCounter[i] == 3)
                     rocketIMG[i].SetActive(true);
 
-                // If AButton pressed then confirm selection
-                if (Input.GetKeyDown("joystick 1 button 0") && (playerWeapon[1] || playerWeapon[2] || playerWeapon[3]))
+                // Confirm Gun Selection
+                if (GunSelect[i] && Input.GetKeyDown("joystick " + (i + 1) + " button 1"))
+                {
+                    joinedPlayers--;
+                    readyPlayers++;
+                    // Maybe make a readyplayers state
+                }
+
+                // If all joined players are ready flash press start text
+                if ((joinedPlayers == 0) && (readyPlayers >= 2))
+                {
+                    ;
+                }
+
+                //If Start button is pressed and all joined players are ready
+                if (Input.GetKeyDown("joystick " + (i + 1) + " button 7") && (joinedPlayers == 0) && (readyPlayers >= 2))
                 {
                     GunSelect[i] = false;
                     gunPointers[i].SetActive(false);
@@ -164,7 +181,7 @@ public class UI_Controller : MonoBehaviour
             }
         }
 
-        // ---- Character Selection <<_COMMENTED_>> ---- //
+        // ---- Character Selection ---- //
         for (int i = 0; i < 4; i++)
         {
             if (CharacterSelect[i])
@@ -231,6 +248,7 @@ public class UI_Controller : MonoBehaviour
                     if (!controllers.Contains(i + 1))
                     {
                         controllers.Add(i + 1);
+                        joinedPlayers++;
 
                         // Set player text to active
                         playerTXT[i].SetActive(true);
