@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/Menu.unity
     guid: f73d2d44eb587a34585c466f7482becd
   - enabled: 1
-    path: Assets/_Scenes/MitchellFukuzawa.unity
+    path: Assets/_Scenes/Game.unity
     guid: dba4317645f5fd948815c9f1fe535067
   m_configObjects: {}

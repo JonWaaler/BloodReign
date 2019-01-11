@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -19,16 +20,19 @@ public class UI_Controller : MonoBehaviour
     public GameObject[] rocketIMG;
     public GameObject[] charPointers;
     public GameObject[] gunPointers;
-    public GameObject PRESSSTART;
+    public CanvasGroup PRESSSTART;
 
     private bool[] CharacterSelect;
     private bool[] GunSelect;
     private bool[] axisInUse;
     private bool[] playerWeapon;
+    private bool[] ready;
     private int[] charCounter;
     private int[] gunCounter;
     private int readyPlayers;
     private int joinedPlayers;
+    private float fade = 1f;
+    private bool Fade = true;
 
     public PlayerSettings playerSettings;
 
@@ -40,6 +44,7 @@ public class UI_Controller : MonoBehaviour
         GunSelect = new bool[4];
         axisInUse = new bool[4];
         playerWeapon = new bool[4];
+        ready = new bool[4];
         charCounter = new int[4];
         gunCounter = new int[4];
 
@@ -49,6 +54,7 @@ public class UI_Controller : MonoBehaviour
         // Set everything false by default except for pressA
         for (int i = 0; i < 4; i++)
         {
+            playerTXT[i].SetActive(false);
             pressA[i].SetActive(true);
             grappleIMG[i].SetActive(false);
             orbIMG[i].SetActive(false);
@@ -59,7 +65,6 @@ public class UI_Controller : MonoBehaviour
             rocketIMG[i].SetActive(false);
             charPointers[i].SetActive(false);
             gunPointers[i].SetActive(false);
-            PRESSSTART.SetActive(false);
 
             CharacterSelect[i] = false;
             GunSelect[i] = false;
@@ -68,10 +73,12 @@ public class UI_Controller : MonoBehaviour
             charCounter[i] = 0;
             gunCounter[i] = 0;
         }
+        PRESSSTART.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        Debug.Log("joinedPlayers: " + joinedPlayers + " || readyPlayers: " + readyPlayers);
         // ---- Back Button ---- //
         for (int i = 0; i < 4; i++)
         {
@@ -141,8 +148,9 @@ public class UI_Controller : MonoBehaviour
                     rocketIMG[i].SetActive(true);
 
                 // Confirm Gun Selection
-                if (GunSelect[i] && Input.GetKeyDown("joystick " + (i + 1) + " button 1"))
+                if (GunSelect[i] == true && ready[i] == false)
                 {
+                    ready[i] = true;
                     joinedPlayers--;
                     readyPlayers++;
                     // Maybe make a readyplayers state
@@ -151,7 +159,22 @@ public class UI_Controller : MonoBehaviour
                 // If all joined players are ready flash press start text
                 if ((joinedPlayers == 0) && (readyPlayers >= 2))
                 {
-                    ;
+                    PRESSSTART.gameObject.SetActive(true);
+                    // Text fade in and out
+                    if (fade >= 1f)
+                        Fade = true;
+                    else if (fade <= 0.25f)
+                        Fade = false;
+
+                    if (Fade)
+                        fade -= Time.deltaTime;
+                    else
+                        fade += Time.deltaTime;
+                    PRESSSTART.alpha = fade;
+                }
+                else
+                {
+                    PRESSSTART.gameObject.SetActive(false);
                 }
 
                 //If Start button is pressed and all joined players are ready
@@ -178,6 +201,13 @@ public class UI_Controller : MonoBehaviour
 
                     SceneManager.LoadScene(1);
                 }
+            }
+            // if ready player deselects, disable press start canvas
+            if (GunSelect[i] == false && ready[i] == true)
+            {
+                ready[i] = false;
+                joinedPlayers++;
+                readyPlayers--;
             }
         }
 
