@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum playerAbil
+public enum PlayerAbil
 {
     roll,
     invisible,
     teleport,
     hook
 }
-
+public enum PlayerState
+{
+    alive,
+    dead
+}
+public enum StatusEffect
+{
+    nothing,
+    immobile,
+    grappled,
+    invincible
+}
 
 public class Player : MonoBehaviour {
 	private float xVel;
@@ -23,18 +34,19 @@ public class Player : MonoBehaviour {
 	public PlayerSettings playerSettings;
     public string abilButton;
     protected float nextAbil; // deltatime until next ability use
-    public playerAbil playerEnum;
-
+    public PlayerAbil playerEnum;
+    public PlayerState activeState;
+    public StatusEffect status;
     [Range(1, 10)]
 	public float jumpVelocity;
     Ray groundedRay;
     public Rigidbody rb;
-
+    public AbilityCommand ability;
 	void Awake ()
 	{
 		Rigidbody rb = GetComponent<Rigidbody>();
 
-		if (playerSettings.playerActive_01 == false && gameObject.name == "Player1_Parent 1")
+		if (playerSettings.playerActive_01 == false && gameObject.name == "Player1_Parent 1")   
 		{
 			//player not active
 		}
@@ -50,28 +62,54 @@ public class Player : MonoBehaviour {
 		{
 			//player not active
 		}
+
+        switchPlayer(playerEnum);
+        activeState = PlayerState.alive;
+        status = StatusEffect.nothing;
     }
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		xVel = Input.GetAxis(H_LS_PNum);
-		zvel = Input.GetAxis(V_LS_PNum);
+	// Change ability // useless atm
+    public void switchPlayer(PlayerAbil newAbli)
+    {
+        switch (playerEnum)
+        {
+            case PlayerAbil.roll:
+                ability = GetComponent<RollAbility>();
+                break;
+            case PlayerAbil.invisible:
+                ability = GetComponent<InvisAbility>();
+                break;
+            case PlayerAbil.teleport:
+                ability = GetComponent<TeleportAbility>();
+                break;
+            case PlayerAbil.hook:
+                ability = GetComponent<HookAbility>();
+                break;                
+        }
+    }
 
-		inputVector = new Vector3(xVel, 0, zvel);
+    // Update is called once per frame
+    void Update()
+    {
+        if (activeState.Equals(PlayerState.dead))
+            return;
 
-		if (xVel != 0 || zvel != 0)
-		{
-			rb.AddForce(inputVector.normalized * speed);
-		}
+        xVel = Input.GetAxis(H_LS_PNum);
+        zvel = Input.GetAxis(V_LS_PNum);
 
-		rb.velocity = new Vector3 (speed * xVel, rb.velocity.y, speed * zvel);
+        inputVector = new Vector3(xVel, 0, zvel);
 
-		Vector3 playerDirection = Vector3.right * Input.GetAxisRaw(H_RS_PNum) + Vector3.forward * -Input.GetAxisRaw(V_RS_PNum);
-		if(playerDirection.sqrMagnitude > 0.0f)
-		{
+        if (xVel != 0 || zvel != 0)
+        {
+            rb.AddForce(inputVector.normalized * speed);
+        }
+
+        rb.velocity = new Vector3(speed * xVel, rb.velocity.y, speed * zvel);
+
+        Vector3 playerDirection = Vector3.right * Input.GetAxisRaw(H_RS_PNum) + Vector3.forward * -Input.GetAxisRaw(V_RS_PNum);
+        if (playerDirection.sqrMagnitude > 0.0f)
+        {
             //playerDirection.z += 45;
-			transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up) ;
+            transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
             //transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
         }
@@ -84,63 +122,30 @@ public class Player : MonoBehaviour {
 
 
             Debug.DrawRay(groundedRay.origin, groundedRay.direction * 2);
-            if(hit.transform.tag == "Floor" || hit.transform.tag == "MovableObj")
-            isGrounded = true;
+            if (hit.transform.tag == "Floor" || hit.transform.tag == "MovableObj")
+                isGrounded = true;
         }
         else
             isGrounded = false;
 
-		if (Input.GetButtonDown(AButton_PNum) && isGrounded)
-		{
-			rb.velocity = new Vector3(0, jumpVelocity, 0);
-		}
+        if (Input.GetButtonDown(AButton_PNum) && isGrounded)
+        {
+            rb.velocity = new Vector3(0, jumpVelocity, 0);
+        }
 
-		if (rb.velocity.y < 0)
-		{
-			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-		}
-		else if (rb.velocity.y > 0 && !Input.GetButton(AButton_PNum))
-		{
-			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-		}
-        
-        if (playerEnum == playerAbil.roll)
+        if (rb.velocity.y < 0)
         {
-            //Roll
-            if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && transform.GetComponent<WinDetection>().isGrappled == false)
-            {
-                // set time for when next use of ability available
-                nextAbil = Time.time + GetComponent<Ability>().abilCool;
-                gameObject.GetComponent<Ability>().AbilityExcecution();
-            }
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (playerEnum == playerAbil.invisible)
+        else if (rb.velocity.y > 0 && !Input.GetButton(AButton_PNum))
         {
-            //Invisibil
-            if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
-            {
-                nextAbil = Time.time + GetComponent<Ability2>().abilCool;
-                gameObject.GetComponent<Ability2>().AbilityExcecution();
-            }
-
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
-        else if (playerEnum == playerAbil.teleport)
+        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
         {
-            //Teleport
-            if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
-            {
-                nextAbil = Time.time + GetComponent<Ability3>().abilCool;
-                gameObject.GetComponent<Ability3>().AbilityExcecution();
-            }
-        }
-        else if (playerEnum == playerAbil.hook)
-        {
-            if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
-            {
-                //Grapple
-                nextAbil = Time.time + GetComponent<Ability4>().abilCool;
-                gameObject.GetComponent<Ability4>().AbilityExcecution();
-            }
+            // set time for when next use of ability available
+            nextAbil = Time.time + ability.abilCool;
+            ability.AbilityExcecution();
         }
     }
 	

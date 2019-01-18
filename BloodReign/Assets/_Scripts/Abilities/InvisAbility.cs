@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class InvisibleAblility : AbilityCommand
+public class InvisAbility : AbilityCommand
 {
-    InvisibleAblility()
+    public InvisAbility()
     {
-        abilCool = 5.0f;
-        abilLength = 4.0f;
-        lerpSpd = 0.5f;
     }
     public override void AbilityExcecution()
     {
-        Update();
+        activate();
     }
-    private void Update()
+    public override void ResetSphere()
     {
-        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
+    }
+        private void activate()
+    {
+       // if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
         {
             // set time for when next use of ability available
-            nextAbil = Time.time + abilCool;
+         //   nextAbil = Time.time + abilCool;
             GameObject child = transform.GetChild(0).gameObject;
             StartCoroutine(Invisible(lerpSpd, abilLength, child));
         }

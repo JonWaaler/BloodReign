@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class TeleportAbility : AbilityCommand
 {
-    TeleportAbility()
+    public TeleportAbility()
     {
-        abilCool = 1.0f;
-        abilLength = 7.5f;
-        lerpSpd = 120.0f;
-
     }
-    public GameObject collisionObj;
-    GameObject sphereCol;
+    private GameObject sphereCol;
     public override void AbilityExcecution()
     {
-        Update();
+        activate();
     }
     void Start()
     {
-        sphereCol = Instantiate(collisionObj);
+        sphereCol = Instantiate(collisionSphereCmd);
         sphereCol.transform.position = transform.position;
         sphereCol.name = "teleporter";
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
         sphereCol.GetComponent<SphereCollisionCheck>().playerThrow = transform.gameObject;
     }
-
-    private void Update()
+    public override void ResetSphere()
     {
-        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
+        sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
+        sphereCol.GetComponent<Collider>().enabled = false;
+    }
+
+    private void activate()
+    {
+     //   if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
         {
             // set time for when next use of ability available
-            nextAbil = Time.time + abilCool;
+       //     nextAbil = Time.time + abilCool;
             StartCoroutine(Teleport(transform.position, lerpSpd, abilLength));
         }
     }

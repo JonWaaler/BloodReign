@@ -27,7 +27,7 @@ public class SphereCollisionCheck : MonoBehaviour
 
         if (other.transform.tag == "Player" && other.gameObject != playerThrow)
         {
-            if (other.gameObject.GetComponent<WinDetection>().isInvincible)
+            if (other.gameObject.GetComponent<Player>().status == StatusEffect.invincible)
             {
                 isPlayerCollision = false;
             }

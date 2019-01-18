@@ -65,7 +65,7 @@ public class GunSettings : MonoBehaviour
             GameObject playerInst = Instantiate<GameObject>(playersMesh[0]);
             playerInst.transform.SetParent(players[0]);
             playerInst.transform.localPosition = new Vector3(0f, -0.5f, 0f);
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.hook;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.hook;
         }
         else if (playerSettings.characterSelection_01 == 1)
         {
@@ -73,14 +73,14 @@ public class GunSettings : MonoBehaviour
             playerInst.transform.SetParent(players[0]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
 
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.teleport;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.teleport;
         }
         else if (playerSettings.characterSelection_01 == 2)
         {
             GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
             playerInst.transform.SetParent(players[0]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.roll;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.roll;
         }
         else if (playerSettings.characterSelection_01 == 3)
         {
@@ -97,7 +97,7 @@ public class GunSettings : MonoBehaviour
             GameObject playerInst = Instantiate<GameObject>(playersMesh[0]);
             playerInst.transform.SetParent(players[1]);
             playerInst.transform.localPosition = new Vector3(0f, -0.5f, 0f);
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.hook;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.hook;
 
         }
         else if (playerSettings.characterSelection_02 == 1)
@@ -106,7 +106,7 @@ public class GunSettings : MonoBehaviour
             playerInst.transform.SetParent(players[1]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.teleport;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.teleport;
 
         }
         else if (playerSettings.characterSelection_02 == 2)
@@ -115,7 +115,7 @@ public class GunSettings : MonoBehaviour
             playerInst.transform.SetParent(players[1]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.roll;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.roll;
 
         }
         else if (playerSettings.characterSelection_02 == 3)
@@ -132,7 +132,7 @@ public class GunSettings : MonoBehaviour
             GameObject playerInst = Instantiate<GameObject>(playersMesh[0]);
             playerInst.transform.SetParent(players[2]);
             playerInst.transform.localPosition = new Vector3(0f, -0.5f, 0f);
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.hook;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.hook;
 
         }
         else if (playerSettings.characterSelection_03 == 1)
@@ -141,7 +141,7 @@ public class GunSettings : MonoBehaviour
             playerInst.transform.SetParent(players[2]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.teleport;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.teleport;
 
         }
         else if (playerSettings.characterSelection_03 == 2)
@@ -150,7 +150,7 @@ public class GunSettings : MonoBehaviour
             playerInst.transform.SetParent(players[2]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.roll;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.roll;
 
         }
         else if (playerSettings.characterSelection_03 == 3)
@@ -167,7 +167,7 @@ public class GunSettings : MonoBehaviour
             GameObject playerInst = Instantiate<GameObject>(playersMesh[0]);
             playerInst.transform.SetParent(players[3]);
             playerInst.transform.localPosition = new Vector3(0f, -0.5f, 0f);
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.hook;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.hook;
 
         }
         else if (playerSettings.characterSelection_04 == 1)
@@ -175,7 +175,7 @@ public class GunSettings : MonoBehaviour
             GameObject playerInst = Instantiate<GameObject>(playersMesh[1]);
             playerInst.transform.SetParent(players[3]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.teleport;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.teleport;
 
         }
         else if (playerSettings.characterSelection_04 == 2)
@@ -183,7 +183,7 @@ public class GunSettings : MonoBehaviour
             GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
             playerInst.transform.SetParent(players[3]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
-            playerInst.transform.parent.GetComponent<Player>().playerEnum = playerAbil.roll;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.roll;
 
         }
         else if (playerSettings.characterSelection_04 == 3)

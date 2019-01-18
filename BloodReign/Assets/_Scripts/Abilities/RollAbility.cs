@@ -5,26 +5,22 @@ using UnityEngine;
 public class RollAbility : AbilityCommand
 {
     private float rollDistance;
-    RollAbility() // or use awake
+    public RollAbility() // or use awake
     {
-        abilCool = 5.0f;
-        abilLength = 8.0f;  // max roll distance holder
-        lerpSpd = 0.5f;     // inverse roll speed
         rollDistance = abilLength; // actual roll distance
     }
     public override void AbilityExcecution()
     {
-        Update();
+        activate();
+    }
+    public override void ResetSphere()
+    {
     }
     // Update is called once per frame
-    private void Update()
+    private void activate()
     {
         //NOTELTime.time Might break networking
-        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && transform.GetComponent<WinDetection>().isGrappled == false)
         {
-            // set time for when next use of ability available
-            nextAbil = Time.time + abilCool;
-            // Check to see if you're rolling against a wall
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, abilLength, layerMask))
             {
@@ -62,13 +58,15 @@ public class RollAbility : AbilityCommand
 
         while (current <= totalTime)
         {
-            gameObject.transform.GetComponent<WinDetection>().isInvincible = true;
+            gameObject.transform.GetComponent<Player>().status = StatusEffect.invincible;
+
             current += Time.deltaTime; // Elapsed time
             float tValue = Mathf.Clamp01(current / totalTime); // figure out how much of % time has passed of elaped time relative to total time 
             GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(origin, target, tValue));
             yield return null;
         }
         gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", originColor);
-        gameObject.transform.GetComponent<WinDetection>().isInvincible = false;
+        gameObject.transform.GetComponent<Player>().status = StatusEffect.nothing;
     }
+
 }

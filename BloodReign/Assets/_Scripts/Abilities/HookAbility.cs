@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrappleHook : AbilityCommand
+public class HookAbility : AbilityCommand
 {
-    GrappleHook()
+    public HookAbility()
     {
-        abilCool = 1.0f;
-        lerpSpd = 13.0f;
-        abilLength = 8.0f;
     }
-    public float hookReelSpd = 0.25f;
     private bool extendHook = false;
     private bool reelHook = false;
-    public GameObject collisionObj;
-    GameObject sphereCol;
-
+    private GameObject sphereCol;
+    public float grappleDmg;
     private enum grabbedObj
     {
         nothing,
@@ -25,7 +20,7 @@ public class GrappleHook : AbilityCommand
     };
     void Start()
     {
-        sphereCol = Instantiate(collisionObj);
+        sphereCol = Instantiate(collisionSphereCmd);
         sphereCol.name = "grappleHook";
         sphereCol.transform.position = transform.position;
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
@@ -34,16 +29,21 @@ public class GrappleHook : AbilityCommand
         extendHook = false;
         reelHook = false;
     }
+    public override void ResetSphere()
+    {
+        sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
+        sphereCol.GetComponent<Collider>().enabled = false;
+    }
     public override void AbilityExcecution()
     {
-        Update();
+        activate();
     }
-    private void Update()
+    private void activate()
     {
-        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && extendHook == false && reelHook == false)
+//        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && extendHook == false && reelHook == false)
         {
             // set time for when next use of ability available
-            nextAbil = Time.time + abilCool;
+ //           nextAbil = Time.time + abilCool;
             sphereCol.transform.position = transform.position + (transform.forward * 1.0f);
             StartCoroutine(HookReelOut(transform.position, lerpSpd, abilLength));
         }
@@ -78,8 +78,18 @@ public class GrappleHook : AbilityCommand
             else if (sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision)
             { // Player hit
                 extendHook = false;
-                grabbed = grabbedObj.player;
-                sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<WinDetection>().isGrappled = true;
+                sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<WinDetection>().DamagePlayer(grappleDmg);
+                if (sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().activeState == PlayerState.alive)
+                {
+                    grabbed = grabbedObj.player;
+                    sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.grappled;
+                }
+                else
+                {
+                    extendHook = false;
+                    grabbed = grabbedObj.nothing;
+                }
+
             }
             else if (current > range) // Missed
             {
@@ -99,7 +109,7 @@ public class GrappleHook : AbilityCommand
         // reel back depending on grabbed obj or max length
         if (grabbed == grabbedObj.wall)
         {
-            StartCoroutine(lerpHook(transform.position, sphereCol.transform.position, hookReelSpd * 2, transform.gameObject));
+            StartCoroutine(lerpHook(transform.position, sphereCol.transform.position, lerpReelSpd * 2, transform.gameObject));
             while (reelHook)
             {
                 yield return null;
@@ -107,8 +117,8 @@ public class GrappleHook : AbilityCommand
         }
         else if (grabbed == grabbedObj.player)
         {
-            StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit.transform.position, transform.position + (initalFoward * 1.5f), hookReelSpd * 2, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
-            StartCoroutine(lerpHook(sphereCol.transform.position, transform.position, hookReelSpd * 2, sphereCol));
+            StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit.transform.position, transform.position + (initalFoward * 1.5f), lerpReelSpd * 2, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
+            StartCoroutine(lerpHook(sphereCol.transform.position, transform.position, lerpReelSpd * 2, sphereCol));
             while (reelHook)
             {
                 transform.position = origin;
@@ -118,7 +128,7 @@ public class GrappleHook : AbilityCommand
         else if (grabbed == grabbedObj.nothing)
         {
             //transform.position = origin;
-            StartCoroutine(lerpHook(sphereCol.transform.position, transform.position, hookReelSpd * 3, sphereCol.transform.gameObject));
+            StartCoroutine(lerpHook(sphereCol.transform.position, transform.position, lerpReelSpd * 3, sphereCol.transform.gameObject));
             while (reelHook)
                 yield return null;
         }
@@ -130,7 +140,7 @@ public class GrappleHook : AbilityCommand
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
         if (grabbed == grabbedObj.player)
-            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<WinDetection>().isGrappled = false;
+            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
 
     }
     private IEnumerator lerpHook(Vector3 start, Vector3 end, float velocity, GameObject affectedObj)
