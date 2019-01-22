@@ -22,6 +22,11 @@ public class UI_Controller : MonoBehaviour
     public GameObject[] gunPointers;
     public CanvasGroup PRESSSTART;
 
+    public GameObject[] Card;
+    public GameObject[] CardBack;
+    private Animator[] CardAnim;
+    private Animator[] CardBackAnim;
+
     private bool[] CharacterSelect;
     private bool[] GunSelect;
     private bool[] axisInUse;
@@ -38,7 +43,20 @@ public class UI_Controller : MonoBehaviour
 
     List<int> controllers = new List<int>();
 
-    void Awake()
+    private void Start()
+    {
+        CardAnim = new Animator[4];
+        CardBackAnim = new Animator[4];
+        for (int i = 0; i < 4; i++)
+        {
+            CardAnim[i] = Card[i].GetComponent<Animator>();
+            CardBackAnim[i] = CardBack[i].GetComponent<Animator>();
+            //CardAnim[i].SetBool("Flip", false);
+            //CardBackAnim[i].SetBool("Flip", false);
+        }
+    }
+
+    private void Awake()
     {
         CharacterSelect = new bool[4];
         GunSelect = new bool[4];
@@ -56,9 +74,9 @@ public class UI_Controller : MonoBehaviour
         {
             playerTXT[i].SetActive(false);
             pressA[i].SetActive(true);
-            grappleIMG[i].SetActive(false);
-            orbIMG[i].SetActive(false);
-            rollIMG[i].SetActive(false);
+            grappleIMG[i].SetActive(true);
+            orbIMG[i].SetActive(true);
+            rollIMG[i].SetActive(true);
             pistolIMG[i].SetActive(false);
             sniperIMG[i].SetActive(false);
             shotgunIMG[i].SetActive(false);
@@ -76,7 +94,7 @@ public class UI_Controller : MonoBehaviour
         PRESSSTART.gameObject.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
         Debug.Log("joinedPlayers: " + joinedPlayers + " || readyPlayers: " + readyPlayers);
         // ---- Back Button ---- //
@@ -108,7 +126,7 @@ public class UI_Controller : MonoBehaviour
                 sniperIMG[i].SetActive(false);
                 shotgunIMG[i].SetActive(false);
                 rocketIMG[i].SetActive(false);
-                gunPointers[i].SetActive(true);
+                //gunPointers[i].SetActive(true);
 
                 // Increment gun counter (LS Right)
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
@@ -216,11 +234,7 @@ public class UI_Controller : MonoBehaviour
         {
             if (CharacterSelect[i])
             {
-                // Reseting images
-                grappleIMG[i].SetActive(false);
-                orbIMG[i].SetActive(false);
-                rollIMG[i].SetActive(false);
-                charPointers[i].SetActive(true);
+                //charPointers[i].SetActive(true);
 
                 // Increment character counter (LS Right)
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
@@ -286,6 +300,9 @@ public class UI_Controller : MonoBehaviour
                         // Player will be in the game so we set this to true
                         CharacterSelect[i] = true;
 
+                        CardAnim[i].SetBool("Flip", true);
+                        CardBackAnim[i].SetBool("Flip", true);
+                        grappleIMG[i].GetComponent<Animator>().SetBool("Flip", true);
                     }
                 }
             }
