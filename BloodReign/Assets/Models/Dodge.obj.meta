@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 5d1836af4c469dd48b1b87d509ffcbb6
+guid: a1c49c19e88f9cf4ba34bec005409581
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: RetopoGroup2.001
-    100004: RetopoGroup4.001
-    400000: //RootNode
-    400002: RetopoGroup2.001
-    400004: RetopoGroup4.001
-    2100000: Default.003
-    2100002: Default.004
-    2300000: RetopoGroup2.001
-    2300002: RetopoGroup4.001
-    3300000: RetopoGroup2.001
-    3300002: RetopoGroup4.001
-    4300000: RetopoGroup4.001
-    4300002: RetopoGroup2.001
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2100000: defaultMat
+    2300000: default
+    3300000: default
+    4300000: default
   externalObjects: {}
   materials:
     importMaterials: 1

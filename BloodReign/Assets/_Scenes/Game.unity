@@ -233,6 +233,11 @@ Prefab:
       propertyPath: m_Name
       value: Floor Medium (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -1050,6 +1055,11 @@ Prefab:
       propertyPath: m_Name
       value: Floor Medium (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -1096,6 +1106,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 3.4781044
       objectReference: {fileID: 0}
+    - target: {fileID: 23180738416825200, guid: 3877bca67556d2b41bdfc0dee596631b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3877bca67556d2b41bdfc0dee596631b, type: 2}
   m_IsPrefabAsset: 0
@@ -1142,12 +1157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 0.35
-  abilLength: 10
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!1001 &155336511
 Prefab:
   m_ObjectHideFlags: 0
@@ -1668,12 +1677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 1
-  abilLength: 7
-  lerpSpd: 60
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &211271531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1718,12 +1721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 0.35
-  abilLength: 10
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &211271534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1762,16 +1759,11 @@ MonoBehaviour:
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   abilButton: LB4
   playerEnum: 0
-  ability: {fileID: 0}
   activeState: 0
   status: 0
-  roll: {fileID: 153985491}
-  invis: {fileID: 892904783}
-  tele: {fileID: 941045034}
-  hook: {fileID: 1678474136}
-  temp: {fileID: 0}
   jumpVelocity: 4
   rb: {fileID: 211271536}
+  ability: {fileID: 0}
 --- !u!54 &211271536
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1861,6 +1853,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 10.457
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: 40bd367d1e2e7944c912085a5f10df30,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40bd367d1e2e7944c912085a5f10df30, type: 2}
   m_IsPrefabAsset: 0
@@ -2329,6 +2326,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -8673,6 +8675,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 23180738416825200, guid: 3877bca67556d2b41bdfc0dee596631b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3877bca67556d2b41bdfc0dee596631b, type: 2}
   m_IsPrefabAsset: 0
@@ -19326,6 +19333,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 12.853501
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: 40bd367d1e2e7944c912085a5f10df30,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40bd367d1e2e7944c912085a5f10df30, type: 2}
   m_IsPrefabAsset: 0
@@ -19468,6 +19480,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 2.943
       objectReference: {fileID: 0}
+    - target: {fileID: 23180738416825200, guid: 3877bca67556d2b41bdfc0dee596631b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3877bca67556d2b41bdfc0dee596631b, type: 2}
   m_IsPrefabAsset: 0
@@ -21362,6 +21379,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 6.932
       objectReference: {fileID: 0}
+    - target: {fileID: 23180738416825200, guid: 3877bca67556d2b41bdfc0dee596631b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3877bca67556d2b41bdfc0dee596631b, type: 2}
   m_IsPrefabAsset: 0
@@ -21863,12 +21885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 1
-  abilLength: 7
-  lerpSpd: 60
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!4 &941549911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4636475620040460, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -22111,6 +22127,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 4.83516
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -22637,6 +22658,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: 40bd367d1e2e7944c912085a5f10df30,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40bd367d1e2e7944c912085a5f10df30, type: 2}
   m_IsPrefabAsset: 0
@@ -22828,6 +22854,11 @@ Prefab:
       propertyPath: m_Name
       value: Floor Medium (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -24135,6 +24166,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 5.742016
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -24647,6 +24683,11 @@ Prefab:
       propertyPath: m_Name
       value: Floor Medium (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -25059,12 +25100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 1
-  abilLength: 7
-  lerpSpd: 60
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &1256823347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25109,12 +25144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 0.35
-  abilLength: 10
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &1256823350
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25153,16 +25182,11 @@ MonoBehaviour:
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   abilButton: LB3
   playerEnum: 0
-  ability: {fileID: 0}
   activeState: 0
   status: 0
-  roll: {fileID: 153985491}
-  invis: {fileID: 892904783}
-  tele: {fileID: 941045034}
-  hook: {fileID: 1678474136}
-  temp: {fileID: 0}
   jumpVelocity: 4
   rb: {fileID: 1256823352}
+  ability: {fileID: 0}
 --- !u!54 &1256823352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30692,12 +30716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 1
-  abilLength: 7
-  lerpSpd: 60
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!54 &1417814885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30775,12 +30793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 0.35
-  abilLength: 10
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &1417814890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30819,16 +30831,11 @@ MonoBehaviour:
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   abilButton: LB2
   playerEnum: 0
-  ability: {fileID: 0}
   activeState: 0
   status: 0
-  roll: {fileID: 153985491}
-  invis: {fileID: 892904783}
-  tele: {fileID: 941045034}
-  hook: {fileID: 1678474136}
-  temp: {fileID: 0}
   jumpVelocity: 4
   rb: {fileID: 1417814885}
+  ability: {fileID: 0}
 --- !u!4 &1417842182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4564779282234792, guid: 91a1cf35fdc25e94dbb9fa212d44db74,
@@ -32363,6 +32370,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -135
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
@@ -33764,6 +33776,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 4.539
       objectReference: {fileID: 0}
+    - target: {fileID: 23180738416825200, guid: 3877bca67556d2b41bdfc0dee596631b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3877bca67556d2b41bdfc0dee596631b, type: 2}
   m_IsPrefabAsset: 0
@@ -34473,6 +34490,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 21.300001
       objectReference: {fileID: 0}
+    - target: {fileID: 23180738416825200, guid: 3877bca67556d2b41bdfc0dee596631b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3877bca67556d2b41bdfc0dee596631b, type: 2}
   m_IsPrefabAsset: 0
@@ -34632,12 +34654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 1
-  abilLength: 7
-  lerpSpd: 60
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!54 &1854359603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34715,12 +34731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 0.35
-  abilLength: 10
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &1854359608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34759,16 +34769,11 @@ MonoBehaviour:
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   abilButton: LB1
   playerEnum: 0
-  ability: {fileID: 0}
   activeState: 0
   status: 0
-  roll: {fileID: 153985491}
-  invis: {fileID: 892904783}
-  tele: {fileID: 941045034}
-  hook: {fileID: 1678474136}
-  temp: {fileID: 0}
   jumpVelocity: 4
   rb: {fileID: 1854359603}
+  ability: {fileID: 0}
 --- !u!1001 &1861234989
 Prefab:
   m_ObjectHideFlags: 0
@@ -36392,6 +36397,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90.00001
       objectReference: {fileID: 0}
+    - target: {fileID: 23608979421159538, guid: bc80b2175afadd84fa7211d432ac4a7b,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b0e1af613489734ba127778bd87da3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc80b2175afadd84fa7211d432ac4a7b, type: 2}
   m_IsPrefabAsset: 0
