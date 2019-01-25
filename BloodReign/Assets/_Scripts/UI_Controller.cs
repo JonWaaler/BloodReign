@@ -77,10 +77,10 @@ public class UI_Controller : MonoBehaviour
             grappleIMG[i].SetActive(true);
             orbIMG[i].SetActive(true);
             rollIMG[i].SetActive(true);
-            pistolIMG[i].SetActive(false);
-            sniperIMG[i].SetActive(false);
-            shotgunIMG[i].SetActive(false);
-            rocketIMG[i].SetActive(false);
+            pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
             charPointers[i].SetActive(false);
             gunPointers[i].SetActive(false);
 
@@ -122,10 +122,10 @@ public class UI_Controller : MonoBehaviour
             if (GunSelect[i])
             {
                 // Reseting images
-                pistolIMG[i].SetActive(false);
-                sniperIMG[i].SetActive(false);
-                shotgunIMG[i].SetActive(false);
-                rocketIMG[i].SetActive(false);
+                pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 //gunPointers[i].SetActive(true);
 
                 // Increment gun counter (LS Right)
@@ -156,14 +156,18 @@ public class UI_Controller : MonoBehaviour
                 gunCounter[i] = (gunCounter[i] > 2) ? 0 : gunCounter[i];
 
                 // Set gun images
+                pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 if (gunCounter[i] == 0)
-                    pistolIMG[i].SetActive(true);
+                    pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 else if (gunCounter[i] == 1)
-                    sniperIMG[i].SetActive(true);
+                    sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 else if (gunCounter[i] == 2)
-                    shotgunIMG[i].SetActive(true);
+                    shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 else if (gunCounter[i] == 3)
-                    rocketIMG[i].SetActive(true);
+                    rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
                 // Confirm Gun Selection
                 if (GunSelect[i] == true && ready[i] == false)
@@ -239,7 +243,7 @@ public class UI_Controller : MonoBehaviour
                 // Increment character counter (LS Right)
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
                 {
-                    Debug.Log(1);
+                    //Debug.Log(1);
                     if (axisInUse[i] == false)
                     {
                         charCounter[i]++;
@@ -249,7 +253,7 @@ public class UI_Controller : MonoBehaviour
                 // Increment character counter (LS Left)
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == -1)
                 {
-                    Debug.Log(-1);
+                    //Debug.Log(-1);
                     if (axisInUse[i] == false)
                     {
                         charCounter[i]--;
@@ -258,19 +262,24 @@ public class UI_Controller : MonoBehaviour
                 }
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 0)
                 {
-                    Debug.Log(0);
+                    //Debug.Log(0);
                     axisInUse[i] = false;
                 }
 
                 charCounter[i] = (charCounter[i] > 2) ? 0 : charCounter[i];
                 charCounter[i] = (charCounter[i] < 0) ? 2 : charCounter[i];
 
+                grappleIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                orbIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                rollIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+
                 if (charCounter[i] == 0)
-                    grappleIMG[i].SetActive(true);
+                    grappleIMG[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 else if (charCounter[i] == 1)
-                    orbIMG[i].SetActive(true);
+                    orbIMG[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 else if (charCounter[i] == 2)
-                    rollIMG[i].SetActive(true);
+                    rollIMG[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                Debug.Log(charCounter[0]);
 
                 if (Input.GetKeyDown("joystick " + (i + 1) + " button 0"))
                 {
@@ -303,6 +312,12 @@ public class UI_Controller : MonoBehaviour
                         CardAnim[i].SetBool("Flip", true);
                         CardBackAnim[i].SetBool("Flip", true);
                         grappleIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        orbIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        rollIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        pistolIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        sniperIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        shotgunIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        rocketIMG[i].GetComponent<Animator>().SetBool("Flip", true);
                     }
                 }
             }
