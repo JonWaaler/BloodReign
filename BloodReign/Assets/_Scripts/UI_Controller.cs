@@ -106,11 +106,15 @@ public class UI_Controller : MonoBehaviour
             else if (Input.GetKeyDown("joystick " + (i + 1) + " button 1") && controllers.Contains(i + 1) && GunSelect[i])
             {
                 // Go back to character selection
-                pistolIMG[i].SetActive(false);
-                sniperIMG[i].SetActive(false);
-                shotgunIMG[i].SetActive(false);
-                rocketIMG[i].SetActive(false);
-                gunPointers[i].SetActive(false);
+                //pistolIMG[i].SetActive(false);
+                //sniperIMG[i].SetActive(false);
+                //shotgunIMG[i].SetActive(false);
+                //rocketIMG[i].SetActive(false);
+                pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                //gunPointers[i].SetActive(false);
                 GunSelect[i] = false;
                 CharacterSelect[i] = true;
             }
