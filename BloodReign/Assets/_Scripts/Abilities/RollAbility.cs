@@ -50,8 +50,8 @@ public class RollAbility : AbilityCommand
     // Roll lerps between origin point, target point, and a vel which controlls lerp speed
     private IEnumerator Roll(Vector3 origin, Vector3 target, float velocity)
     {
-        Color originColor = transform.GetChild(0).GetComponent<Renderer>().material.color;
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+        //Color originColor = transform.GetChild(0).GetComponent<Renderer>().material.color;
+        //gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", Color.green);
         float current = 0.0f;//Elapsed time
         float rollLengh = (target - origin).magnitude; //Distance
         float totalTime = rollLengh / velocity; // Total time to finish distance at said velocity with: T = D/V
@@ -65,7 +65,7 @@ public class RollAbility : AbilityCommand
             GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(origin, target, tValue));
             yield return null;
         }
-        gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", originColor);
+        //gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", originColor);
         gameObject.transform.GetComponent<Player>().status = StatusEffect.nothing;
     }
 
