@@ -26,13 +26,6 @@ public class SoundManager : MonoBehaviour {
 
     private void Awake()
     {
-        //f_PistolShot = FMODUnity.RuntimeManager.CreateInstance(PistolShot);
-        //f_PistolShot.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        //f_ShotgunShot = FMODUnity.RuntimeManager.CreateInstance(ShotgunShot);
-        //f_ShotgunShot.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        //f_SniperShot = FMODUnity.RuntimeManager.CreateInstance(SniperShot);
-        //f_SniperShot.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-
         if (instance == null)
         {
             instance = this;
@@ -48,8 +41,7 @@ public class SoundManager : MonoBehaviour {
         // Initialize all the sounds
         foreach (var sound in sounds)
         {
-            sound.EventName = FMODUnity.RuntimeManager.CreateInstance(sound.SoundName);
-            sound.EventName.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+
         }
 	}
 	
@@ -59,7 +51,7 @@ public class SoundManager : MonoBehaviour {
         {
             if (sound.SoundName == soundName)
             {
-                sound.EventName.setPitch(newPitch);
+
                 return;
             }
         }
@@ -72,9 +64,9 @@ public class SoundManager : MonoBehaviour {
         {
             if (sound.SoundName == soundName)
             {
-                float pitch;
-                sound.EventName.getPitch(out pitch, out pitch);
-                print("Recieved Pitch:" + pitch);
+                float pitch =1;
+
+
                 return pitch;
             }
         }
@@ -88,7 +80,7 @@ public class SoundManager : MonoBehaviour {
         {
             if (sound.SoundName == soundName)
             {
-                sound.EventName.setVolume(newVolume);
+                
                 return;
             }
         }
@@ -98,7 +90,7 @@ public class SoundManager : MonoBehaviour {
     {
         foreach (Sounds sound in sounds)
         {
-            sound.EventName.setVolume(newVolume);
+
         }
     }
 
@@ -109,7 +101,7 @@ public class SoundManager : MonoBehaviour {
         {
             if (sound.SoundName == soundName)
             {
-                sound.EventName.start();
+
                 return;
             }
         }

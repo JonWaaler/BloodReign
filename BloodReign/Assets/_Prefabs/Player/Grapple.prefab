@@ -965,7 +965,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 0d2814e79378b474db3feea76976ef03, type: 2}
+  - {fileID: 2100000, guid: d3a6fc1a85e4da044a5d365042dfdc46, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

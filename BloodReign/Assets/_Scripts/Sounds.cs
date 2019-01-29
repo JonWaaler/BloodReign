@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 [System.Serializable]
 public class Sounds {
-    [FMODUnity.EventRef]
+    //[FMODUnity.EventRef]
     public string SoundName;
-    public FMOD.Studio.EventInstance EventName;
+    //public FMOD.Studio.EventInstance EventName;
 }
