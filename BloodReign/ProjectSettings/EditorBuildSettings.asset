@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Game.unity
     guid: dba4317645f5fd948815c9f1fe535067
+  - enabled: 1
+    path: Assets/_Scenes/Game - Jonwaaler.unity
+    guid: 4a77f3a990eb42945814b7cc88e898d4
   m_configObjects: {}

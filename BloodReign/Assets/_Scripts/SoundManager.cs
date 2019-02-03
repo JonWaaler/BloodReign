@@ -5,27 +5,13 @@ using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour {
 
-
-    public static SoundManager instance;
-    //public AudioMixerGroup MixerGroup;
-    //
-    //[FMODUnity.EventRef]
-    //public string PistolShot;
-    //FMOD.Studio.EventInstance f_PistolShot;
-    //
-    //[FMODUnity.EventRef]
-    //public string ShotgunShot;
-    //FMOD.Studio.EventInstance f_ShotgunShot;
-    //
-    //[FMODUnity.EventRef]
-    //public string SniperShot;
-    //FMOD.Studio.EventInstance f_SniperShot;
-
+    public static SoundManager instance;    
     public Sounds[] sounds;
-
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         if (instance == null)
         {
             instance = this;
@@ -34,53 +20,54 @@ public class SoundManager : MonoBehaviour {
         }
         else
             Destroy(this);
-    }
-
-    // Use this for initialization
-    void Start () {
-        // Initialize all the sounds
         foreach (var sound in sounds)
         {
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
 
+            sound.source.volume = sound.vol;
+            sound.source.pitch = sound.pitch;
         }
-	}
+    }
+
 	
-    public void SetPitch(string soundName, float newPitch)
+    public void SetPitch(Sounds.SoundName name, float newPitch)
     {
-        foreach (Sounds sound in sounds)
+        foreach (var s in sounds)
         {
-            if (sound.SoundName == soundName)
+            if (s.soundName == name)
             {
+                s.source.Play();
 
                 return;
             }
         }
     }
 
-    public float GetPitch(string soundName)
+    public float GetPitch(Sounds.SoundName name)
     {
-        soundName = "event:/" + soundName;
-        foreach (Sounds sound in sounds)
+        foreach (var s in sounds)
         {
-            if (sound.SoundName == soundName)
+            if (s.soundName == name)
             {
-                float pitch =1;
+                s.source.Play();
 
-
-                return pitch;
+                return s.pitch;
             }
+            else
+                return 1;
         }
-        return 0;
+        return 1;
     }
 
-    public void SetVolume_One(string soundName, float newVolume)
+    public void SetVolume_One(Sounds.SoundName name, float newVolume)
     {
-        soundName = "event:/" + soundName;
-        foreach (Sounds sound in sounds)
+        foreach (var s in sounds)
         {
-            if (sound.SoundName == soundName)
+            if (s.soundName == name)
             {
-                
+                s.vol = newVolume;
+
                 return;
             }
         }
@@ -88,22 +75,27 @@ public class SoundManager : MonoBehaviour {
 
     public void SetVolume_ALL(float newVolume)
     {
-        foreach (Sounds sound in sounds)
+        foreach (var s in sounds)
         {
-
+            s.vol = newVolume;
         }
     }
 
-    public void Play(string soundName)
+    public void Play(Sounds.SoundName name)
     {
-        soundName = "event:/" + soundName;
-        foreach (Sounds sound in sounds)
+        foreach (var s in sounds)
         {
-            if (sound.SoundName == soundName)
+            if(s.soundName == name)
             {
-
+                if (s.source == null)
+                {
+                    Debug.LogWarning("Source Not Found", this);
+                    return;
+                }
+                s.source.Play();
                 return;
             }
         }
+
     }
 }

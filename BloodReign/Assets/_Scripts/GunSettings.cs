@@ -5,11 +5,12 @@ using UnityEngine;
 public class GunSettings : MonoBehaviour
 {
 
-    public GameObject p1Gun1, p1Gun2, p1Gun3;
-    public GameObject p2Gun1, p2Gun2, p2Gun3;
-    public GameObject p3Gun1, p3Gun2, p3Gun3;
-    public GameObject p4Gun1, p4Gun2, p4Gun3;
+    public GameObject p1Gun1, p1Gun2, p1Gun3; // Player 1 guns
+    public GameObject p2Gun1, p2Gun2, p2Gun3; // Player 2 guns
+    public GameObject p3Gun1, p3Gun2, p3Gun3; // Player 3 guns
+    public GameObject p4Gun1, p4Gun2, p4Gun3; // Player 4 guns
     public List<Transform> players;
+    public List<GameObject> playerHealthANDReload;
     public List<GameObject> playersMesh; // 0 - Orb; 1 - dodge; 2 - grapple
     public PlayerSettings playerSettings;
 
@@ -194,5 +195,14 @@ public class GunSettings : MonoBehaviour
             playerInst.transform.SetParent(players[3]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
         }
+
+        if (!playerSettings.playerActive_01)
+            playerHealthANDReload[0].SetActive(false);
+        if (!playerSettings.playerActive_02)
+            playerHealthANDReload[1].SetActive(false);
+        if (!playerSettings.playerActive_03)
+            playerHealthANDReload[2].SetActive(false);
+        if (!playerSettings.playerActive_04)
+            playerHealthANDReload[3].SetActive(false);
     }
 }

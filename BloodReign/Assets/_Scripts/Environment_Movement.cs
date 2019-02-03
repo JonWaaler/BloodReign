@@ -16,7 +16,6 @@ public class Environment_Movement : MonoBehaviour {
     //public IEnumerable movementMode;      // For later use to implement a different lerp method
 
     private Transform startPos;
-    private Rigidbody rb;
     private bool start = false;
     public int pos = 0;
     private float t_lerp = 0;

@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1337902633458464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.37, y: 0.5, z: -5.11}
-  m_LocalScale: {x: 1, y: 1, z: 10}
+  m_LocalScale: {x: 1, y: 2, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,5 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7465478628dd7cd40bb1b6aa88d99891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParticleSys_1: {fileID: 1522448368828060, guid: 2a312c6a0adff154cbc67660a880a9b9,
-    type: 2}
+  BulletDeath: {fileID: 0}

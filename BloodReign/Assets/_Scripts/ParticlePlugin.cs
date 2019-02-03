@@ -89,7 +89,7 @@ public class ParticlePlugin : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        print("emitter START size: " + EmitterSize());
+        //print("emitter START size: " + EmitterSize());
         DeleteMaxParticle();
         CreateMaxParticle();
         AddEmitter();
@@ -114,7 +114,7 @@ public class ParticlePlugin : MonoBehaviour
         BoxEmissionOn(0, boxEmitter);
         //BoxEmissionVol(0, 20, 10, 20);
         BoxEmissionVol(0, boxLWH.x, boxLWH.y, boxLWH.z);
-        print("emitter particles last" + ":" + GetNumbOfParticles(EmitterSize() - 1));
+        //print("emitter particles last" + ":" + GetNumbOfParticles(EmitterSize() - 1));
         particles = new GameObject[GetNumbOfParticles(0)];
         // put spawn range
         // put vel range

@@ -26,7 +26,7 @@ public class Achievement : Observer
 			return;
 
 		PlayerPrefs.SetInt(achievementKey, 1);
-		Debug.Log("Achievement - " + value);
+
 		// --- pop up achievement ---
 		achievement = true;
 	}

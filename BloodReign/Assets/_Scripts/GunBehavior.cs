@@ -12,7 +12,7 @@ public class GunBehavior : MonoBehaviour
     public float TimeToReload = 3f;
     public int BulletsInMag = 15;       // The amount of bullets currently in mag
     public int MagazineCapacity = 15;   // How many bullets the mag can hold
-    public string Sound_GunShot = "Sniper Shot";
+    public Sounds.SoundName Sound_GunShot;
 
     [Header("SHOTGUN")]
     [TextArea]
@@ -143,7 +143,7 @@ public class GunBehavior : MonoBehaviour
 
             tempReloading_Str = xButton_PNum;
             //print("This: " + tempReloading_Str);
-            soundManager.Play("Shotgun Reload");
+            soundManager.Play(Sound_GunShot);
             requestReload = true;
         }
 

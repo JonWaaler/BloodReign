@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour {
-
-    public Camera camera; 
+    #pragma warning disable
+    public Camera camera;
+    #pragma warning enable
     public List<Transform> players;
     public Vector3 offset;
     private Vector3 velocity;
