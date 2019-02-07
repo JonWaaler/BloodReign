@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraBehavior : MonoBehaviour {
     #pragma warning disable
     public Camera camera;
-    #pragma warning enable
+
     public List<Transform> players;
     public Vector3 offset;
     private Vector3 velocity;

@@ -12,6 +12,14 @@ public class SoundManager : MonoBehaviour {
     {
         DontDestroyOnLoad(gameObject);
 
+        foreach (var s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.vol;
+            s.source.pitch = s.pitch;
+        }
         if (instance == null)
         {
             instance = this;
@@ -20,16 +28,26 @@ public class SoundManager : MonoBehaviour {
         }
         else
             Destroy(this);
-        foreach (var sound in sounds)
-        {
-            sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
 
-            sound.source.volume = sound.vol;
-            sound.source.pitch = sound.pitch;
-        }
     }
 
+    public void Play(Sounds.SoundName name)
+    {
+        foreach (var s in sounds)
+        {
+            if(s.soundName == name)
+            {
+                if (s.source == null)
+                {
+                    Debug.LogError("Source Not Found", this);
+                    return;
+                }
+                s.source.Play();
+                return;
+            }
+        }
+
+    }
 	
     public void SetPitch(Sounds.SoundName name, float newPitch)
     {
@@ -81,21 +99,4 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
-    public void Play(Sounds.SoundName name)
-    {
-        foreach (var s in sounds)
-        {
-            if(s.soundName == name)
-            {
-                if (s.source == null)
-                {
-                    Debug.LogWarning("Source Not Found", this);
-                    return;
-                }
-                s.source.Play();
-                return;
-            }
-        }
-
-    }
 }

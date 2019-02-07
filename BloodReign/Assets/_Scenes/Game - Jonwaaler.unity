@@ -1148,15 +1148,19 @@ Transform:
 --- !u!114 &153985491
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114522217988508290, guid: d7c3a34eed7d895438c00132a0b8d746,
-    type: 2}
-  m_PrefabInternal: {fileID: 1812735442}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 153985489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
+  m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!1001 &155336511
 Prefab:
   m_ObjectHideFlags: 0
@@ -2459,6 +2463,11 @@ Prefab:
       propertyPath: xButton_PNum
       value: XButton3
       objectReference: {fileID: 0}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
   m_IsPrefabAsset: 0
@@ -3161,6 +3170,11 @@ Prefab:
         type: 2}
       propertyPath: RT_PNum
       value: RT2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
@@ -8231,6 +8245,11 @@ Prefab:
         type: 2}
       propertyPath: xButton_PNum
       value: XButton3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
@@ -19185,6 +19204,11 @@ Prefab:
       propertyPath: xButton_PNum
       value: XButton4
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -21850,15 +21874,19 @@ Transform:
 --- !u!114 &941045034
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114006814400140660, guid: 1171cbf27381aab4d98a422330ee8d65,
-    type: 2}
-  m_PrefabInternal: {fileID: 1587634625}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 941045032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
+  m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!4 &941549911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4636475620040460, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -23110,6 +23138,11 @@ Prefab:
       propertyPath: RT_PNum
       value: RT2
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -23127,7 +23160,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1099083571}
   - component: {fileID: 1099083572}
-  - component: {fileID: 1099083573}
   m_Layer: 0
   m_Name: _SoundManager
   m_TagString: Untagged
@@ -23166,7 +23198,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - soundName: 1
-    clip: {fileID: 8300000, guid: 7a228580a4263834185834a3d430457d, type: 3}
+    clip: {fileID: 8300000, guid: 0ef327cf2f86d864eb9c8dd07bfb5b68, type: 3}
     vol: 1
     pitch: 1
     source: {fileID: 0}
@@ -23180,101 +23212,6 @@ MonoBehaviour:
     vol: 1
     pitch: 1
     source: {fileID: 0}
---- !u!82 &1099083573
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1099083570}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: afcb41eb472f44b428727eecfbd38802, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1102623892
 GameObject:
   m_ObjectHideFlags: 0
@@ -23958,6 +23895,11 @@ Prefab:
         type: 2}
       propertyPath: xButton_PNum
       value: XButton4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
@@ -31446,6 +31388,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0,
         type: 2}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
   m_IsPrefabAsset: 0
@@ -32898,7 +32845,8 @@ Prefab:
       propertyPath: lerpReelSpd
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1171cbf27381aab4d98a422330ee8d65, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1591638963
@@ -33549,6 +33497,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0,
         type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: Sound_GunShot
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -34489,7 +34442,8 @@ Prefab:
       propertyPath: lerpReelSpd
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: d7c3a34eed7d895438c00132a0b8d746, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1813201512

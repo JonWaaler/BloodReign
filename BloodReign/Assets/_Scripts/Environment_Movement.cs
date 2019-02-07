@@ -23,7 +23,7 @@ public class Environment_Movement : MonoBehaviour {
 
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        //rb = gameObject.GetComponent<Rigidbody>();
         startPos = gameObject.transform;
     }
 
