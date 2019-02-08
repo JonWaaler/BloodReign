@@ -55,7 +55,7 @@ public class CameraBehavior : MonoBehaviour {
 
 	}
 
-    // Update is called once per frame
+    // Update is called once per frame at end
     private void LateUpdate()
     {
         if (players.Count < 1)

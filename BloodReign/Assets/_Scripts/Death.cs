@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Death : MonoBehaviour {
     public CameraBehavior behaviour;
+    
 
     private void Start()
     {
@@ -12,7 +13,9 @@ public class Death : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        behaviour.players.Remove(collision.transform);
-        Destroy(collision.gameObject);
+        collision.transform.position = Vector3.zero;
+        collision.gameObject.GetComponent<WinDetection>().DamagePlayer(100);
+
+        //behaviour.players.Remove(collision.transform);
     }
 }

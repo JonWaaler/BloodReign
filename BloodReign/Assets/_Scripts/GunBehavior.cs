@@ -143,7 +143,7 @@ public class GunBehavior : MonoBehaviour
 
             tempReloading_Str = xButton_PNum;
             //print("This: " + tempReloading_Str);
-            soundManager.Play(Sound_GunShot);
+            soundManager.Play(Sounds.SoundName.Reload_Shotgun);
             requestReload = true;
         }
 
