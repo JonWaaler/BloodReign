@@ -1166,7 +1166,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 2
   m_StartCorner: 1
   m_StartAxis: 0
   m_CellSize: {x: 52.1, y: 98.87}
@@ -1716,6 +1716,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  playerCol: []
 --- !u!114 &211271532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1776,6 +1777,11 @@ MonoBehaviour:
   jumpVelocity: 4
   rb: {fileID: 211271536}
   ability: {fileID: 0}
+  playerColors: []
+  system: {fileID: 1467161948025370, guid: 6af37c1921a41a64ea00a6cb12d87a54, type: 2}
+  system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
+  p_Inst: {fileID: 0}
+  p_Inst1: {fileID: 0}
 --- !u!54 &211271536
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1784,7 +1790,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 211271528}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 13.23
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -8769,6 +8775,7 @@ GameObject:
   - component: {fileID: 534669907}
   - component: {fileID: 534669906}
   - component: {fileID: 534669910}
+  - component: {fileID: 534669911}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -8803,8 +8810,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.03
-  far clip plane: 1000
+  near clip plane: 0.01
+  far clip plane: 264.3
   field of view: 49
   orthographic: 1
   orthographic size: 35
@@ -8830,7 +8837,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: 16.6, y: 23.8, z: -42.3}
+  m_LocalPosition: {x: -25.3, y: 97.8, z: -86.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8947,6 +8954,33 @@ MonoBehaviour:
   threshold: 0
   softThreshold: 0.291
   debug: 0
+--- !u!114 &534669911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87e4989c5e703e428df4339d59e2c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showMainBehavior: 1
+  showInnerGlowBehavior: 0
+  rtFormat: 2
+  blurShader: {fileID: 4800000, guid: 1855d9636fad3914bacc4a543165c974, type: 3}
+  compositeShader: {fileID: 4800000, guid: e384de4389ba527479054baf0ddb1d3e, type: 3}
+  selectiveRenderShader: {fileID: 4800000, guid: c04b7cae8accdfb4e9c2648823ff39d7,
+    type: 3}
+  glowLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  glowType: 0
+  glowTint: {r: 1, g: 1, b: 1, a: 0}
+  blurSpreadInner: 0.6
+  blurIterations: 5
+  glowIntensityInner: 0.4
+  samples: 2
 --- !u!4 &536712941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4590448098659620, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -25216,6 +25250,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  playerCol: []
 --- !u!114 &1256823348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25259,7 +25294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efe95e82f4440947a2a23941db4f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
+  isGrounded: 1
   speed: 16
   H_LS_PNum: H_LStick3
   V_LS_PNum: V_LStick3
@@ -25276,6 +25311,11 @@ MonoBehaviour:
   jumpVelocity: 4
   rb: {fileID: 1256823352}
   ability: {fileID: 0}
+  playerColors: []
+  system: {fileID: 1467161948025370, guid: 6af37c1921a41a64ea00a6cb12d87a54, type: 2}
+  system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
+  p_Inst: {fileID: 0}
+  p_Inst1: {fileID: 0}
 --- !u!54 &1256823352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25284,7 +25324,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1256823344}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 13.23
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -30900,7 +30940,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1417814882}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 13.23
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -30943,6 +30983,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  playerCol: []
 --- !u!114 &1417814888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31003,6 +31044,11 @@ MonoBehaviour:
   jumpVelocity: 4
   rb: {fileID: 1417814885}
   ability: {fileID: 0}
+  playerColors: []
+  system: {fileID: 1467161948025370, guid: 6af37c1921a41a64ea00a6cb12d87a54, type: 2}
+  system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
+  p_Inst: {fileID: 0}
+  p_Inst1: {fileID: 0}
 --- !u!4 &1417842182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4564779282234792, guid: 91a1cf35fdc25e94dbb9fa212d44db74,
@@ -32519,7 +32565,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -268, y: 28.699982}
+  m_AnchoredPosition: {x: -268, y: 28.699951}
   m_SizeDelta: {x: 232, y: 100.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1561390863
@@ -32538,7 +32584,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 2
   m_StartCorner: 1
   m_StartAxis: 0
   m_CellSize: {x: 52.1, y: 98.87}
@@ -34908,11 +34954,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1854359604}
   - component: {fileID: 1854359603}
-  - component: {fileID: 1854359609}
   - component: {fileID: 1854359608}
+  - component: {fileID: 1854359609}
   - component: {fileID: 1854359605}
-  - component: {fileID: 1854359606}
   - component: {fileID: 1854359601}
+  - component: {fileID: 1854359606}
   m_Layer: 0
   m_Name: Player1_Parent 1
   m_TagString: Player
@@ -34946,7 +34992,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1854359600}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 13.23
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -34989,6 +35035,11 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  playerCol:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.99034953, g: 1, b: 0, a: 1}
 --- !u!114 &1854359606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35049,6 +35100,11 @@ MonoBehaviour:
   jumpVelocity: 4
   rb: {fileID: 1854359603}
   ability: {fileID: 1854359606}
+  playerColors: []
+  system: {fileID: 1467161948025370, guid: 6af37c1921a41a64ea00a6cb12d87a54, type: 2}
+  system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
+  p_Inst: {fileID: 0}
+  p_Inst1: {fileID: 0}
 --- !u!1001 &1861234989
 Prefab:
   m_ObjectHideFlags: 0
@@ -35552,7 +35608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23.999939, y: -18.060104}
+  m_AnchoredPosition: {x: -23.999939, y: -18.060059}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885122827
@@ -37251,7 +37307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 277, y: 28.699997}
+  m_AnchoredPosition: {x: 277, y: 28.699951}
   m_SizeDelta: {x: 232, y: 100.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2096002009

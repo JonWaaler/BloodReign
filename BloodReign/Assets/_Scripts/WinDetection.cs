@@ -13,18 +13,55 @@ public class WinDetection : MonoBehaviour {
     public ParticleSystem Particles_Blood;
     public PlayerSettings playerSettings;
     public GameManager_UI gameManager;
+
+    public List<Color> playerCol;
     // Attach to the player.
     private void Start()
     {
-        //slider_PlayerHealth = GameObject.Find("Player 1 - Health").GetComponent<Slider>();
-        //slider_PlayerHealth = GameObject.Find("Player 2 - Health").GetComponent<Slider>();
-        //slider_PlayerHealth = GameObject.Find("Player 3 - Health").GetComponent<Slider>();
-        //slider_PlayerHealth = GameObject.Find("Player 4 - Health").GetComponent<Slider>();
+        cameraBehavior = FindObjectOfType<CameraBehavior>();
+    }
 
-        
+    private void Awake()
+    {
+        /* use if statements to detect what playerNum this is
+         * if(playerNum == 1)
+         *      this.material = playerSettings.playerCol1
+         * 
+         */
+        switch (playerNum)
+        {
+            case 0:
+                SkinnedMeshRenderer[] smrs = transform.GetChild(transform.childCount).GetComponentsInChildren<SkinnedMeshRenderer>();
+                Debug.Log("Children: " + transform.GetChild(transform.childCount).childCount, transform.GetChild(transform.childCount - 1));
+                if (smrs.Length > 0)
+                    foreach (var smr in smrs)
+                    {
+
+                        smr.material.color = playerCol[0];
+
+                        smr.material.color = playerCol[1];
+
+                        smr.material.color = playerCol[2];
+
+                        smr.material.color = playerCol[3];
 
 
-        cameraBehavior = GameObject.FindObjectOfType<CameraBehavior>();
+                    }
+                break;
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            default:
+                break;
+        }
+
+        //transform.GetChild(transform.childCount - 1).GetComponentInChildren<SkinnedMeshRenderer>().material
     }
 
     public void DamagePlayer(float dmg)
@@ -40,12 +77,11 @@ public class WinDetection : MonoBehaviour {
 
         if (slider_PlayerHealth.value <= 0.1f)
         {
-
-
             if (gameManager.RemoveLife(playerNum))
             {
                 print("Removed a life from player");
-                slider_PlayerHealth.value = 100;
+                //slider_PlayerHealth.value = 100;
+                GetComponent<Player>().activeState = PlayerState.dead;
             }
             else
             {

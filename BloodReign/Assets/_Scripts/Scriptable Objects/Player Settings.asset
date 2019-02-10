@@ -14,12 +14,16 @@ MonoBehaviour:
   playerActive_01: 1
   characterSelection_01: 0
   gunSelection_01: 0
+  playerColor1: 0
   playerActive_02: 1
   characterSelection_02: 1
   gunSelection_02: 1
+  playerColor2: 0
   playerActive_03: 1
   characterSelection_03: 2
   gunSelection_03: 2
+  playerColor3: 0
   playerActive_04: 0
   characterSelection_04: 0
   gunSelection_04: 0
+  playerColor4: 0
