@@ -28,38 +28,38 @@ public class WinDetection : MonoBehaviour {
          *      this.material = playerSettings.playerCol1
          * 
          */
-        switch (playerNum)
-        {
-            case 0:
-                SkinnedMeshRenderer[] smrs = transform.GetChild(transform.childCount).GetComponentsInChildren<SkinnedMeshRenderer>();
-                Debug.Log("Children: " + transform.GetChild(transform.childCount).childCount, transform.GetChild(transform.childCount - 1));
-                if (smrs.Length > 0)
-                    foreach (var smr in smrs)
-                    {
+        //switch (playerNum)
+        //{
+        //    case 0:
+        //        SkinnedMeshRenderer[] smrs = transform.GetChild(transform.childCount).GetComponentsInChildren<SkinnedMeshRenderer>();
+        //        Debug.Log("Children: " + transform.GetChild(transform.childCount).childCount, transform.GetChild(transform.childCount - 1));
+        //        if (smrs.Length > 0)
+        //            foreach (var smr in smrs)
+        //            {
 
-                        smr.material.color = playerCol[0];
+        //                smr.material.color = playerCol[0];
 
-                        smr.material.color = playerCol[1];
+        //                smr.material.color = playerCol[1];
 
-                        smr.material.color = playerCol[2];
+        //                smr.material.color = playerCol[2];
 
-                        smr.material.color = playerCol[3];
+        //                smr.material.color = playerCol[3];
 
 
-                    }
-                break;
-            case 1:
+        //            }
+        //        break;
+        //    case 1:
 
-                break;
-            case 2:
+        //        break;
+        //    case 2:
 
-                break;
-            case 3:
+        //        break;
+        //    case 3:
 
-                break;
-            default:
-                break;
-        }
+        //        break;
+        //    default:
+        //        break;
+        //}
 
         //transform.GetChild(transform.childCount - 1).GetComponentInChildren<SkinnedMeshRenderer>().material
     }

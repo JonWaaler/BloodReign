@@ -19,13 +19,13 @@ public class CameraBehavior : MonoBehaviour {
     private CameraBehavior cameraBehavior;
 
 	void Awake () {
-        cameraBehavior = GameObject.FindObjectOfType<CameraBehavior>();
+        //cameraBehavior = GameObject.FindObjectOfType<CameraBehavior>();
         int index = 0;
         int tempCounter = 0;
         if (playerSettings.playerActive_01 == false)
         {
             GameObject temp = players[index].gameObject;
-            cameraBehavior.players.Remove(players[index]);
+            players.Remove(players[index]);
             Destroy(temp);
             tempCounter++;
         }
@@ -33,7 +33,7 @@ public class CameraBehavior : MonoBehaviour {
         if (playerSettings.playerActive_02 == false)
         {
             GameObject temp = players[index - tempCounter].gameObject;
-            cameraBehavior.players.Remove(players[index]);
+            players.Remove(players[index]);
             Destroy(temp);
             tempCounter++;
         }
@@ -41,7 +41,7 @@ public class CameraBehavior : MonoBehaviour {
         if (playerSettings.playerActive_03 == false)
         {
             GameObject temp = players[index - tempCounter].gameObject;
-            cameraBehavior.players.Remove(players[index - tempCounter]);
+            players.Remove(players[index - tempCounter]);
             Destroy(temp);
             tempCounter++;
         }
@@ -49,7 +49,7 @@ public class CameraBehavior : MonoBehaviour {
         if (playerSettings.playerActive_04 == false)
         {
             GameObject temp = players[index - tempCounter].gameObject;
-            cameraBehavior.players.Remove(players[index - tempCounter]);
+            players.Remove(players[index - tempCounter]);
             Destroy(temp);
         }
 

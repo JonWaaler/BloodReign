@@ -78,6 +78,8 @@ public class Player : MonoBehaviour {
         activeState = PlayerState.alive;
         status = StatusEffect.nothing;
 
+
+        // Respawn particle systems
         p_Inst = Instantiate(system);
         p_Inst1 = Instantiate(system1);
         p_Inst.SetActive(false);

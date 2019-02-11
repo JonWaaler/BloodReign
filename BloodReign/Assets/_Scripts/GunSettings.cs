@@ -13,7 +13,11 @@ public class GunSettings : MonoBehaviour
     public List<GameObject> playerHealthANDReload;
     public List<GameObject> playersMesh; // 0 - Orb; 1 - dodge; 2 - grapple
     public PlayerSettings playerSettings;
-
+    public GameObject Element_Wind; // Shotgun
+    public GameObject Element_Fire; // Sniper
+    public GameObject Element_Electricity;  // Pistol
+    public GameObject Element_Earth;    // Rocket Launcher
+    public List<Transform> playersElements;
     void Start()
     {
         p1Gun1.SetActive(false);
@@ -33,32 +37,78 @@ public class GunSettings : MonoBehaviour
         p4Gun3.SetActive(false);
 
         if (playerSettings.gunSelection_01 == 0)
+        {
             p1Gun1.SetActive(true);
+            playersElements[0] = Instantiate(Element_Electricity).transform;
+        }
         else if (playerSettings.gunSelection_01 == 1)
+        {
             p1Gun2.SetActive(true);
+            playersElements[0] = Instantiate(Element_Fire).transform;
+        }
         else if (playerSettings.gunSelection_01 == 2)
+        {
             p1Gun3.SetActive(true);
+            playersElements[0] = Instantiate(Element_Wind).transform;
+
+        }
 
         if (playerSettings.gunSelection_02 == 0)
+        {
             p2Gun1.SetActive(true);
+            playersElements[1] = Instantiate(Element_Electricity).transform;
+
+        }
         else if (playerSettings.gunSelection_02 == 1)
+        {
             p2Gun2.SetActive(true);
+            playersElements[1] = Instantiate(Element_Fire).transform;
+
+        }
         else if (playerSettings.gunSelection_02 == 2)
+        {
             p2Gun3.SetActive(true);
+            playersElements[1] = Instantiate(Element_Wind).transform;
+
+        }
 
         if (playerSettings.gunSelection_03 == 0)
+        {
             p3Gun1.SetActive(true);
+            playersElements[2] = Instantiate(Element_Electricity).transform;
+
+        }
         else if (playerSettings.gunSelection_03 == 1)
+        {
             p3Gun2.SetActive(true);
+            playersElements[2] = Instantiate(Element_Fire).transform;
+
+        }
         else if (playerSettings.gunSelection_03 == 2)
+        {
             p3Gun3.SetActive(true);
+            playersElements[2] = Instantiate(Element_Wind).transform;
+
+        }
 
         if (playerSettings.gunSelection_04 == 0)
+        {
             p4Gun1.SetActive(true);
+            playersElements[3] = Instantiate(Element_Electricity).transform;
+
+        }
         else if (playerSettings.gunSelection_04 == 1)
+        {
             p4Gun2.SetActive(true);
+            playersElements[3] = Instantiate(Element_Fire).transform;
+
+        }
         else if (playerSettings.gunSelection_04 == 2)
+        {
             p4Gun3.SetActive(true);
+            playersElements[3] = Instantiate(Element_Wind).transform;
+
+        }
 
         // Player 1 selection
         if (playerSettings.characterSelection_01 == 0)
@@ -204,5 +254,14 @@ public class GunSettings : MonoBehaviour
             playerHealthANDReload[2].SetActive(false);
         if (!playerSettings.playerActive_04)
             playerHealthANDReload[3].SetActive(false);
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            if(players[i] != null)
+            playersElements[i].position = players[i].position;
+        }
     }
 }
