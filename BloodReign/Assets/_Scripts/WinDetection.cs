@@ -88,6 +88,7 @@ public class WinDetection : MonoBehaviour {
                 Debug.Log("Player has no lives", gameObject);
                 cameraBehavior.players.Remove(transform);
                 gameObject.SetActive(false);
+                GetComponent<Player>().elementRef.gameObject.SetActive(false);
                 playerNum++;
                 GameObject.Find("Player" + playerNum + "_Canvas").SetActive(false);
                 gameObject.GetComponent<Player>().ability.StopAllCoroutines();

@@ -101,8 +101,8 @@ public class GunBehavior : MonoBehaviour
                     if (Bullets[i].activeInHierarchy == false)
                     {
                         foundCounter++;
-                        Bullets[i].SetActive(true);
                         Bullets[i].transform.position = Emitter.position;
+                        Bullets[i].SetActive(true);
                         float randomAngle = Random.Range(Recoil, -Recoil);
                         Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
                         Bullets[i].GetComponent<Bullet>().Damage = Damage;
@@ -130,8 +130,8 @@ public class GunBehavior : MonoBehaviour
                     soundManager.Play(Sound_GunShot);
                     // Play shot anim
                     // Play shot particles
-                    Bullets[i].SetActive(true);
                     Bullets[i].transform.position = Emitter.position;
+                    Bullets[i].SetActive(true);
                     // Recoil
                     float randomAngle = Random.Range(Recoil, -Recoil);
                     Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);

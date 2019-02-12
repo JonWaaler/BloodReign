@@ -52,6 +52,9 @@ public class Player : MonoBehaviour {
     // Particle system
     public GameObject p_Inst;
     public GameObject p_Inst1;
+
+    [Header("Element Ref")]
+    public Transform elementRef;
     void Awake ()
 	{
 		Rigidbody rb = GetComponent<Rigidbody>();
@@ -144,7 +147,8 @@ public class Player : MonoBehaviour {
 
         if (activeState == PlayerState.dead)
         {
-            print("Dead");
+            //print("Dead");
+            elementRef.gameObject.SetActive(false);
 
             // Collision Off
             GetComponent<CapsuleCollider>().enabled = false;
@@ -179,15 +183,24 @@ public class Player : MonoBehaviour {
             {
                 rb.transform.position = new Vector3(rb.transform.position.x, 1, rb.transform.position.z);
                 GetComponent<CapsuleCollider>().enabled = true;
-
+                elementRef.gameObject.SetActive(true);
                 GetComponent<WinDetection>().slider_PlayerHealth.value = 100;
                 activeState = PlayerState.alive;
             }
         }
     }
 
+    private void FixedUpdate()
+    {
+        /* ---- How the element stuff works ----
+         * "GunSettings" where the game sets itself up
+         * instances an element based off of the gun type.
+         * It then sets this scripts "elementRef" to what it spawned
+         * Then we controll the position here to fix the stutter bug.
+         */
+        elementRef.position = transform.position;
+    }
 
-	
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "MovableObj")
@@ -196,6 +209,7 @@ public class Player : MonoBehaviour {
         }
 		else
 		{
+            //transform.localScale = new Vector3(1, 1, 1);
 			transform.SetParent(null);
 		}
     }

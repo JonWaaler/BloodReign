@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class GunSettings : MonoBehaviour
 {
-
+    /* * * * * * * * * * * * * * * * * * * * * *
+     * This is really the GameSetup script BTW *
+     * * * * * * * * * * * * * * * * * * * * * */
+    // This holds a reference of every gun and we just enable the gun that the player chooses
+    // GUN REF's
     public GameObject p1Gun1, p1Gun2, p1Gun3; // Player 1 guns
     public GameObject p2Gun1, p2Gun2, p2Gun3; // Player 2 guns
     public GameObject p3Gun1, p3Gun2, p3Gun3; // Player 3 guns
     public GameObject p4Gun1, p4Gun2, p4Gun3; // Player 4 guns
+
+    [Header("Reference for player")]
     public List<Transform> players;
-    public List<GameObject> playerHealthANDReload;
-    public List<GameObject> playersMesh; // 0 - Orb; 1 - dodge; 2 - grapple
-    public PlayerSettings playerSettings;
+    public List<GameObject> playersMesh;            // 0 - Orb; 1 - dodge; 2 - grapple
+    public PlayerSettings playerSettings;           // The player settings that were choosen from the player selection
+
+    [Header("UI for disabling")]
+    public List<GameObject> playerHealthANDReload;  // The canvas that holds each players health and reload in game UI
+    public GameObject[] ScreenUI_Health;                   // This is the other canvas that hold the "Player 1" name and health and lives
+    public GameObject[] ScreenUI_Text;                   // This is the other canvas that hold the "Player 1" name and health and lives
+
+    [Header("Elements Reference - Game setup")]
     public GameObject Element_Wind; // Shotgun
     public GameObject Element_Fire; // Sniper
     public GameObject Element_Electricity;  // Pistol
@@ -20,6 +32,10 @@ public class GunSettings : MonoBehaviour
     public List<Transform> playersElements;
     void Start()
     {
+
+
+
+
         p1Gun1.SetActive(false);
         p1Gun2.SetActive(false);
         p1Gun3.SetActive(false);
@@ -36,19 +52,26 @@ public class GunSettings : MonoBehaviour
         p4Gun2.SetActive(false);
         p4Gun3.SetActive(false);
 
+        // 0 = pistol = earth
+        // 1 = sniper = lightning
+        // 2 = shotgun = wind
+        // 3 = Rockets = Fire
+
         if (playerSettings.gunSelection_01 == 0)
         {
-            p1Gun1.SetActive(true);
-            playersElements[0] = Instantiate(Element_Electricity).transform;
+            p1Gun1.SetActive(true); // pistol
+            playersElements[0] = Instantiate(Element_Earth).transform;
+            playersElements[0].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
         }
         else if (playerSettings.gunSelection_01 == 1)
         {
-            p1Gun2.SetActive(true);
-            playersElements[0] = Instantiate(Element_Fire).transform;
+            p1Gun2.SetActive(true); // sniper
+            playersElements[0] = Instantiate(Element_Electricity).transform;
+
         }
         else if (playerSettings.gunSelection_01 == 2)
         {
-            p1Gun3.SetActive(true);
+            p1Gun3.SetActive(true); // shotgun
             playersElements[0] = Instantiate(Element_Wind).transform;
 
         }
@@ -56,13 +79,14 @@ public class GunSettings : MonoBehaviour
         if (playerSettings.gunSelection_02 == 0)
         {
             p2Gun1.SetActive(true);
-            playersElements[1] = Instantiate(Element_Electricity).transform;
+            playersElements[1] = Instantiate(Element_Earth).transform;
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_02 == 1)
         {
             p2Gun2.SetActive(true);
-            playersElements[1] = Instantiate(Element_Fire).transform;
+            playersElements[1] = Instantiate(Element_Electricity).transform;
 
         }
         else if (playerSettings.gunSelection_02 == 2)
@@ -75,13 +99,14 @@ public class GunSettings : MonoBehaviour
         if (playerSettings.gunSelection_03 == 0)
         {
             p3Gun1.SetActive(true);
-            playersElements[2] = Instantiate(Element_Electricity).transform;
+            playersElements[2] = Instantiate(Element_Earth).transform;
+            playersElements[2].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_03 == 1)
         {
             p3Gun2.SetActive(true);
-            playersElements[2] = Instantiate(Element_Fire).transform;
+            playersElements[2] = Instantiate(Element_Electricity).transform;
 
         }
         else if (playerSettings.gunSelection_03 == 2)
@@ -94,13 +119,14 @@ public class GunSettings : MonoBehaviour
         if (playerSettings.gunSelection_04 == 0)
         {
             p4Gun1.SetActive(true);
-            playersElements[3] = Instantiate(Element_Electricity).transform;
+            playersElements[3] = Instantiate(Element_Earth).transform;
+            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_04 == 1)
         {
             p4Gun2.SetActive(true);
-            playersElements[3] = Instantiate(Element_Fire).transform;
+            playersElements[3] = Instantiate(Element_Electricity).transform;
 
         }
         else if (playerSettings.gunSelection_04 == 2)
@@ -246,22 +272,52 @@ public class GunSettings : MonoBehaviour
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
         }
 
+        // This makes sure we donnot have game UI that is not nessasary
         if (!playerSettings.playerActive_01)
-            playerHealthANDReload[0].SetActive(false);
-        if (!playerSettings.playerActive_02)
-            playerHealthANDReload[1].SetActive(false);
-        if (!playerSettings.playerActive_03)
-            playerHealthANDReload[2].SetActive(false);
-        if (!playerSettings.playerActive_04)
-            playerHealthANDReload[3].SetActive(false);
-    }
-
-    private void Update()
-    {
-        for (int i = 0; i < players.Count; i++)
         {
-            if(players[i] != null)
-            playersElements[i].position = players[i].position;
+            playerHealthANDReload[0].SetActive(false);
+            ScreenUI_Health[0].SetActive(false);
+            ScreenUI_Text[0].SetActive(false);
+            playersElements[0].gameObject.SetActive(false);
         }
-    }
+        if (!playerSettings.playerActive_02)
+        {
+            playerHealthANDReload[1].SetActive(false);
+            ScreenUI_Health[1].SetActive(false);
+            ScreenUI_Text[1].SetActive(false);
+            playersElements[1].gameObject.SetActive(false);
+
+        }
+        if (!playerSettings.playerActive_03)
+        {
+            playerHealthANDReload[2].SetActive(false);
+            ScreenUI_Health[2].SetActive(false);
+            ScreenUI_Text[2].SetActive(false);
+            playersElements[2].gameObject.SetActive(false);
+
+        }
+        if (!playerSettings.playerActive_04)
+        {
+            playerHealthANDReload[3].SetActive(false);
+            ScreenUI_Health[3].SetActive(false);
+            ScreenUI_Text[3].SetActive(false);
+            playersElements[3].gameObject.SetActive(false);
+
+        }
+
+
+        // Assigning each player their element reference Transform
+        players[0].GetComponent<Player>().elementRef = playersElements[0];
+        players[1].GetComponent<Player>().elementRef = playersElements[1];
+        players[2].GetComponent<Player>().elementRef = playersElements[2];
+        players[3].GetComponent<Player>().elementRef = playersElements[3];
+        // COPYIED FROM "PLAYER" FOR REFERENCE (WRITTEN IN PERSPECTIVE OF PLAYER SCRIPT)
+            /* ---- How the element stuff works ----
+            * "GunSettings" where the game sets itself up
+            * instances an element based off of the gun type.
+            * It then sets this scripts "elementRef" to what it spawned
+            * Then we controll the position here to fix the stutter bug.
+            */
+}
+
 }

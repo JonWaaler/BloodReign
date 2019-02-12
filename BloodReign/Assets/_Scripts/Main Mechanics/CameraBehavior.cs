@@ -69,7 +69,7 @@ public class CameraBehavior : MonoBehaviour {
 
         Vector3 centerPoint = GetCenterPoint();
         Vector3 newPosition = centerPoint + offset;
-        newPosition += new Vector3(0, 93.4838f, -65.45f);
+        newPosition += new Vector3(0, 93.4838f, -65.45f); // needed to make the camera go further back from the scene
         transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
 
         Zoom();
