@@ -32,10 +32,6 @@ public class GunSettings : MonoBehaviour
     public List<Transform> playersElements;
     void Start()
     {
-
-
-
-
         p1Gun1.SetActive(false);
         p1Gun2.SetActive(false);
         p1Gun3.SetActive(false);
@@ -75,6 +71,9 @@ public class GunSettings : MonoBehaviour
             playersElements[0] = Instantiate(Element_Wind).transform;
 
         }
+        // The fire needs 
+        // "playersElements[0].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();"
+        // in addition. It will look the same as the earths
 
         if (playerSettings.gunSelection_02 == 0)
         {

@@ -43,9 +43,6 @@ public class Player : MonoBehaviour {
     public Rigidbody rb;
     public AbilityCommand ability;
 
-    [Header("Color")]
-    public List<Color> playerColors; // 4 colours for now
-
     [Header("Particle Effects Death")]
     public GameObject system;
     public GameObject system1;
@@ -55,6 +52,22 @@ public class Player : MonoBehaviour {
 
     [Header("Element Ref")]
     public Transform elementRef;
+
+    [Header("Death Material switch")]
+    public Material Ghost_Mat;
+    public List<Material> Player_Mats;
+    public Color Red_Mat;
+    public Color Green_Mat;
+    public Color Blue_Mat;
+    public Color Yellow_Mat;
+    public WinDetection winDetection;
+    public Texture dodge_Texture;
+    public Texture grapple_Texture;
+    public Texture teleport_Texture;
+    public Texture invis_Texture;
+    public List<Transform> smr;
+    public List<Transform> mr;
+
     void Awake ()
 	{
 		Rigidbody rb = GetComponent<Rigidbody>();
@@ -87,8 +100,12 @@ public class Player : MonoBehaviour {
         p_Inst1 = Instantiate(system1);
         p_Inst.SetActive(false);
         p_Inst1.SetActive(false);
+        
     }
-	// Change ability // useless atm
+
+
+
+    // Change ability // useless atm
     public void switchPlayer(PlayerAbil newAbli)
     {
         switch (playerEnum)
@@ -108,11 +125,27 @@ public class Player : MonoBehaviour {
         }
     }
 
+    bool playerHasModelAttached = false;
     // Update is called once per frame
     void Update()
     {
         //if (activeState.Equals(PlayerState.dead))
         //    return;
+
+        if(transform.childCount > 3 && !playerHasModelAttached)
+        {
+            for (int i = 0; i < transform.GetChild(transform.childCount - 1).childCount; i++)
+            {
+                if (transform.GetChild(transform.childCount - 1).GetChild(i).GetComponent<SkinnedMeshRenderer>())
+                    smr.Add(transform.GetChild(transform.childCount - 1).GetChild(i));
+                if(transform.GetChild(transform.childCount - 1).GetChild(i).GetComponent<MeshRenderer>())
+                    mr.Add(transform.GetChild(transform.childCount - 1).GetChild(i));
+
+            }
+
+            playerHasModelAttached = true;
+        }
+
 
         xVel = Input.GetAxis(H_LS_PNum);
         zvel = Input.GetAxis(V_LS_PNum);
@@ -143,12 +176,30 @@ public class Player : MonoBehaviour {
             }
             p_Inst.SetActive(false);
             p_Inst1.SetActive(false);
+
+            AliveMaterialSetter();
         }
 
         if (activeState == PlayerState.dead)
         {
             //print("Dead");
             elementRef.gameObject.SetActive(false);
+
+            // Death shader
+            if(smr.Count > 0)
+            {
+                foreach (var item in smr)
+                {
+                    item.GetComponent<SkinnedMeshRenderer>().material = Ghost_Mat;
+                }
+            }
+            else if(mr.Count > 0)
+            {
+                foreach (var item in mr)
+                {
+                    item.GetComponent<MeshRenderer>().material = Ghost_Mat;
+                }
+            }
 
             // Collision Off
             GetComponent<CapsuleCollider>().enabled = false;
@@ -190,6 +241,207 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public void AssignTexture()
+    {
+
+    }
+
+    public void AliveMaterialSetter()
+    {
+        // Set players choosen colour ( SkinnedMeshRenderer) (ALIVE)
+        if (smr.Count > 0)
+        {
+            foreach (var item in smr)
+            {
+                //item.GetComponent<SkinnedMeshRenderer>().material = mat;
+                if(GetComponent<WinDetection>().playerNum == 0)
+                    switch (playerSettings.playerColor1)
+                    {
+                        case PlayerSettings.PlayerColor_01.RED:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_01.BLUE:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_01.YELLOW:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_01.GREEN:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+                if (GetComponent<WinDetection>().playerNum == 1)
+                    switch (playerSettings.playerColor2)
+                    {
+                        case PlayerSettings.PlayerColor_02.RED:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_02.BLUE:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_02.YELLOW:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_02.GREEN:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+                if (GetComponent<WinDetection>().playerNum == 2)
+                    switch (playerSettings.playerColor3)
+                    {
+                        case PlayerSettings.PlayerColor_03.RED:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_03.BLUE:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_03.YELLOW:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_03.GREEN:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+                if (GetComponent<WinDetection>().playerNum == 3)
+                    switch (playerSettings.playerColor4)
+                    {
+                        case PlayerSettings.PlayerColor_04.RED:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_04.BLUE:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_04.YELLOW:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_04.GREEN:
+                            item.GetComponent<SkinnedMeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<SkinnedMeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+            }
+        }
+        // Mesh Renderer (ALIVE)
+        if (mr.Count > 0)
+        {
+            foreach (var item in mr)
+            {
+
+                if (GetComponent<WinDetection>().playerNum == 0)
+                    switch (playerSettings.playerColor1)
+                    {
+                        case PlayerSettings.PlayerColor_01.RED:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<MeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_01.BLUE:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<MeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_01.YELLOW:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<MeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_01.GREEN:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[0];
+                            item.GetComponent<MeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+                if (GetComponent<WinDetection>().playerNum == 1)
+                    switch (playerSettings.playerColor2)
+                    {
+                        case PlayerSettings.PlayerColor_02.RED:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<MeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_02.BLUE:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<MeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_02.YELLOW:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<MeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_02.GREEN:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[1];
+                            item.GetComponent<MeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+                if (GetComponent<WinDetection>().playerNum == 2)
+                    switch (playerSettings.playerColor3)
+                    {
+                        case PlayerSettings.PlayerColor_03.RED:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<MeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_03.BLUE:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<MeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_03.YELLOW:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<MeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_03.GREEN:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[2];
+                            item.GetComponent<MeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+                if (GetComponent<WinDetection>().playerNum == 3)
+                    switch (playerSettings.playerColor4)
+                    {
+                        case PlayerSettings.PlayerColor_04.RED:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<MeshRenderer>().material.color = Red_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_04.BLUE:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<MeshRenderer>().material.color = Blue_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_04.YELLOW:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<MeshRenderer>().material.color = Yellow_Mat;
+                            break;
+                        case PlayerSettings.PlayerColor_04.GREEN:
+                            item.GetComponent<MeshRenderer>().material = Player_Mats[3];
+                            item.GetComponent<MeshRenderer>().material.color = Green_Mat;
+                            break;
+                        default:
+                            break;
+                    }
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         /* ---- How the element stuff works ----
@@ -199,6 +451,7 @@ public class Player : MonoBehaviour {
          * Then we controll the position here to fix the stutter bug.
          */
         elementRef.position = transform.position;
+
     }
 
     void OnCollisionEnter(Collision other)

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Element_FireAnimation : MonoBehaviour {
     public Vector3 rot;
-    public Transform objRot;
     public int numObjects = 12;
+    public int curObjects;      // stores the last value of the magazine clip
     public float radius = 2;
     public List<Transform> orbitingObjects;
 
     public GunBehavior gunBehavior;
-    // Use this for initialization
+
     void Start()
     {
+        curObjects = gunBehavior.BulletsInMag;
         float ang = 360f / numObjects;
 
         Vector3 center = transform.position;
@@ -40,32 +41,43 @@ public class Element_FireAnimation : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        for (int i = 0; i < numObjects; i++)
+        if (gunBehavior.BulletsInMag != curObjects)
         {
-            // set object that got used inactive
-            if (i > gunBehavior.BulletsInMag)
+            // when bulletsinmag goes down, we will want to up date and set curObjects
+            // to the new value
+            /* 
+             * 
+             * 
+             * 
+             */
+            for (int i = 0; i < numObjects; i++)
             {
-                orbitingObjects[i].gameObject.SetActive(false);
+                // set object that got used inactive
+                if (i > gunBehavior.BulletsInMag)
+                {
+                    orbitingObjects[i].gameObject.SetActive(false);
+                }
+                else
+                    orbitingObjects[i].gameObject.SetActive(true);
             }
-            else
-                orbitingObjects[i].gameObject.SetActive(true);
-        }
-        print(gunBehavior.BulletsInMag);
-        float ang = (360f) / gunBehavior.BulletsInMag;
-        Vector3 center = transform.position;
+            print(gunBehavior.BulletsInMag);
+            float ang = (360f) / gunBehavior.BulletsInMag;
+            Vector3 center = transform.position;
 
-        for (int i = 0; i < gunBehavior.BulletsInMag; i++)
-        {
-            Vector3 pos = RandomCircle(center, radius, i * ang);
-            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
-            orbitingObjects[i].position = pos;
+            for (int i = 0; i < gunBehavior.BulletsInMag; i++)
+            {
+                Vector3 pos = RandomCircle(center, radius, i * ang);
+                Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+                orbitingObjects[i].position = pos;
+            }
+
+            curObjects = gunBehavior.BulletsInMag;
         }
     }
 
     private void FixedUpdate()
     {
-        transform.RotateAround(transform.position ,Vector3.up ,rot.y * Time.deltaTime);
-        
+        transform.Rotate(rot * Time.deltaTime);
+        //transform.Rotate(Vector3.up * 90 * Time.deltaTime, Space.Self);
     }
 }

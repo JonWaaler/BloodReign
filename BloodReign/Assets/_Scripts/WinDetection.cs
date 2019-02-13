@@ -14,7 +14,7 @@ public class WinDetection : MonoBehaviour {
     public PlayerSettings playerSettings;
     public GameManager_UI gameManager;
 
-    public List<Color> playerCol;
+
     // Attach to the player.
     private void Start()
     {
