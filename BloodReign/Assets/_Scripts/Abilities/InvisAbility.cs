@@ -14,7 +14,12 @@ public class InvisAbility : AbilityCommand
     public override void ResetSphere()
     {
     }
-        private void activate()
+    private void Start()
+    {
+
+
+    }
+    private void activate()
     {
        // if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
         {

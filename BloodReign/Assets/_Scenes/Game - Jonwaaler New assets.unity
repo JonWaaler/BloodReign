@@ -1881,6 +1881,8 @@ GameObject:
   - component: {fileID: 211271531}
   - component: {fileID: 211271532}
   - component: {fileID: 211271529}
+  - component: {fileID: 211271539}
+  - component: {fileID: 211271538}
   - component: {fileID: 211271533}
   - component: {fileID: 211271530}
   m_Layer: 0
@@ -1919,12 +1921,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 30
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &211271531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1971,12 +1967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &211271534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2075,6 +2065,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211271538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211271528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 3
+  abilLength: 8
+  lerpSpd: 20
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
+--- !u!114 &211271539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211271528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 4
+  abilLength: 8
+  lerpSpd: 30
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
 --- !u!4 &216182237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4912689671712818, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -46014,6 +46038,8 @@ GameObject:
   - component: {fileID: 1256823347}
   - component: {fileID: 1256823348}
   - component: {fileID: 1256823345}
+  - component: {fileID: 1256823355}
+  - component: {fileID: 1256823354}
   - component: {fileID: 1256823349}
   - component: {fileID: 1256823346}
   m_Layer: 0
@@ -46052,12 +46078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 30
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &1256823347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46104,12 +46124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &1256823350
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -46208,6 +46222,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1256823354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256823344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 3
+  abilLength: 8
+  lerpSpd: 20
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
+--- !u!114 &1256823355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256823344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 4
+  abilLength: 8
+  lerpSpd: 30
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
 --- !u!4 &1259008710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4636475620040460, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -51616,6 +51664,8 @@ GameObject:
   - component: {fileID: 1417814887}
   - component: {fileID: 1417814888}
   - component: {fileID: 1417814883}
+  - component: {fileID: 1417814893}
+  - component: {fileID: 1417814892}
   - component: {fileID: 1417814889}
   - component: {fileID: 1417814884}
   m_Layer: 0
@@ -51654,12 +51704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 30
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!54 &1417814885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51739,12 +51783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 20
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &1417814890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -51810,6 +51848,40 @@ MonoBehaviour:
   invis_Texture: {fileID: 0}
   smr: []
   mr: []
+--- !u!114 &1417814892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417814882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 3
+  abilLength: 8
+  lerpSpd: 20
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
+--- !u!114 &1417814893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417814882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 4
+  abilLength: 8
+  lerpSpd: 30
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
 --- !u!4 &1417842182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4564779282234792, guid: 91a1cf35fdc25e94dbb9fa212d44db74,
@@ -65621,6 +65693,8 @@ GameObject:
   - component: {fileID: 1854359605}
   - component: {fileID: 1854359606}
   - component: {fileID: 1854359601}
+  - component: {fileID: 1854359611}
+  - component: {fileID: 1854359610}
   - component: {fileID: 1854359607}
   - component: {fileID: 1854359602}
   m_Layer: 0
@@ -65659,12 +65733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 20
-  lerpReelSpd: 0.5
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!54 &1854359603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65744,12 +65812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 30
-  lerpReelSpd: 0
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!136 &1854359608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -65792,7 +65854,7 @@ MonoBehaviour:
   status: 0
   jumpVelocity: 4
   rb: {fileID: 1854359603}
-  ability: {fileID: 1854359606}
+  ability: {fileID: 0}
   system: {fileID: 1467161948025370, guid: 6af37c1921a41a64ea00a6cb12d87a54, type: 2}
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
@@ -65815,6 +65877,40 @@ MonoBehaviour:
   invis_Texture: {fileID: 0}
   smr: []
   mr: []
+--- !u!114 &1854359610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854359600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 3
+  abilLength: 8
+  lerpSpd: 20
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
+--- !u!114 &1854359611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854359600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilCool: 4
+  abilLength: 8
+  lerpSpd: 30
+  lerpReelSpd: 0
+  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}
 --- !u!1001 &1861234989
 Prefab:
   m_ObjectHideFlags: 0

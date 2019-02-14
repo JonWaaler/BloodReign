@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Game - Jonwaaler.unity
-    guid: 4a77f3a990eb42945814b7cc88e898d4
-  - enabled: 1
     path: Assets/_Scenes/Menu.unity
     guid: f73d2d44eb587a34585c466f7482becd
   - enabled: 1
+    path: Assets/_Scenes/Game - Jonwaaler New assets.unity
+    guid: dfb8c22efdf7b5a4089786982375dbed
+  - enabled: 1
     path: Assets/_Scenes/Game.unity
     guid: dba4317645f5fd948815c9f1fe535067
+  - enabled: 1
+    path: Assets/_Scenes/Game - Jonwaaler.unity
+    guid: 4a77f3a990eb42945814b7cc88e898d4
   m_configObjects: {}

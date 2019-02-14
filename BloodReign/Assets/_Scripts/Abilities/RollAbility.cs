@@ -16,6 +16,10 @@ public class RollAbility : AbilityCommand
     public override void ResetSphere()
     {
     }
+    private void Start()
+    {
+        
+    }
     // Update is called once per frame
     private void activate()
     {
