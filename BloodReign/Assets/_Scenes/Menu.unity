@@ -5604,6 +5604,7 @@ GameObject:
   - component: {fileID: 1481733760}
   - component: {fileID: 1481733759}
   - component: {fileID: 1481733762}
+  - component: {fileID: 1481733764}
   - component: {fileID: 1481733763}
   m_Layer: 0
   m_Name: EventSystem
@@ -5760,6 +5761,23 @@ MonoBehaviour:
   - {fileID: 890545671}
   - {fileID: 973808951}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
+--- !u!114 &1481733764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1481733758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa861178beae2c41abd7b83037105fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - soundName: 5
+    clip: {fileID: 8300000, guid: 8caa172541a6023449272dd97919f615, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1 &1484319347
 GameObject:
   m_ObjectHideFlags: 0
@@ -6087,6 +6105,7 @@ GameObject:
   - component: {fileID: 1558069382}
   - component: {fileID: 1558069381}
   - component: {fileID: 1558069380}
+  - component: {fileID: 1558069383}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6154,6 +6173,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1558069383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558069379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5705700cd6636488b31b8ea7b882a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
 --- !u!1 &1566798521
 GameObject:
   m_ObjectHideFlags: 0

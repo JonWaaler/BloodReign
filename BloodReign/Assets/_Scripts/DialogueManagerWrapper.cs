@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 
 public class DialogueManagerWrapper : MonoBehaviour
 {
-	const string DLL_NAME = "DialogueManagerPlugin";
 	private float time = 0f;
 	public bool p1Win = false;
 	public bool p2Win = false;
@@ -21,56 +20,33 @@ public class DialogueManagerWrapper : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
-    // [DllImport(DLL_NAME)]
-    // private static extern void startTXT();
-    // [DllImport(DLL_NAME)]
-    // private static extern void endTXT();
-    [DllImport(DLL_NAME)]
-	private static extern void p1WinTXT();
-	[DllImport(DLL_NAME)]
-	private static extern void p2WinTXT();
-    [DllImport(DLL_NAME)]
-    private static extern void p3WinTXT();
-    [DllImport(DLL_NAME)]
-    private static extern void p4WinTXT();
-    [DllImport(DLL_NAME)]
-	private static extern int getNextEvent();
-
-    void Start()
-    {
-        //print("Player 1/2 Wins should be already false...");
-        //GameObject.Find("Player 1 Wins").SetActive(false);
-        //GameObject.Find("Player 2 Wins").SetActive(false);
-
-    }
-
     void Update()
     {
-        // if game end
-        // endTXT();
-
+        int nextEventNum = 0;
+        // Change how death detecion works because players never go null
         if (player1 != null)
         {
             if (player1.activeInHierarchy && player2 == null && player3 == null && player4 == null)
-                p1WinTXT();
+                nextEventNum = 3;
         }
         if (player2 != null)
         {
             if (player2.activeInHierarchy && player1 == null && player3 == null && player4 == null)
-                p2WinTXT();
+            {
+                nextEventNum = 4;
+                print("test");
+            }
         }
         if (player3 != null)
         {
             if (player3.activeInHierarchy && player2 == null && player1 == null && player4 == null)
-                p3WinTXT();
+                nextEventNum = 5;
         }
         if (player4 != null)
         {
             if (player4.activeInHierarchy && player2 == null && player3 == null && player1 == null)
-                p4WinTXT();
+                nextEventNum = 6;
         }
-
-        int nextEventNum = getNextEvent();
 
         if (nextEventNum == 1)
         {
@@ -82,6 +58,7 @@ public class DialogueManagerWrapper : MonoBehaviour
         }
         else if (nextEventNum == 3)
         {
+            print("p1Wins");
             GameObject.Find("Canvas_GameUI").transform.Find("Player 1 Wins").gameObject.SetActive(true);
             delay = true;
         }
@@ -94,7 +71,6 @@ public class DialogueManagerWrapper : MonoBehaviour
         {
             GameObject.Find("Canvas_GameUI").transform.Find("Player 3 Wins").gameObject.SetActive(true);
             delay = true;
-            print("fukc you");
         }
         if (nextEventNum == 6)
         {

@@ -48,6 +48,19 @@ public class SoundManager : MonoBehaviour {
         }
 
     }
+
+    public void setLooping(Sounds.SoundName name, bool isLooping)
+    {
+        foreach (var s in sounds)
+        {
+            if (s.soundName == name)
+            {
+                s.source.loop = true;
+        
+                return;
+            }
+        }
+    }
 	
     public void SetPitch(Sounds.SoundName name, float newPitch)
     {
