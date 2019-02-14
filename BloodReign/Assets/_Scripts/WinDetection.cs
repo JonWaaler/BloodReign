@@ -86,6 +86,14 @@ public class WinDetection : MonoBehaviour {
             else
             {
                 Debug.Log("Player has no lives", gameObject);
+                if (playerNum + 1 == 1)
+                    GameObject.Find("_GameManager").GetComponent<DialogueManagerWrapper>().p1Dead = true;
+                else if (playerNum + 1 == 2)
+                    GameObject.Find("_GameManager").GetComponent<DialogueManagerWrapper>().p2Dead = true;
+                else if (playerNum + 1 == 3)
+                    GameObject.Find("_GameManager").GetComponent<DialogueManagerWrapper>().p3Dead = true;
+                else if (playerNum + 1 == 4)
+                    GameObject.Find("_GameManager").GetComponent<DialogueManagerWrapper>().p4Dead = true;
                 cameraBehavior.players.Remove(transform);
                 gameObject.SetActive(false);
                 GetComponent<Player>().elementRef.gameObject.SetActive(false);

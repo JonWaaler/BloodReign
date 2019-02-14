@@ -6,10 +6,11 @@ using System.Runtime.InteropServices;
 public class DialogueManagerWrapper : MonoBehaviour
 {
 	private float time = 0f;
-	public bool p1Win = false;
-	public bool p2Win = false;
-    public bool p3Win = false;
-    public bool p4Win = false;
+    public PlayerSettings playerSettings;
+	public bool p1Dead = false;
+	public bool p2Dead = false;
+    public bool p3Dead = false;
+    public bool p4Dead = false;
     private bool delay = true;
 	public int debugTEMP;
 
@@ -20,41 +21,37 @@ public class DialogueManagerWrapper : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
+    void Start()
+    {
+        if (playerSettings.playerActive_01 == false)
+            p1Dead = true;
+        if (playerSettings.playerActive_02 == false)
+            p2Dead = true;
+        if (playerSettings.playerActive_03 == false)
+            p3Dead = true;
+        if (playerSettings.playerActive_04 == false)
+            p4Dead = true;
+    }
+
     void Update()
     {
         int nextEventNum = 0;
-        // Change how death detecion works because players never go null
-        if (player1 != null)
-        {
-            if (player1.activeInHierarchy && player2 == null && player3 == null && player4 == null)
-                nextEventNum = 3;
-        }
-        if (player2 != null)
-        {
-            if (player2.activeInHierarchy && player1 == null && player3 == null && player4 == null)
-            {
-                nextEventNum = 4;
-                print("test");
-            }
-        }
-        if (player3 != null)
-        {
-            if (player3.activeInHierarchy && player2 == null && player1 == null && player4 == null)
-                nextEventNum = 5;
-        }
-        if (player4 != null)
-        {
-            if (player4.activeInHierarchy && player2 == null && player3 == null && player1 == null)
-                nextEventNum = 6;
-        }
+        if (p1Dead == false && p2Dead == true && p3Dead == true && p4Dead == true)
+            nextEventNum = 3;
+        else if (p1Dead == true && p2Dead == false && p3Dead == true && p4Dead == true)
+            nextEventNum = 4;
+        else if (p1Dead == true && p2Dead == true && p3Dead == false && p4Dead == true)
+            nextEventNum = 5;
+        else if (p1Dead == true && p2Dead == true && p3Dead == true && p4Dead == false)
+            nextEventNum = 6;
 
         if (nextEventNum == 1)
         {
-
+            // <blank>
         }
         else if (nextEventNum == 2)
         {
-
+            // <blank>
         }
         else if (nextEventNum == 3)
         {

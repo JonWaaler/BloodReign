@@ -58862,9 +58862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8bed2711fa87f478877c873674a151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievement: 0
-  achievementPos: {x: 300, y: -270, z: 0}
-  time: 0
 --- !u!4 &1592273394
 Transform:
   m_ObjectHideFlags: 0
@@ -58890,10 +58887,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1932332a6e72a3d4786d695253d5ec3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1Win: 1
-  p2Win: 0
-  p3Win: 0
-  p4Win: 0
+  playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
+  p1Dead: 0
+  p2Dead: 0
+  p3Dead: 0
+  p4Dead: 0
   debugTEMP: 0
   p1Wins: {fileID: 106054061}
   p2Wins: {fileID: 503447681}
