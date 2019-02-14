@@ -58838,7 +58838,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1592273394}
-  - component: {fileID: 1592273393}
   - component: {fileID: 1592273395}
   - component: {fileID: 1592273396}
   - component: {fileID: 1592273397}
@@ -58851,17 +58850,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1592273393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1592273392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8bed2711fa87f478877c873674a151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1592273394
 Transform:
   m_ObjectHideFlags: 0
@@ -58979,7 +58967,7 @@ MonoBehaviour:
   - {fileID: 1017287885113860, guid: 239a63b5f46112145ab552654ad9d875, type: 2}
   - {fileID: 1805361235938644, guid: f799958a9ab9d364b9ca088ccb4767e5, type: 2}
   - {fileID: 1958888004881342, guid: 33bb36c6cc92bc24fb4b36a1b4156468, type: 2}
-  - {fileID: 1958888004881342, guid: 33bb36c6cc92bc24fb4b36a1b4156468, type: 2}
+  - {fileID: 1792544373268110, guid: 5be7383f13320a946b01a9cc1f005c53, type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   playerHealthANDReload:
   - {fileID: 1492958002}
