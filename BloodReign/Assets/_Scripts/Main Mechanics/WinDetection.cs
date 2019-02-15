@@ -81,6 +81,11 @@ public class WinDetection : MonoBehaviour {
             {
                 print("Removed a life from player");
                 //slider_PlayerHealth.value = 100;
+                // Top left
+                // x = -34.2 z = 10
+                // Bottom right
+                // x = 50 z = -50
+                transform.position = new Vector3(Random.Range(-34,50), 1, Random.Range(10,-50));
                 GetComponent<Player>().activeState = PlayerState.dead;
             }
             else

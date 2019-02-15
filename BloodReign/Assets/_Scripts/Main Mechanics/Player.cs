@@ -193,7 +193,7 @@ public class Player : MonoBehaviour {
                     item.GetComponent<SkinnedMeshRenderer>().material = Ghost_Mat;
                 }
             }
-            else if(mr.Count > 0)
+            if(mr.Count > 0)
             {
                 foreach (var item in mr)
                 {
@@ -232,6 +232,7 @@ public class Player : MonoBehaviour {
             // The Respawn button
             if (Input.GetButtonDown(AButton_PNum) && GetComponent<WinDetection>().slider_PlayerHealth.value >= 100)
             {
+
                 rb.transform.position = new Vector3(rb.transform.position.x, 1, rb.transform.position.z);
                 GetComponent<CapsuleCollider>().enabled = true;
                 elementRef.gameObject.SetActive(true);
