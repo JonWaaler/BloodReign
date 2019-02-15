@@ -13,6 +13,7 @@ public class GameManager_UI : MonoBehaviour {
     public float delay = 3;
 
     // Scriptable Objects
+    [Header("Scriptable objects")]
     public PlayerSettings playerSettings;
     public GameSettings gameSettings;
 
@@ -124,6 +125,7 @@ public class GameManager_UI : MonoBehaviour {
 
             if(t_delay > delay){
                 //Restart_Canvus.SetActive(true);
+                
                 SceneManager.LoadScene(0);
                 t_delay = 0;
             }

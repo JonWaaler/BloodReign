@@ -28,6 +28,9 @@ public class UI_Controller : MonoBehaviour
     private Animator[] CardAnim;
     private Animator[] CardBackAnim;
 
+    [Header("Sound Manager")]
+    public SoundManager soundManager;
+
     private bool[] CharacterSelect;
     private bool[] GunSelect;
     private bool[] axisInUse;
@@ -46,6 +49,7 @@ public class UI_Controller : MonoBehaviour
 
     private void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         CardAnim = new Animator[4];
         CardBackAnim = new Animator[4];
         for (int i = 0; i < 4; i++)
@@ -227,6 +231,7 @@ public class UI_Controller : MonoBehaviour
                     playerSettings.gunSelection_03 = gunCounter[2];
                     playerSettings.gunSelection_04 = gunCounter[3];
 
+                    soundManager.Stop(Sounds.SoundName.Menu_Music);
                     SceneManager.LoadScene(1);
                 }
             }

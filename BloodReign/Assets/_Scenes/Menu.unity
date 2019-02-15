@@ -479,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &49213292
 Transform:
   m_ObjectHideFlags: 0
@@ -1876,6 +1876,77 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 539661322}
   m_CullTransparentMesh: 0
+--- !u!1 &560016032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560016034}
+  - component: {fileID: 560016033}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &560016033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 560016032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa861178beae2c41abd7b83037105fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - soundName: 0
+    clip: {fileID: 8300000, guid: afcb41eb472f44b428727eecfbd38802, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 1
+    clip: {fileID: 8300000, guid: 0ef327cf2f86d864eb9c8dd07bfb5b68, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 2
+    clip: {fileID: 8300000, guid: e445323fd5c53fb4bab57306059e7be6, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 3
+    clip: {fileID: 8300000, guid: 7a228580a4263834185834a3d430457d, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 4
+    clip: {fileID: 8300000, guid: 04e7cb25a79f4144aa8a501675ddf87b, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 5
+    clip: {fileID: 8300000, guid: 8caa172541a6023449272dd97919f615, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+--- !u!4 &560016034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 560016032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9202309, y: -17.155151, z: -17.072048}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574959941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,7 +2256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &664424859
 Transform:
   m_ObjectHideFlags: 0
@@ -2740,7 +2811,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.09019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.49803922}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.3764706}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -4400,7 +4471,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.09019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.49803922}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.3764706}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5958,7 +6029,6 @@ GameObject:
   - component: {fileID: 1481733760}
   - component: {fileID: 1481733759}
   - component: {fileID: 1481733762}
-  - component: {fileID: 1481733764}
   - component: {fileID: 1481733763}
   m_Layer: 0
   m_Name: EventSystem
@@ -6119,24 +6189,8 @@ MonoBehaviour:
   - {fileID: 1049199948}
   - {fileID: 890545671}
   - {fileID: 973808951}
+  soundManager: {fileID: 0}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
---- !u!114 &1481733764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1481733758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa861178beae2c41abd7b83037105fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - soundName: 5
-    clip: {fileID: 8300000, guid: 8caa172541a6023449272dd97919f615, type: 3}
-    vol: 1
-    pitch: 1
-    source: {fileID: 0}
 --- !u!1 &1484319347
 GameObject:
   m_ObjectHideFlags: 0
@@ -7929,7 +7983,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.09019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.49803922}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.3764706}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1

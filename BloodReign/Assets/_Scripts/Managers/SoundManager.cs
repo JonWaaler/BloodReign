@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour {
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         foreach (var s in sounds)
         {
@@ -43,6 +43,24 @@ public class SoundManager : MonoBehaviour {
                     return;
                 }
                 s.source.Play();
+                return;
+            }
+        }
+
+    }
+
+    public void Stop(Sounds.SoundName name)
+    {
+        foreach (var s in sounds)
+        {
+            if (s.soundName == name)
+            {
+                if (s.source == null)
+                {
+                    Debug.LogError("Source Not Found", this);
+                    return;
+                }
+                s.source.Stop();
                 return;
             }
         }
