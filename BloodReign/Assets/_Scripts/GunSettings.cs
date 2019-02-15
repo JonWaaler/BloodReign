@@ -154,7 +154,7 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_01 == 2)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[2]);
             playerInst.transform.SetParent(players[0]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.roll;
@@ -162,9 +162,11 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_01 == 3)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[4]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
             playerInst.transform.SetParent(players[0]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.invisible;
+            playerInst.transform.parent.GetComponent<Player>().switchPlayer(PlayerAbil.invisible);
             // clown boy
         }
 
@@ -189,7 +191,7 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_02 == 2)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[2]);
             playerInst.transform.SetParent(players[1]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
@@ -198,9 +200,11 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_02 == 3)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[4]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
             playerInst.transform.SetParent(players[1]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.invisible;
+            playerInst.transform.parent.GetComponent<Player>().switchPlayer(PlayerAbil.invisible);
         }
 
 
@@ -224,7 +228,7 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_03 == 2)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[2]);
             playerInst.transform.SetParent(players[2]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
@@ -233,9 +237,11 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_03 == 3)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[4]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
             playerInst.transform.SetParent(players[2]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.invisible;
+            playerInst.transform.parent.GetComponent<Player>().switchPlayer(PlayerAbil.invisible);
         }
 
 
@@ -258,7 +264,7 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_04 == 2)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[2]);
             playerInst.transform.SetParent(players[3]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
             playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.roll;
@@ -266,9 +272,11 @@ public class GunSettings : MonoBehaviour
         }
         else if (playerSettings.characterSelection_04 == 3)
         {
-            GameObject playerInst = Instantiate<GameObject>(playersMesh[4]);
+            GameObject playerInst = Instantiate<GameObject>(playersMesh[3]);
             playerInst.transform.SetParent(players[3]);
             playerInst.transform.localPosition = Vector3.zero + Vector3.up * 0.5f;
+            playerInst.transform.parent.GetComponent<Player>().playerEnum = PlayerAbil.invisible;
+            playerInst.transform.parent.GetComponent<Player>().switchPlayer(PlayerAbil.invisible);
         }
 
         // This makes sure we donnot have game UI that is not nessasary
