@@ -1906,10 +1906,10 @@ MonoBehaviour:
   abilCool: 1
   abilLength: 30
   lerpSpd: 31.9
-  lerpReelSpd: 50
+  lerpReelSpd: 60
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
-  grappleDmg: 10
+  grappleDmg: 25
 --- !u!114 &211271530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,8 +1950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492271462102a6a418e22db328fbd9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 4
+  abilCool: 4
+  abilLength: 5
   lerpSpd: 0.5
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
@@ -2094,8 +2094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilCool: 4
-  abilLength: 8
-  lerpSpd: 60
+  abilLength: 10
+  lerpSpd: 70
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
@@ -46036,10 +46036,10 @@ MonoBehaviour:
   abilCool: 1
   abilLength: 30
   lerpSpd: 31.9
-  lerpReelSpd: 50
+  lerpReelSpd: 60
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
-  grappleDmg: 10
+  grappleDmg: 25
 --- !u!114 &1256823346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46080,8 +46080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492271462102a6a418e22db328fbd9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 4
+  abilCool: 4
+  abilLength: 5
   lerpSpd: 0.5
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
@@ -46224,8 +46224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilCool: 4
-  abilLength: 8
-  lerpSpd: 60
+  abilLength: 10
+  lerpSpd: 70
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
@@ -51662,10 +51662,10 @@ MonoBehaviour:
   abilCool: 1
   abilLength: 30
   lerpSpd: 31.9
-  lerpReelSpd: 50
+  lerpReelSpd: 60
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
-  grappleDmg: 10
+  grappleDmg: 25
 --- !u!114 &1417814884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51739,8 +51739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492271462102a6a418e22db328fbd9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 4
+  abilCool: 4
+  abilLength: 5
   lerpSpd: 0.5
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
@@ -51850,8 +51850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilCool: 4
-  abilLength: 8
-  lerpSpd: 60
+  abilLength: 10
+  lerpSpd: 70
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
@@ -65705,10 +65705,10 @@ MonoBehaviour:
   abilCool: 1
   abilLength: 30
   lerpSpd: 31.9
-  lerpReelSpd: 50
+  lerpReelSpd: 60
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
-  grappleDmg: 10
+  grappleDmg: 25
 --- !u!114 &1854359602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65782,8 +65782,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492271462102a6a418e22db328fbd9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 4
+  abilCool: 4
+  abilLength: 5
   lerpSpd: 0.5
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
@@ -65893,8 +65893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilCool: 4
-  abilLength: 8
-  lerpSpd: 60
+  abilLength: 10
+  lerpSpd: 70
   lerpReelSpd: 0
   collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
