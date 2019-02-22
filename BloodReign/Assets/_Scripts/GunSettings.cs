@@ -9,10 +9,10 @@ public class GunSettings : MonoBehaviour
      * * * * * * * * * * * * * * * * * * * * * */
     // This holds a reference of every gun and we just enable the gun that the player chooses
     // GUN REF's
-    public GameObject p1Gun1, p1Gun2, p1Gun3; // Player 1 guns
-    public GameObject p2Gun1, p2Gun2, p2Gun3; // Player 2 guns
-    public GameObject p3Gun1, p3Gun2, p3Gun3; // Player 3 guns
-    public GameObject p4Gun1, p4Gun2, p4Gun3; // Player 4 guns
+    public GameObject p1Gun1, p1Gun2, p1Gun3, p1Gun4; // Player 1 guns
+    public GameObject p2Gun1, p2Gun2, p2Gun3, p2Gun4; // Player 2 guns
+    public GameObject p3Gun1, p3Gun2, p3Gun3, p3Gun4; // Player 3 guns
+    public GameObject p4Gun1, p4Gun2, p4Gun3, p4Gun4; // Player 4 guns
 
     [Header("Reference for player")]
     public List<Transform> players;
@@ -35,18 +35,22 @@ public class GunSettings : MonoBehaviour
         p1Gun1.SetActive(false);
         p1Gun2.SetActive(false);
         p1Gun3.SetActive(false);
+        p1Gun4.SetActive(false);
 
         p2Gun1.SetActive(false);
         p2Gun2.SetActive(false);
         p2Gun3.SetActive(false);
+        p2Gun4.SetActive(false);
 
         p3Gun1.SetActive(false);
         p3Gun2.SetActive(false);
         p3Gun3.SetActive(false);
+        p3Gun4.SetActive(false);
 
         p4Gun1.SetActive(false);
         p4Gun2.SetActive(false);
         p4Gun3.SetActive(false);
+        p4Gun4.SetActive(false);
 
         // 0 = pistol = earth
         // 1 = sniper = lightning
@@ -71,6 +75,11 @@ public class GunSettings : MonoBehaviour
             playersElements[0] = Instantiate(Element_Wind).transform;
 
         }
+        else if (playerSettings.gunSelection_01 == 3)
+        {
+            p1Gun4.SetActive(true); // rocket
+            playersElements[0] = Instantiate(Element_Fire).transform;
+        }
         // The fire needs 
         // "playersElements[0].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();"
         // in addition. It will look the same as the earths
@@ -94,6 +103,11 @@ public class GunSettings : MonoBehaviour
             playersElements[1] = Instantiate(Element_Wind).transform;
 
         }
+        else if (playerSettings.gunSelection_02 == 3)
+        {
+            p2Gun4.SetActive(true); // rocket
+            playersElements[1] = Instantiate(Element_Fire).transform;
+        }
 
         if (playerSettings.gunSelection_03 == 0)
         {
@@ -114,6 +128,11 @@ public class GunSettings : MonoBehaviour
             playersElements[2] = Instantiate(Element_Wind).transform;
 
         }
+        else if (playerSettings.gunSelection_03 == 3)
+        {
+            p3Gun4.SetActive(true); // rocket
+            playersElements[2] = Instantiate(Element_Fire).transform;
+        }
 
         if (playerSettings.gunSelection_04 == 0)
         {
@@ -133,6 +152,11 @@ public class GunSettings : MonoBehaviour
             p4Gun3.SetActive(true);
             playersElements[3] = Instantiate(Element_Wind).transform;
 
+        }
+        else if (playerSettings.gunSelection_04 == 3)
+        {
+            p4Gun4.SetActive(true); // rocket
+            playersElements[3] = Instantiate(Element_Fire).transform;
         }
 
         // Player 1 selection

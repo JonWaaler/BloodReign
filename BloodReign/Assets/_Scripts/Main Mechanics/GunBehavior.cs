@@ -21,6 +21,10 @@ public class GunBehavior : MonoBehaviour
     public int minBullets = 4;
     public int maxBullets = 10;
 
+    [Header("ROCKET")]
+    public bool isRocket = false;
+    public string H_RS_PNum, V_RS_PNum;
+
     [Header("Particle Effects")]
     public ParticleSystem Gun_Shot; //When a bullet is shot sparks
     public ParticleSystem Gun_Smoke;// After a bullet is shot smoke, or when reloading...
@@ -120,13 +124,12 @@ public class GunBehavior : MonoBehaviour
 
             }
 
-
             for (int i = 0; i < BULLET_POOL_SIZE; i++)
             {
                 if (Bullets[i].activeInHierarchy == false)
                 {
                     // Play shot sound
-                    
+
                     soundManager.Play(Sound_GunShot);
                     // Play shot anim
                     // Play shot particles
@@ -135,6 +138,7 @@ public class GunBehavior : MonoBehaviour
                     // Recoil
                     float randomAngle = Random.Range(Recoil, -Recoil);
                     Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
+                    Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
                     Bullets[i].GetComponent<Bullet>().Damage = Damage;
                     BulletsInMag--;
 
@@ -142,6 +146,12 @@ public class GunBehavior : MonoBehaviour
                     return;
                 }
             }
+        }
+
+        if (isRocket)
+        {
+            for (int i = 0; i < BULLET_POOL_SIZE; i++)
+                Bullets[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxisRaw(V_RS_PNum), Input.GetAxisRaw(H_RS_PNum)) * Mathf.Rad2Deg + 90, 0);
         }
 
         if ((Input.GetButtonDown(xButton_PNum)) && (!requestReload))

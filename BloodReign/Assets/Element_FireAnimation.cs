@@ -60,7 +60,7 @@ public class Element_FireAnimation : MonoBehaviour {
                 else
                     orbitingObjects[i].gameObject.SetActive(true);
             }
-            print(gunBehavior.BulletsInMag);
+            //print(gunBehavior.BulletsInMag);
             float ang = (360f) / gunBehavior.BulletsInMag;
             Vector3 center = transform.position;
 
