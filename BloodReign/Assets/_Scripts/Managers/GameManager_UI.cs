@@ -101,8 +101,8 @@ public class GameManager_UI : MonoBehaviour {
                 else
                     return false;
             case 3:
-                Destroy(logo_PositionsUI[2].GetChild(logo_PositionsUI[2].childCount - 1).gameObject);
-                if (logo_PositionsUI[2].childCount > 1)
+                Destroy(logo_PositionsUI[3].GetChild(logo_PositionsUI[3].childCount - 1).gameObject);
+                if (logo_PositionsUI[3].childCount > 1)
                 {
 
                     return true;
