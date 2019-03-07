@@ -193,20 +193,20 @@ MonoBehaviour:
   TimeToReload: 1
   BulletsInMag: 5
   MagazineCapacity: 5
-  Sound_GunShot: 2
+  Sound_GunShot: 3
   subtitle: 'NOTE: Shotgun requires larger bullet pool'
   isShotGun: 0
   minBullets: 4
   maxBullets: 10
   isRocket: 1
-  H_RS_PNum: 
-  V_RS_PNum: 
+  H_RS_PNum: H_RStick1
+  V_RS_PNum: V_RStick1
   Gun_Shot: {fileID: 198278003394638352}
   Gun_Smoke: {fileID: 0}
   isShooting: 0
   BULLET_POOL_SIZE: 5
   Bullets: []
-  Prefab_Bullet: {fileID: 1861613144313666, guid: e494289eff70db1488705b5e6ab08356,
+  Prefab_Bullet: {fileID: 1861613144313666, guid: f912247f394ae7b48843f21b46ef259c,
     type: 2}
   Emitter: {fileID: 4298645127902670}
   Slider_Reload: {fileID: 0}

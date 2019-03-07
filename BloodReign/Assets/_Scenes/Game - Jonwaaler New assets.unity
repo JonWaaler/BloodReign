@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3582,22 +3582,6 @@ Prefab:
       propertyPath: soundManager
       value: 
       objectReference: {fileID: 1099083572}
-    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
-        type: 2}
-      propertyPath: H_RS_PNum
-      value: H_RStick1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
-        type: 2}
-      propertyPath: V_RS_PNum
-      value: V_RStick1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
-        type: 2}
-      propertyPath: Prefab_Bullet
-      value: 
-      objectReference: {fileID: 1861613144313666, guid: f912247f394ae7b48843f21b46ef259c,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b193baa2110d81d4488fbbe9047f4e7d, type: 2}
   m_IsPrefabAsset: 0
@@ -43156,26 +43140,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - soundName: 0
-    clip: {fileID: 8300000, guid: afcb41eb472f44b428727eecfbd38802, type: 3}
+    clip: {fileID: 8300000, guid: a16d3fb10c3bbc645947480988ed6a2c, type: 3}
     vol: 1
     pitch: 1
     source: {fileID: 0}
   - soundName: 1
-    clip: {fileID: 8300000, guid: 0ef327cf2f86d864eb9c8dd07bfb5b68, type: 3}
+    clip: {fileID: 8300000, guid: 20d6cf39a7b48d541b6dfbe4d09aa04a, type: 3}
     vol: 1
     pitch: 1
     source: {fileID: 0}
   - soundName: 2
-    clip: {fileID: 8300000, guid: e445323fd5c53fb4bab57306059e7be6, type: 3}
+    clip: {fileID: 8300000, guid: 6a69eaf7ec81d56448caf90aa7db60da, type: 3}
     vol: 1
     pitch: 1
     source: {fileID: 0}
   - soundName: 3
-    clip: {fileID: 8300000, guid: 7a228580a4263834185834a3d430457d, type: 3}
+    clip: {fileID: 8300000, guid: 112f8382e0521a34e9e11b9c6aa2df4b, type: 3}
     vol: 1
     pitch: 1
     source: {fileID: 0}
   - soundName: 4
+    clip: {fileID: 8300000, guid: 7a228580a4263834185834a3d430457d, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 5
     clip: {fileID: 8300000, guid: 04e7cb25a79f4144aa8a501675ddf87b, type: 3}
     vol: 1
     pitch: 1
@@ -58073,7 +58062,7 @@ MonoBehaviour:
   - {fileID: 1256823353}
   - {fileID: 211271537}
   playersMesh:
-  - {fileID: 1017287885113860, guid: 9f0aeba40c3ad1e4680b971121d9a461, type: 2}
+  - {fileID: 0}
   - {fileID: 1805361235938644, guid: f799958a9ab9d364b9ca088ccb4767e5, type: 2}
   - {fileID: 1958888004881342, guid: 33bb36c6cc92bc24fb4b36a1b4156468, type: 2}
   - {fileID: 1792544373268110, guid: 5be7383f13320a946b01a9cc1f005c53, type: 2}

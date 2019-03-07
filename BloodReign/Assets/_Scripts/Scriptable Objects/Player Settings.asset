@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerActive_01: 1
   characterSelection_01: 2
-  gunSelection_01: 3
+  gunSelection_01: 0
   playerColor1: 2
   playerActive_02: 1
   characterSelection_02: 3
