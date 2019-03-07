@@ -2077,6 +2077,11 @@ MonoBehaviour:
     vol: 1
     pitch: 1
     source: {fileID: 0}
+  - soundName: 6
+    clip: {fileID: 8300000, guid: 8caa172541a6023449272dd97919f615, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &560016034
 Transform:
   m_ObjectHideFlags: 0
@@ -6410,6 +6415,7 @@ MonoBehaviour:
   soundManager: {fileID: 560016033}
   menu_move: 7
   readyup: 8
+  menuMusic: 6
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
 --- !u!1 &1484319347
 GameObject:

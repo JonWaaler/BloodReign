@@ -33,6 +33,7 @@ public class UI_Controller : MonoBehaviour
     public SoundManager soundManager;
     public Sounds.SoundName menu_move;
     public Sounds.SoundName readyup;
+    public Sounds.SoundName menuMusic;
 
     private bool[] CharacterSelect;
     private bool[] GunSelect;
@@ -104,6 +105,7 @@ public class UI_Controller : MonoBehaviour
             gunCounter[i] = 0;
         }
         PRESSSTART.gameObject.SetActive(false);
+
     }
 
     private void Update()
