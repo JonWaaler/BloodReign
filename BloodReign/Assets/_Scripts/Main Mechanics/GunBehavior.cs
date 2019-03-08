@@ -92,6 +92,12 @@ public class GunBehavior : MonoBehaviour
             // Play shot smoke particles
         }
 
+        if (isShooting && BulletsInMag == 0)
+        {
+            requestReload = true;
+            soundManager.Play(Sounds.SoundName.Reload_Shotgun);
+        }
+
         if ((isShooting) && (t_RateOfFireTimer >= RateOfFire) && (BulletsInMag > 0) && !requestReload)
         {
             //Then search through bullet list and fire the first inactive

@@ -90,7 +90,7 @@ public class GunSettings : MonoBehaviour
         {
             p2Gun1.SetActive(true);
             playersElements[1] = Instantiate(Element_Earth).transform;
-            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p2Gun1.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_02 == 1)
@@ -109,7 +109,7 @@ public class GunSettings : MonoBehaviour
         {
             p2Gun4.SetActive(true); // rocket
             playersElements[1] = Instantiate(Element_Fire).transform;
-            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p2Gun1.GetComponent<GunBehavior>();
 
         }
 
@@ -117,7 +117,7 @@ public class GunSettings : MonoBehaviour
         {
             p3Gun1.SetActive(true);
             playersElements[2] = Instantiate(Element_Earth).transform;
-            playersElements[2].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
+            playersElements[2].GetComponent<Element_FireAnimation>().gunBehavior = p3Gun1.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_03 == 1)
@@ -136,7 +136,7 @@ public class GunSettings : MonoBehaviour
         {
             p3Gun4.SetActive(true); // rocket
             playersElements[2] = Instantiate(Element_Fire).transform;
-            playersElements[2].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
+            playersElements[2].GetComponent<Element_FireAnimation>().gunBehavior = p3Gun1.GetComponent<GunBehavior>();
 
         }
 
@@ -144,7 +144,7 @@ public class GunSettings : MonoBehaviour
         {
             p4Gun1.SetActive(true);
             playersElements[3] = Instantiate(Element_Earth).transform;
-            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
+            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p4Gun1.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_04 == 1)
@@ -163,7 +163,7 @@ public class GunSettings : MonoBehaviour
         {
             p4Gun4.SetActive(true); // rocket
             playersElements[3] = Instantiate(Element_Fire).transform;
-            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
+            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p4Gun1.GetComponent<GunBehavior>();
 
         }
 

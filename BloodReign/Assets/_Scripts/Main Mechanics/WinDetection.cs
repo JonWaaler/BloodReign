@@ -129,8 +129,8 @@ public class WinDetection : MonoBehaviour {
                 if (other.gameObject.GetComponent<Bullet>().ID != temp)
                 {
                     DamagePlayer(other.GetComponent<Bullet>().Damage);
+                    other.gameObject.SetActive(false);
                 }
-
             }
         }
 
