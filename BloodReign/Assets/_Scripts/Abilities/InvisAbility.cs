@@ -16,27 +16,22 @@ public class InvisAbility : AbilityCommand
     }
     private void Start()
     {
-
-
     }
     private void activate()
     {
-       // if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
-        {
-            // set time for when next use of ability available
-         //   nextAbil = Time.time + abilCool;
-            StartCoroutine(Invisible(lerpSpd, abilLength, transform.gameObject));
-        }
+        StartCoroutine(Invisible(lerpSpd, abilLength, transform.gameObject));
     }
     private IEnumerator Invisible(float easeInOut, float duration, GameObject affectedObj) // ( timeToActivate, timeToLast, player's gun)
     {
         float current = 0.0f; // ElapsedTime
-        GameObject childBody = transform.GetChild(3).gameObject;
 
+        // Skip the guns and get to the armature or w.e
+        GameObject childBody = transform.GetChild(4).gameObject;
+        // Any Child with skinnedMeshRenderer under the parent will have it disabled
         SkinnedMeshRenderer[] bodyParts = childBody.GetComponentsInChildren<SkinnedMeshRenderer>(true);
         // Ease in to invisiblity
         while (current <= easeInOut)
-        {
+        {   // if there are multiple parts in the dumb model
             if (affectedObj.transform.childCount > 0)
             {
                 foreach (SkinnedMeshRenderer limb in bodyParts)
@@ -47,10 +42,9 @@ public class InvisAbility : AbilityCommand
                     alpha.a = 1 - percent;
                     limb.material.color = alpha;
                     limb.GetComponent<SkinnedMeshRenderer>().enabled = false;
-
                 }
             }
-            else
+            else // the model is nicely made with 1 obj
             {
                 current = current + Time.deltaTime;
                 float percent = Mathf.Clamp01(current / easeInOut);
@@ -61,6 +55,7 @@ public class InvisAbility : AbilityCommand
             }
             yield return null;
         }
+        // Keep track of which gun I will disable to re-enable later
         current = 0.0f;
         int activeGun = 0;
         for (int i = 1; i < transform.childCount-1; i++)
@@ -70,17 +65,17 @@ public class InvisAbility : AbilityCommand
                 activeGun = i;
             }
         }
+        // Disable gun model
         GameObject child = transform.GetChild(activeGun).gameObject;
-        //        affectedObj.GetComponent<SkinnedMeshRenderer>().enabled = false;
         child.GetComponent<Renderer>().enabled = false;
+ 
         // Duration for invisibility
         while (current <= duration)
         {
             current = current + Time.deltaTime;
             yield return null;
         }
-        // Ease back to Visible
-//        affectedObj.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        // Ease-in to Visible
         child.GetComponent<Renderer>().enabled = true;
         current = 0.0f;
         while (current <= easeInOut)

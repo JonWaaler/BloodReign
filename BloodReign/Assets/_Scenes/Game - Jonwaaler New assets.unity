@@ -2540,6 +2540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!114 &211271531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2586,6 +2591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!136 &211271534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2696,12 +2706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 25
-  lerpReelSpd: 25
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &211271539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2713,12 +2717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 90
-  lerpReelSpd: 90
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!4 &216182237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4912689671712818, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -47432,6 +47430,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!114 &1256823347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47478,6 +47481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!136 &1256823350
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -47588,12 +47596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 25
-  lerpReelSpd: 25
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &1256823355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47605,12 +47607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 90
-  lerpReelSpd: 90
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!1 &1271903884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1984362852266496, guid: 3877bca67556d2b41bdfc0dee596631b,
@@ -53287,6 +53283,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!54 &1417814885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53367,6 +53368,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!136 &1417814890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -53443,12 +53449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 25
-  lerpReelSpd: 25
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &1417814893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53460,12 +53460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 90
-  lerpReelSpd: 90
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!4 &1417842182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4564779282234792, guid: 91a1cf35fdc25e94dbb9fa212d44db74,
@@ -60612,7 +60606,7 @@ MonoBehaviour:
   - {fileID: 1256823353}
   - {fileID: 211271537}
   playersMesh:
-  - {fileID: 1017287885113860, guid: 9f0aeba40c3ad1e4680b971121d9a461, type: 2}
+  - {fileID: 100054, guid: 1a737ceb014b4784d83695628399423f, type: 3}
   - {fileID: 1805361235938644, guid: f799958a9ab9d364b9ca088ccb4767e5, type: 2}
   - {fileID: 1958888004881342, guid: 33bb36c6cc92bc24fb4b36a1b4156468, type: 2}
   - {fileID: 1792544373268110, guid: 5be7383f13320a946b01a9cc1f005c53, type: 2}
@@ -67435,6 +67429,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc78c09218299e488c704431a6ab83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!54 &1854359603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -67515,6 +67514,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6c37769fc5964ea8e2bf95937a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilCool: 5
+  abilLength: 8
+  lerpSpd: 0.5
+  lerpReelSpd: 0.5
+  collisionSphereCmd: {fileID: 0}
 --- !u!136 &1854359608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -67591,12 +67595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdadcd5398e47be49918c9ff99ab7208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 25
-  lerpReelSpd: 25
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!114 &1854359611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67608,12 +67606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbda73a209f6c749b6b6f9246bbff09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilCool: 5
-  abilLength: 8
-  lerpSpd: 90
-  lerpReelSpd: 90
-  collisionSphereCmd: {fileID: 1686643629925024, guid: e58df1945e94c3c4e8195045a486e08d,
-    type: 2}
 --- !u!1 &1863622549
 GameObject:
   m_ObjectHideFlags: 0
