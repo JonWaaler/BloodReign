@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
 	public float lowJumpMultiplier = 2f;
 	public PlayerSettings playerSettings;
     public string abilButton;
+    public string LT_PNum;
     protected float nextAbil; // deltatime until next ability use
     public PlayerAbil playerEnum;
     public PlayerState activeState;
@@ -132,13 +133,13 @@ public class Player : MonoBehaviour {
         //if (activeState.Equals(PlayerState.dead))
         //    return;
 
-        if(transform.childCount > 3 && !playerHasModelAttached)
+        if (transform.childCount > 3 && !playerHasModelAttached)
         {
             for (int i = 0; i < transform.GetChild(transform.childCount - 1).childCount; i++)
             {
                 if (transform.GetChild(transform.childCount - 1).GetChild(i).GetComponent<SkinnedMeshRenderer>())
                     smr.Add(transform.GetChild(transform.childCount - 1).GetChild(i));
-                if(transform.GetChild(transform.childCount - 1).GetChild(i).GetComponent<MeshRenderer>())
+                if (transform.GetChild(transform.childCount - 1).GetChild(i).GetComponent<MeshRenderer>())
                     mr.Add(transform.GetChild(transform.childCount - 1).GetChild(i));
 
             }
@@ -149,20 +150,20 @@ public class Player : MonoBehaviour {
 
         xVel = Input.GetAxis(H_LS_PNum);
         zvel = Input.GetAxis(V_LS_PNum);
-                
+
         inputVector = new Vector3(xVel, 0, zvel);
-        
+
         // Player movement
-        if(activeState == PlayerState.alive)
+        if (activeState == PlayerState.alive)
         {
             if (xVel != 0 || zvel != 0)
             {
                 rb.AddForce(inputVector.normalized * speed);
             }
-            rb.velocity = new Vector3(speed * xVel, rb.velocity.y-1.5f, speed * zvel);
+            rb.velocity = new Vector3(speed * xVel, rb.velocity.y - 1.5f, speed * zvel);
 
 
-            if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
+            if ((Input.GetButtonDown(abilButton) || (Input.GetAxisRaw(LT_PNum) > 0.5)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
                 // set time for when next use of ability available
                 nextAbil = Time.time + ability.abilCool;

@@ -49,6 +49,7 @@ public class GunBehavior : MonoBehaviour
     public float t_Reload = 0;
 
     public string RT_PNum;
+    public string RB_PNum;
     public string xButton_PNum;
     public SoundManager soundManager;
     public PlayerSettings playerSettings;
@@ -81,7 +82,8 @@ public class GunBehavior : MonoBehaviour
             return;
         }
 
-        if (Input.GetAxisRaw(RT_PNum) > 0.5)
+        print(Input.GetAxisRaw(RT_PNum));
+        if ((Input.GetAxisRaw(RT_PNum) > 0.5) || (Input.GetButtonDown(RB_PNum)))
         {
             isShooting = true;
         }

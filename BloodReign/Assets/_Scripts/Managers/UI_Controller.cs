@@ -200,14 +200,6 @@ public class UI_Controller : MonoBehaviour
 
             if (GunSelect[i])
             {
-                // Reseting images
-                pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                //readyIMG[i].SetActive(true);
-                //gunPointers[i].SetActive(true);
-
                 // Increment gun counter (LS Right)
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
                 {
@@ -234,8 +226,8 @@ public class UI_Controller : MonoBehaviour
                     axisInUse[i] = false;
 
                 // Gun counter range only 0, 1 and 2
-                gunCounter[i] = (gunCounter[i] < 0) ? 2 : gunCounter[i];
-                gunCounter[i] = (gunCounter[i] > 2) ? 0 : gunCounter[i];
+                gunCounter[i] = (gunCounter[i] < 0) ? 3 : gunCounter[i];
+                gunCounter[i] = (gunCounter[i] > 3) ? 0 : gunCounter[i];
 
                 // Set gun images
                 pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
@@ -243,54 +235,19 @@ public class UI_Controller : MonoBehaviour
                 shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 if (gunCounter[i] == 0)
-                    pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
                 else if (gunCounter[i] == 1)
-                    sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
                 else if (gunCounter[i] == 2)
-                    shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
                 else if (gunCounter[i] == 3)
-                    rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
-
-                // Confirm Gun Selection
-                //if (GunSelect[i] == true && ready[i] == false)
-                //{
-                //    ready[i] = true;
-                //    joinedPlayers--;
-                //    readyPlayers++;
-                //    // Maybe make a readyplayers state
-                //}
+                    rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
 
                 if (Input.GetKeyDown("joystick " + (i + 1) + " button 0"))
                 {
                     GunSelect[i] = false;
                     ReadySelect[i] = true;
                 }
-
-                //If Start button is pressed and all joined players are ready
-                //if (Input.GetKeyDown("joystick " + (i + 1) + " button 7") && (joinedPlayers == 0) && (readyPlayers >= 2))
-                //{
-                //    GunSelect[i] = false;
-                //    gunPointers[i].SetActive(false);
-
-                //    // ---- Update Current Settings ---- //
-                //    playerSettings.playerActive_01 = playerTXT[0].activeSelf;
-                //    playerSettings.playerActive_02 = playerTXT[1].activeSelf;
-                //    playerSettings.playerActive_03 = playerTXT[2].activeSelf;
-                //    playerSettings.playerActive_04 = playerTXT[3].activeSelf;
-
-                //    playerSettings.characterSelection_01 = charCounter[0];
-                //    playerSettings.characterSelection_02 = charCounter[1];
-                //    playerSettings.characterSelection_03 = charCounter[2];
-                //    playerSettings.characterSelection_04 = charCounter[3];
-
-                //    playerSettings.gunSelection_01 = gunCounter[0];
-                //    playerSettings.gunSelection_02 = gunCounter[1];
-                //    playerSettings.gunSelection_03 = gunCounter[2];
-                //    playerSettings.gunSelection_04 = gunCounter[3];
-
-                //    soundManager.Stop(Sounds.SoundName.Menu_Music);
-                //    SceneManager.LoadScene(1);
-                //}
             }
             // if ready player deselects, disable press start canvas
             if (ReadySelect[i] == false && ready[i] == true)

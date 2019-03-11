@@ -188,16 +188,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RateOfFire: 0.75
   t_RateOfFireTimer: 1.5
-  Recoil: 15
-  Damage: 5
+  Recoil: 10
+  Damage: 6.5
   TimeToReload: 1
   BulletsInMag: 5
   MagazineCapacity: 5
   Sound_GunShot: 1
   subtitle: 'NOTE: Shotgun require larger bullet pool'
   isShotGun: 1
-  minBullets: 7
+  minBullets: 10
   maxBullets: 15
+  isRocket: 0
+  H_RS_PNum: 
+  V_RS_PNum: 
   Gun_Shot: {fileID: 198389738246999388}
   Gun_Smoke: {fileID: 0}
   isShooting: 0
@@ -209,6 +212,7 @@ MonoBehaviour:
   Slider_Reload: {fileID: 0}
   t_Reload: 0
   RT_PNum: RT1
+  RB_PNum: RB1
   xButton_PNum: XButton1
   soundManager: {fileID: 0}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}

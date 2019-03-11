@@ -212,6 +212,7 @@ MonoBehaviour:
   Slider_Reload: {fileID: 0}
   t_Reload: 0
   RT_PNum: RT1
+  RB_PNum: RB1
   xButton_PNum: XButton1
   soundManager: {fileID: 0}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}

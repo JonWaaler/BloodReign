@@ -27,37 +27,65 @@ public class GameManager_UI : MonoBehaviour {
         // Set up vars
         canvas_GameUI = GameObject.Find("Canvas_GameUI");
 
-
+        if (playerSettings.playerActive_01)
+        {
+            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_01]);
+            profileInst.transform.SetParent(logo_PositionsUI[4]);
+            //GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_01 + 5], new Vector3(500, 0, 0), Quaternion.Euler(0,0,0)); WHY CANT I MOVE THIS!
+            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_01 + 5]);
+            abilityInst.transform.SetParent(logo_PositionsUI[4]);
+        }
+        if (playerSettings.playerActive_02)
+        {
+            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_02]);
+            profileInst.transform.SetParent(logo_PositionsUI[5]);
+            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_02 + 5]);
+            abilityInst.transform.SetParent(logo_PositionsUI[5]);
+        }
+        if (playerSettings.playerActive_03)
+        {
+            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_03]);
+            profileInst.transform.SetParent(logo_PositionsUI[6]);
+            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_03 + 5]);
+            abilityInst.transform.SetParent(logo_PositionsUI[6]);
+        }
+        if (playerSettings.playerActive_04)
+        {
+            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_04]);
+            profileInst.transform.SetParent(logo_PositionsUI[7]);
+            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_04 + 5]);
+            abilityInst.transform.SetParent(logo_PositionsUI[7]);
+        }
 
         // Give the players the amount of logos per lifes
         for (int i = 0; i < gameSettings.stockCount; i++)
         {
             if (playerSettings.playerActive_01)
             {
-                GameObject logoInst = Instantiate(logos[playerSettings.characterSelection_01]);
+                GameObject logoInst = Instantiate(logos[4]);
                 logoInst.transform.SetParent(logo_PositionsUI[0]);
                 // Was a scaling issue where it change so i gotta set the scale after i parent it to the grouping object
-                logo_PositionsUI[0].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(.9f, .9f, .9f);
+                logo_PositionsUI[0].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
             }
             if (playerSettings.playerActive_02)
             {
-                GameObject logoInst = Instantiate(logos[playerSettings.characterSelection_02]);
+                GameObject logoInst = Instantiate(logos[4]);
                 logoInst.transform.SetParent(logo_PositionsUI[1]);
-                logo_PositionsUI[1].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(.9f, .9f, .9f);
+                logo_PositionsUI[1].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
 
             }
             if (playerSettings.playerActive_03)
             {
-                GameObject logoInst = Instantiate(logos[playerSettings.characterSelection_03]);
+                GameObject logoInst = Instantiate(logos[4]);
                 logoInst.transform.SetParent(logo_PositionsUI[2]);
-                logo_PositionsUI[2].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(.9f, .9f, .9f);
+                logo_PositionsUI[2].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
 
             }
             if (playerSettings.playerActive_04)
             {
-                GameObject logoInst = Instantiate(logos[playerSettings.characterSelection_04]);
+                GameObject logoInst = Instantiate(logos[4]);
                 logoInst.transform.SetParent(logo_PositionsUI[3]);
-                logo_PositionsUI[3].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(.9f, .9f, .9f);
+                logo_PositionsUI[3].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
 
             }
         }
