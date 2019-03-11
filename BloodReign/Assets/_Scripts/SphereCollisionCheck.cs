@@ -7,6 +7,7 @@ public class SphereCollisionCheck : MonoBehaviour
 
     public bool isCollision = false;
     public bool isPlayerCollision = false;
+    public bool isDummyCollision = false;// JOn Waaler New Stuff
     public GameObject playerThrow;
     public GameObject playerHit;
     public GameObject DebugVaraiable;
@@ -36,6 +37,11 @@ public class SphereCollisionCheck : MonoBehaviour
                 isPlayerCollision = true;
                 playerHit = other.gameObject;
             }
+        }
+        // Jon Waaler New Stuff
+        else if(other.transform.tag == "Dummy")
+        {
+            isDummyCollision = true;
         }
         else
         {

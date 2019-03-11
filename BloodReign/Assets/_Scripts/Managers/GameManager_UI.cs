@@ -27,8 +27,9 @@ public class GameManager_UI : MonoBehaviour {
         // Set up vars
         canvas_GameUI = GameObject.Find("Canvas_GameUI");
 
-        // Give the players the amount of logos per lifes
 
+
+        // Give the players the amount of logos per lifes
         for (int i = 0; i < gameSettings.stockCount; i++)
         {
             if (playerSettings.playerActive_01)

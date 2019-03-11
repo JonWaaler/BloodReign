@@ -12,6 +12,7 @@ public class UI_Manager : MonoBehaviour {
 	public CanvasGroup PressA;
 	
     public bool isTranslator = false;
+    public Toggle Toggle_tutorial;
 
 	private float fade = 1f;
 	private bool Fade = true;
@@ -73,8 +74,10 @@ public class UI_Manager : MonoBehaviour {
         }
 	}
 
+        
     private void Update()
     {
+
 
         if (detectLang)
         {
@@ -127,6 +130,7 @@ public class UI_Manager : MonoBehaviour {
         {
             Debug.LogError("No words to translate", this);
         }
+
     }
 
     public void OnOff(GameObject canvas)
@@ -136,8 +140,17 @@ public class UI_Manager : MonoBehaviour {
 
     public void Play()
 	{
-		SceneManager.LoadScene(1);
-	}
+        if (Toggle_tutorial.isOn)
+        {
+            // Load tutorial
+		    SceneManager.LoadScene(1);
+        }
+        else if (!Toggle_tutorial.isOn)
+        {
+
+            SceneManager.LoadScene(2);
+        }
+    }
 
 	public void Quit()
 	{

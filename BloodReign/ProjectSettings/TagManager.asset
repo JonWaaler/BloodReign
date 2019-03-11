@@ -11,6 +11,7 @@ TagManager:
   - MovableObj
   - Floor
   - Gun
+  - Dummy
   layers:
   - Default
   - TransparentFX

@@ -144,7 +144,7 @@ public class GunBehavior : MonoBehaviour
                     // Recoil
                     float randomAngle = Random.Range(Recoil, -Recoil);
                     Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
-                    Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
+                    //Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
                     Bullets[i].GetComponent<Bullet>().Damage = Damage;
                     BulletsInMag--;
 
