@@ -189,7 +189,7 @@ MonoBehaviour:
   RateOfFire: 1
   t_RateOfFireTimer: 1.5
   Recoil: 0
-  Damage: 10
+  Damage: 20
   TimeToReload: 1
   BulletsInMag: 5
   MagazineCapacity: 5

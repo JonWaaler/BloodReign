@@ -67,19 +67,21 @@ public class GunSettings : MonoBehaviour
         {
             p1Gun2.SetActive(true); // sniper
             playersElements[0] = Instantiate(Element_Electricity).transform;
+            playersElements[0].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun2.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_01 == 2)
         {
             p1Gun3.SetActive(true); // shotgun
             playersElements[0] = Instantiate(Element_Wind).transform;
+            playersElements[0].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun3.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_01 == 3)
         {
             p1Gun4.SetActive(true); // rocket
             playersElements[0] = Instantiate(Element_Fire).transform;
-            playersElements[0].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun1.GetComponent<GunBehavior>();
+            playersElements[0].GetComponent<Element_FireAnimation>().gunBehavior = p1Gun4.GetComponent<GunBehavior>();
 
         }
         // The fire needs 
@@ -97,19 +99,21 @@ public class GunSettings : MonoBehaviour
         {
             p2Gun2.SetActive(true);
             playersElements[1] = Instantiate(Element_Electricity).transform;
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p2Gun2.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_02 == 2)
         {
             p2Gun3.SetActive(true);
             playersElements[1] = Instantiate(Element_Wind).transform;
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p2Gun3.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_02 == 3)
         {
             p2Gun4.SetActive(true); // rocket
             playersElements[1] = Instantiate(Element_Fire).transform;
-            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p2Gun1.GetComponent<GunBehavior>();
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p2Gun4.GetComponent<GunBehavior>();
 
         }
 
@@ -124,19 +128,21 @@ public class GunSettings : MonoBehaviour
         {
             p3Gun2.SetActive(true);
             playersElements[2] = Instantiate(Element_Electricity).transform;
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p3Gun2.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_03 == 2)
         {
             p3Gun3.SetActive(true);
             playersElements[2] = Instantiate(Element_Wind).transform;
+            playersElements[1].GetComponent<Element_FireAnimation>().gunBehavior = p3Gun3.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_03 == 3)
         {
             p3Gun4.SetActive(true); // rocket
             playersElements[2] = Instantiate(Element_Fire).transform;
-            playersElements[2].GetComponent<Element_FireAnimation>().gunBehavior = p3Gun1.GetComponent<GunBehavior>();
+            playersElements[2].GetComponent<Element_FireAnimation>().gunBehavior = p3Gun4.GetComponent<GunBehavior>();
 
         }
 
@@ -151,19 +157,21 @@ public class GunSettings : MonoBehaviour
         {
             p4Gun2.SetActive(true);
             playersElements[3] = Instantiate(Element_Electricity).transform;
+            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p4Gun2.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_04 == 2)
         {
             p4Gun3.SetActive(true);
             playersElements[3] = Instantiate(Element_Wind).transform;
+            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p4Gun3.GetComponent<GunBehavior>();
 
         }
         else if (playerSettings.gunSelection_04 == 3)
         {
             p4Gun4.SetActive(true); // rocket
             playersElements[3] = Instantiate(Element_Fire).transform;
-            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p4Gun1.GetComponent<GunBehavior>();
+            playersElements[3].GetComponent<Element_FireAnimation>().gunBehavior = p4Gun4.GetComponent<GunBehavior>();
 
         }
 

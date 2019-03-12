@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class InvisAbility : AbilityCommand
 {
@@ -65,18 +67,35 @@ public class InvisAbility : AbilityCommand
                 activeGun = i;
             }
         }
+        // Disable Everything
         // Disable gun model
         GameObject child = transform.GetChild(activeGun).gameObject;
         child.GetComponent<Renderer>().enabled = false;
- 
+        Player player_script = GetComponent<Player>();
+        player_script.elementRef.gameObject.SetActive(false);
+        WinDetection windection = GetComponent<WinDetection>();
+        windection.slider_PlayerHealth.gameObject.SetActive(false);
+        GameObject gunsThingy = player_script.elementRef.GetComponent<Element_FireAnimation>().gunBehavior.transform.GetChild(2).gameObject;
+        gunsThingy.SetActive(false);
+        GameObject sliderstuff = transform.GetChild(0).GetComponent<GunBehavior>().Slider_Reload.transform.parent.gameObject;
+        sliderstuff.gameObject.SetActive(false);
+
         // Duration for invisibility
         while (current <= duration)
         {
             current = current + Time.deltaTime;
             yield return null;
         }
+
+        // Enable Enerything
         // Ease-in to Visible
         child.GetComponent<Renderer>().enabled = true;
+        player_script.elementRef.gameObject.SetActive(true);
+        windection.slider_PlayerHealth.gameObject.SetActive(true);
+        gunsThingy.SetActive(true);
+        sliderstuff.gameObject.SetActive(true);
+
+
         current = 0.0f;
         while (current <= easeInOut)
         {

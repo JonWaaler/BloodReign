@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4266977627992472}
+  - component: {fileID: 114927307741476014}
   m_Layer: 0
   m_Name: Lightning 1
   m_TagString: Untagged
@@ -70,6 +71,24 @@ Transform:
   m_Father: {fileID: 4266977627992472}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114927307741476014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936461333808152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9eb8d9d24c95c4fa962ae6476cbcc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rot: {x: 0, y: 0, z: 0}
+  numObjects: 0
+  curObjects: 0
+  radius: 0
+  orbitingObjects: []
+  useThisShit: 0
+  gunBehavior: {fileID: 0}
 --- !u!198 &198894456210384434
 ParticleSystem:
   m_ObjectHideFlags: 1
