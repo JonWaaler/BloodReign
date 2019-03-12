@@ -82,9 +82,17 @@ public class GunBehavior : MonoBehaviour
             return;
         }
 
-        print("RT : " + Input.GetAxisRaw(RT_PNum));
-        print("LT : " + Input.GetAxisRaw("LT2"));
-        if ((Input.GetAxisRaw(RT_PNum) != 0) || (Input.GetButtonDown(RB_PNum)))
+        //print("RT1 : " + Input.GetAxisRaw("RT1"));
+        //print("RT2 : " + Input.GetAxisRaw("RT2"));
+        //print("LT1 : " + Input.GetAxisRaw("LT1"));
+        //print("LT2 : " + Input.GetAxisRaw("LT2"));
+        //for (int i = 0; i < 20; i++)
+        //{
+        //    if (Input.GetKeyDown("joystick 1 button " + i)) { print("joystick 1 button " + i); }
+        //    if (Input.GetKeyDown("joystick 2 button " + i)) { print("joystick 2 button " + i); }
+        //}
+
+        if ((Input.GetAxis(RT_PNum) != 0) || (Input.GetButton(RB_PNum)))
         {
             isShooting = true;
         }
