@@ -82,8 +82,9 @@ public class GunBehavior : MonoBehaviour
             return;
         }
 
-        print(Input.GetAxisRaw(RT_PNum));
-        if ((Input.GetAxisRaw(RT_PNum) > 0.5) || (Input.GetButtonDown(RB_PNum)))
+        print("RT : " + Input.GetAxisRaw(RT_PNum));
+        print("LT : " + Input.GetAxisRaw("LT2"));
+        if ((Input.GetAxisRaw(RT_PNum) != 0) || (Input.GetButtonDown(RB_PNum)))
         {
             isShooting = true;
         }

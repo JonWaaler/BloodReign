@@ -163,7 +163,7 @@ public class Player : MonoBehaviour {
             rb.velocity = new Vector3(speed * xVel, rb.velocity.y - 1.5f, speed * zvel);
 
 
-            if ((Input.GetButtonDown(abilButton) || (Input.GetAxisRaw(LT_PNum) > 0.5)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
+            if ((Input.GetButtonDown(abilButton) || (Input.GetAxisRaw(LT_PNum) != 0)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
                 // set time for when next use of ability available
                 nextAbil = Time.time + ability.abilCool;
