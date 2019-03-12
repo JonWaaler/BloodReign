@@ -92,7 +92,7 @@ public class GunBehavior : MonoBehaviour
         //    if (Input.GetKeyDown("joystick 2 button " + i)) { print("joystick 2 button " + i); }
         //}
 
-        if ((Input.GetAxis(RT_PNum) != 0) || (Input.GetButton(RB_PNum)))
+        if ((Input.GetButton(RB_PNum)))
         {
             isShooting = true;
         }
