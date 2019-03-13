@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf4326086a1e5c4798b06ee14bdb3fb, type: 3}
+  m_Name: Ability Settings
+  m_EditorClassIdentifier: 
+  abilCool_1: 3
+  abilLength_1: 8
+  lerpSpd_1: 40
+  abilCool_2: 5
+  abilLength_2: 8
+  lerpSpd_2: 40
+  abilCool_3: 2
+  abilLength_3: 30
+  lerpSpd_3: 60
+  lerpReelSpd: 70
+  grappleDmg: 25
+  abilCool_4: 4
+  abilLength_4: 5
+  lerpSpd_4: 0.5
+  collisionSphereInit_1: {fileID: 1290587940330434, guid: 0c13826a4e3db0b4c827e78be2aaff57,
+    type: 2}
+  collisionSphereInit_2: {fileID: 1749906962109746, guid: e58df1945e94c3c4e8195045a486e08d,
+    type: 2}

@@ -113,15 +113,19 @@ public class Player : MonoBehaviour {
         {
             case PlayerAbil.roll:
                 ability = GetComponent<RollAbility>();
+                ability.abilCool = ability.abilSettings.abilCool_1;
                 break;
             case PlayerAbil.invisible:
                 ability = GetComponent<InvisAbility>();
+                ability.abilCool = ability.abilSettings.abilCool_4;
                 break;
             case PlayerAbil.teleport:
                 ability = GetComponent<TeleportAbility>();
+                ability.abilCool = ability.abilSettings.abilCool_2;
                 break;
             case PlayerAbil.hook:
                 ability = GetComponent<HookAbility>();
+                ability.abilCool = ability.abilSettings.abilCool_3;
                 break;                
         }
     }
@@ -165,6 +169,11 @@ public class Player : MonoBehaviour {
 
             if ((Input.GetButtonDown(abilButton)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
+                if(playerEnum == PlayerAbil.hook)
+                {
+                    ability.ResetSphere();
+                }
+
                 // set time for when next use of ability available
                 nextAbil = Time.time + ability.abilCool;
                 ability.AbilityExcecution();

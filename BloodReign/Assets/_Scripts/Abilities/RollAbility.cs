@@ -7,7 +7,8 @@ public class RollAbility : AbilityCommand
     private float rollDistance;
     public RollAbility() // or use awake
     {
-        rollDistance = abilLength; // actual roll distance
+        abilCool = abilSettings.abilCool_1;
+        rollDistance = abilSettings.abilLength_1; // actual roll distance
     }
     public override void AbilityExcecution()
     {
@@ -18,7 +19,7 @@ public class RollAbility : AbilityCommand
     }
     private void Start()
     {
-        
+
     }
     // Update is called once per frame
     private void activate()
@@ -26,7 +27,7 @@ public class RollAbility : AbilityCommand
         //NOTELTime.time Might break networking
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, abilLength, layerMask))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, abilSettings.abilLength_1, layerMask))
             {
                 if (hit.collider.tag.Equals("Wall"))
                 {
@@ -41,12 +42,12 @@ public class RollAbility : AbilityCommand
                 }
                 // reduce roll length just incase player rolls into wall
                 Vector3 hitPoint = transform.position + (transform.forward * (rollDistance * .8f));
-                StartCoroutine(Roll(transform.position, hitPoint, lerpSpd));
+                StartCoroutine(Roll(transform.position, hitPoint, abilSettings.lerpSpd_1));
             }
             else // max distance roll
             {
-                rollDistance = abilLength;
-                StartCoroutine(Roll(transform.position, transform.position + (transform.forward * rollDistance), lerpSpd));
+                rollDistance = abilSettings.abilLength_1;
+                StartCoroutine(Roll(transform.position, transform.position + (transform.forward * rollDistance), abilSettings.lerpSpd_1));
             }
         }
 

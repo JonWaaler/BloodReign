@@ -6,6 +6,7 @@ public class TeleportAbility : AbilityCommand
 {
     public TeleportAbility()
     {
+        abilCool = abilSettings.abilCool_2;
     }
     private GameObject sphereCol;
     public override void AbilityExcecution()
@@ -14,9 +15,9 @@ public class TeleportAbility : AbilityCommand
     }
     void Start()
     {
-        sphereCol = Instantiate(collisionSphereCmd);
+        sphereCol = Instantiate(abilSettings.collisionSphereInit_1);
         sphereCol.transform.position = transform.position;
-        sphereCol.name = "teleporter";
+        sphereCol.name = "teleporter" + transform.name.ToString();
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
         sphereCol.GetComponent<SphereCollisionCheck>().playerThrow = transform.gameObject;
@@ -29,11 +30,11 @@ public class TeleportAbility : AbilityCommand
 
     private void activate()
     {
-     //   if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
+        //   if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
         {
             // set time for when next use of ability available
-       //     nextAbil = Time.time + abilCool;
-            StartCoroutine(Teleport(transform.position, lerpSpd, abilLength));
+            //     nextAbil = Time.time + abilCool;
+            StartCoroutine(Teleport(transform.position, abilSettings.lerpSpd_2, abilSettings.abilLength_2));
         }
     }
     // NOTE: Need to turn off sphereCol if player dies

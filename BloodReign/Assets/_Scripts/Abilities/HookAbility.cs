@@ -6,11 +6,13 @@ public class HookAbility : AbilityCommand
 {
     public HookAbility()
     {
+        abilCool = abilSettings.abilCool_3;
     }
     private bool extendHook = false;
     private bool reelHook = false;
     private GameObject sphereCol;
     public float grappleDmg;
+
     private enum grabbedObj
     {
         nothing,
@@ -20,8 +22,8 @@ public class HookAbility : AbilityCommand
     };
     void Start()
     {
-        sphereCol = Instantiate(collisionSphereCmd);
-        sphereCol.name = "grappleHook";
+        sphereCol = Instantiate(abilSettings.collisionSphereInit_2);
+        sphereCol.name = "grappleHook_" + transform.name.ToString();
         sphereCol.transform.position = transform.position;
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
@@ -33,6 +35,11 @@ public class HookAbility : AbilityCommand
     {
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
+        sphereCol.GetComponent<SphereCollisionCheck>().isCollision = false;
+        sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision = false;
+        sphereCol.GetComponent<SphereCollisionCheck>().playerThrow = transform.gameObject;
+        extendHook = false;
+        reelHook = false;
     }
     public override void AbilityExcecution()
     {
@@ -40,12 +47,12 @@ public class HookAbility : AbilityCommand
     }
     private void activate()
     {
-//        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && extendHook == false && reelHook == false)
+        //        if (Input.GetButtonDown(abilButton) && Time.time > nextAbil && extendHook == false && reelHook == false)
         {
             // set time for when next use of ability available
- //           nextAbil = Time.time + abilCool;
-            sphereCol.transform.position = transform.position + (transform.forward * 1.0f);
-            StartCoroutine(HookReelOut(transform.position, lerpSpd, abilLength));
+            //           nextAbil = Time.time + abilCool;
+            sphereCol.transform.position = transform.position;
+            StartCoroutine(HookReelOut(transform.position, abilSettings.lerpSpd_3, abilSettings.abilLength_3));
         }
     }
     private IEnumerator HookReelOut(Vector3 origin, float moveSpeed, float range)
@@ -67,12 +74,18 @@ public class HookAbility : AbilityCommand
             if (sphereCol.GetComponent<SphereCollisionCheck>().isCollision)
             { // Wall hit
                 float spaceBetweenWall = (sphereCol.transform.position - transform.position).magnitude;
-                if (spaceBetweenWall < 1.0)
-                    grabbed = grabbedObj.nothing;
-                else
+                grabbed = grabbedObj.wall;
+                extendHook = false;
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2.0f, layerMask))
                 {
-                    extendHook = false;
-                    grabbed = grabbedObj.wall;
+                    if (hit.collider.tag.Equals("Wall"))
+                    {
+                        if (Mathf.Abs(hit.distance) < 2.0f)
+                        {
+                            grabbed = grabbedObj.nothing;
+                        }
+                    }
                 }
             }
             else if (sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision)
@@ -81,8 +94,15 @@ public class HookAbility : AbilityCommand
                 sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<WinDetection>().DamagePlayer(grappleDmg);
                 if (sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().activeState == PlayerState.alive)
                 {
-                    grabbed = grabbedObj.player;
-                    sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.grappled;
+                    if (sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status == StatusEffect.grappled)
+                    {
+                        grabbed = grabbedObj.wall;
+                    }
+                    else
+                    {
+                        grabbed = grabbedObj.player;
+                        sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.grappled;
+                    }
                 }
                 else
                 {
@@ -101,7 +121,6 @@ public class HookAbility : AbilityCommand
                 grabbed = grabbedObj.other;
                 current = current + Time.deltaTime * moveSpeed;
                 sphereCol.transform.position += (initalFoward * moveSpeed * Time.deltaTime);
-                nextAbil += Time.deltaTime / 2; // Don't reset cool down if extending
             }
             yield return null;
         }
@@ -109,7 +128,7 @@ public class HookAbility : AbilityCommand
         // reel back depending on grabbed obj or max length
         if (grabbed == grabbedObj.wall)
         {
-            StartCoroutine(lerpHook(transform.position, sphereCol.transform.position, lerpReelSpd * 2, transform.gameObject));
+            StartCoroutine(lerpHook(gameObject, sphereCol, abilSettings.lerpReelSpd * 2, transform.gameObject));
             while (reelHook)
             {
                 yield return null;
@@ -117,8 +136,8 @@ public class HookAbility : AbilityCommand
         }
         else if (grabbed == grabbedObj.player)
         {
-            StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit.transform.position, transform.position + (initalFoward * 1.5f), lerpReelSpd * 2, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
-            StartCoroutine(lerpHook(sphereCol.transform.position, transform.position, lerpReelSpd * 2, sphereCol));
+            StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit, gameObject, abilSettings.lerpReelSpd * 2, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
+            StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
             {
                 transform.position = origin;
@@ -128,7 +147,7 @@ public class HookAbility : AbilityCommand
         else if (grabbed == grabbedObj.nothing)
         {
             //transform.position = origin;
-            StartCoroutine(lerpHook(sphereCol.transform.position, transform.position, lerpReelSpd * 3, sphereCol.transform.gameObject));
+            StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 3, sphereCol.transform.gameObject));
             while (reelHook)
                 yield return null;
         }
@@ -143,17 +162,21 @@ public class HookAbility : AbilityCommand
             sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
 
     }
-    private IEnumerator lerpHook(Vector3 start, Vector3 end, float velocity, GameObject affectedObj)
+    private IEnumerator lerpHook(GameObject start, GameObject end, float velocity, GameObject affectedObj)
     {
         float current = 0.0f;//Elapsed time
-        float rollLengh = (end - start).magnitude; //Distance
+        float rollLengh = (end.transform.position - start.transform.position).magnitude; //Distance
         float totalTime = rollLengh / velocity; // Total time to finish distance at said velocity with: T = D/V
 
         while (current <= totalTime)
         {
+//            if((end.transform.position - start.transform.position).magnitude < .025f)
+//            {
+//                current = totalTime;
+//            }
             current = current + Time.deltaTime;
             float tValue = Mathf.Clamp01(current / totalTime);
-            affectedObj.GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(start, end, tValue));
+            affectedObj.GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(start.transform.position, end.transform.position, tValue));
             yield return null;
         }
         reelHook = false;

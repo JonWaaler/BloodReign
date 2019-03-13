@@ -8,6 +8,7 @@ public class InvisAbility : AbilityCommand
 {
     public InvisAbility()
     {
+        abilCool = abilSettings.abilCool_4;
     }
     public override void AbilityExcecution()
     {
@@ -21,7 +22,7 @@ public class InvisAbility : AbilityCommand
     }
     private void activate()
     {
-        StartCoroutine(Invisible(lerpSpd, abilLength, transform.gameObject));
+        StartCoroutine(Invisible(abilSettings.lerpSpd_4, abilSettings.abilLength_4, transform.gameObject));
     }
     private IEnumerator Invisible(float easeInOut, float duration, GameObject affectedObj) // ( timeToActivate, timeToLast, player's gun)
     {
@@ -71,6 +72,7 @@ public class InvisAbility : AbilityCommand
         // Disable gun model
         GameObject child = transform.GetChild(activeGun).gameObject;
         child.GetComponent<Renderer>().enabled = false;
+        child.GetComponentInChildren<LineRenderer>().enabled = false;
         Player player_script = GetComponent<Player>();
         player_script.elementRef.gameObject.SetActive(false);
         WinDetection windection = GetComponent<WinDetection>();
@@ -90,6 +92,7 @@ public class InvisAbility : AbilityCommand
         // Enable Enerything
         // Ease-in to Visible
         child.GetComponent<Renderer>().enabled = true;
+        child.GetComponentInChildren<LineRenderer>().enabled = true;
         player_script.elementRef.gameObject.SetActive(true);
         windection.slider_PlayerHealth.gameObject.SetActive(true);
         gunsThingy.SetActive(true);
