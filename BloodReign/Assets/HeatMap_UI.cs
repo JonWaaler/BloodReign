@@ -59,9 +59,9 @@ public class HeatMap_UI : MonoBehaviour {
     public void GenerateHeatMap()
     {
         // Text file in as file info
-        fileInfo = new FileInfo("E:/Source Tree/BloodReign/BloodReign/Assets/" + deathData + ".txt");
+        fileInfo = new FileInfo("Assets/" + deathData + ".txt");
         reader = fileInfo.OpenText();
-
+        //Resources.Load()
 
         string str_coords;
 
@@ -100,7 +100,7 @@ public class HeatMap_UI : MonoBehaviour {
     {
         //FileStream fs = new FileStream("E:/Source Tree/BloodReign/BloodReign/Assets/" + deathData + ".txt", FileMode.Append, FileAccess.Write, FileShare.Write);
         //fs.Close();
-        StreamWriter sw = new StreamWriter("E:/Source Tree/BloodReign/BloodReign/Assets/" + deathData + ".txt", true, Encoding.ASCII);
+        StreamWriter sw = new StreamWriter("Assets/" + deathData + ".txt", true, Encoding.ASCII);
         //string NextLine = x.ToString("G") + " " + z.ToString("G");
         //print(NextLine);
 
