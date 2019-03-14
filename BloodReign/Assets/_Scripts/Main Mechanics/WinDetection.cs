@@ -91,11 +91,11 @@ public class WinDetection : MonoBehaviour {
                 if (writeHeatMap)
                     heatMap.WriteSigCoords(transform.position.x, transform.position.z);
 
+                print("Death Transform Vec:" + transform.position);
 
                 transform.position = new Vector3(Random.Range(-34,50), 1, Random.Range(10,-50));
-
                     //heatMap.WriteSigCoords(transform.position.x, transform.position.z);
-                print("Wrote Signature");
+                //print("Wrote Signature");
 
                 GetComponent<Player>().activeState = PlayerState.dead;
             }

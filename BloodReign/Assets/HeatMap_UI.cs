@@ -101,8 +101,8 @@ public class HeatMap_UI : MonoBehaviour {
         //FileStream fs = new FileStream("E:/Source Tree/BloodReign/BloodReign/Assets/" + deathData + ".txt", FileMode.Append, FileAccess.Write, FileShare.Write);
         //fs.Close();
         StreamWriter sw = new StreamWriter("Assets/" + deathData + ".txt", true, Encoding.ASCII);
-        //string NextLine = x.ToString("G") + " " + z.ToString("G");
-        //print(NextLine);
+        string NextLine = x.ToString("G") + " " + z.ToString("G");
+        print(NextLine);
 
         sw.Write(x);
         sw.Write(" ");
