@@ -17498,6 +17498,7 @@ MonoBehaviour:
   heatSignature_Parent: {fileID: 0}
   deathData: DeathCoords
   amtRandomPlacements: 0
+  lines: []
 --- !u!1 &542665439
 GameObject:
   m_ObjectHideFlags: 0
@@ -40859,7 +40860,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -13.5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -40867,7 +40868,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 11.3
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalRotation.x

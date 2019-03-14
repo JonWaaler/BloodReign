@@ -13,9 +13,9 @@ public class Death : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.transform.position = Vector3.zero;
+        //collision.transform.position = Vector3.zero;
         collision.gameObject.GetComponent<WinDetection>().DamagePlayer(100);
-
+        Debug.Log("Player Pos" + collision.transform.position);
         //behaviour.players.Remove(collision.transform);
     }
 }

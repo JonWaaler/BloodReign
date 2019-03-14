@@ -89,19 +89,31 @@ public class WinDetection : MonoBehaviour {
             {
                 // We only want to write to the text file
                 if (writeHeatMap)
-                    heatMap.WriteSigCoords(transform.position.x, transform.position.z);
+                {
+                    //print("Game Object For Bellow Pos: " + gameObject.name);
+                    
+                    heatMap.WriteSigCoords(GetComponent<Transform>().position.x, transform.position.z);
 
-                print("Death Transform Vec:" + transform.position);
+                    
+                }
 
+                //print("Death Transform Vec:" + transform.position);
                 transform.position = new Vector3(Random.Range(-34,50), 1, Random.Range(10,-50));
-                    //heatMap.WriteSigCoords(transform.position.x, transform.position.z);
-                //print("Wrote Signature");
+
 
                 GetComponent<Player>().activeState = PlayerState.dead;
             }
             else
             {
-                Debug.Log("Player has no lives", gameObject);
+                //Debug.Log("Player has no lives", gameObject);
+                if (writeHeatMap)
+                {
+                    //print("Game Object For Bellow Pos: " + gameObject.name);
+                    heatMap.WriteSigCoords(transform.position.x, transform.position.z);
+                }
+
+                //print("Death Transform Vec:" + transform.position);
+
                 if (playerNum + 1 == 1)
                     GameObject.Find("_GameManager").GetComponent<DialogueManagerWrapper>().p1Dead = true;
                 else if (playerNum + 1 == 2)

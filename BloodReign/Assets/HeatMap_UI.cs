@@ -88,6 +88,10 @@ public class HeatMap_UI : MonoBehaviour {
                     sigInst.transform.SetParent(heatSignature_Parent);
                     sigInst.transform.position = new Vector3(x, 15, z);
                 }
+                else
+                {
+                    print("X Worked:" + workedX + "     Z Worked:" + workedZ);
+                }
 
             }
 
