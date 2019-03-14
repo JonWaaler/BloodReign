@@ -22,8 +22,8 @@ public class Manager_Tutorial : MonoBehaviour {
         playerIsReady[2] = false;
         playerIsReady[3] = false;
 	}
+    
 
-    int readyCount = 0;
 	// Update is called once per frame
 	void Update ()
     {
@@ -41,36 +41,38 @@ public class Manager_Tutorial : MonoBehaviour {
             Radial_Button.fillAmount -= Time.deltaTime;
         }
 
+        int readyAmt = 0;
         for (int i = 0; i < cameraBehavior.players.Count; i++)
         {
             if (playerIsReady[i])
             {
                 platforms[i].material.color = Color.green;
+                readyAmt++;
             }
         }
 
         if (Input.GetButtonDown("AButton1"))
         {
             playerIsReady[0] = true;
-            readyCount++;
+            //readyCount++;
         }
         if (Input.GetButtonDown("AButton2"))
         {
             playerIsReady[1] = true;
-            readyCount++;
+            //readyCount++;
         }
         if (Input.GetButtonDown("AButton3"))
         {
             playerIsReady[2] = true;
-            readyCount++;
+            //readyCount++;
         }
         if (Input.GetButtonDown("AButton4"))
         {
             playerIsReady[3] = true;
-            readyCount++;
+            //readyCount++;
         }
 
-        if(cameraBehavior.players.Count == readyCount)
+        if(readyAmt == cameraBehavior.players.Count)
         {
             // LoadGame
             SceneManager.LoadScene(2);
