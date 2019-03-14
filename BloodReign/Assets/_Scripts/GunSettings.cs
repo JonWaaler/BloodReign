@@ -176,6 +176,12 @@ public class GunSettings : MonoBehaviour
         }
 
         // Player 1 selection
+        /* 0 -
+         * 
+         * 
+         * 
+         */
+
         if (playerSettings.characterSelection_01 == 0)
         {
             GameObject playerInst = Instantiate<GameObject>(playersMesh[0]);

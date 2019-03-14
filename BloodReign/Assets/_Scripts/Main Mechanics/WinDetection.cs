@@ -14,11 +14,15 @@ public class WinDetection : MonoBehaviour {
     public PlayerSettings playerSettings;
     public GameManager_UI gameManager;
 
-
     // Attach to the player.
     private void Start()
     {
         cameraBehavior = FindObjectOfType<CameraBehavior>();
+    }
+
+    public void Update()
+    {
+        //particle_deathTrail.transform.position = new Vector3(transform.position.x, 1, transform.position.z);
     }
 
     private void Awake()
@@ -70,7 +74,7 @@ public class WinDetection : MonoBehaviour {
 
         // Spawn blood, set pos to bullet pos
         ParticleSystem bloodInst = Instantiate<ParticleSystem>(Particles_Blood);
-        bloodInst.transform.position = transform.position;
+        //bloodInst.transform.position = transform.position;
 
         // Wait 35 seconds to destroy the blood
         Destroy(bloodInst, 35);
@@ -80,12 +84,12 @@ public class WinDetection : MonoBehaviour {
             if (gameManager.RemoveLife(playerNum))
             {
                 print("Removed a life from player");
-                //slider_PlayerHealth.value = 100;
-                // Top left
-                // x = -34.2 z = 10
-                // Bottom right
-                // x = 50 z = -50
+
+
                 transform.position = new Vector3(Random.Range(-34,50), 1, Random.Range(10,-50));
+
+
+
                 GetComponent<Player>().activeState = PlayerState.dead;
             }
             else

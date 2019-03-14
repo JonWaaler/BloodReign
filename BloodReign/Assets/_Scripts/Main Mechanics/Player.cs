@@ -68,6 +68,7 @@ public class Player : MonoBehaviour {
     public Texture invis_Texture;
     public List<Transform> smr;
     public List<Transform> mr;
+    public GameObject particle_deathTrail;
 
     void Awake ()
 	{
@@ -101,6 +102,8 @@ public class Player : MonoBehaviour {
         p_Inst1 = Instantiate(system1);
         p_Inst.SetActive(false);
         p_Inst1.SetActive(false);
+
+
         
     }
 
@@ -186,7 +189,7 @@ public class Player : MonoBehaviour {
             }
             p_Inst.SetActive(false);
             p_Inst1.SetActive(false);
-
+            particle_deathTrail.GetComponent<TrailRenderer>().Clear();
             AliveMaterialSetter();
         }
 
@@ -219,7 +222,7 @@ public class Player : MonoBehaviour {
             {
                 rb.AddForce(inputVector.normalized * speed/2f);
             }
-            rb.velocity = new Vector3(speed * xVel, rb.velocity.y, speed/2f * zvel);
+            rb.velocity = new Vector3(speed * xVel/1.5f, rb.velocity.y, speed/1.5f * zvel);
 
             // Set Hight
             rb.transform.position = new Vector3(rb.transform.position.x, 2, rb.transform.position.z);
@@ -233,8 +236,9 @@ public class Player : MonoBehaviour {
 
             p_Inst.SetActive(true);
             p_Inst1.SetActive(true);
-            p_Inst.transform.position = new Vector3(transform.position.x, 0.69f, transform.position.z);
+            p_Inst.transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
             p_Inst1.transform.position = new Vector3(transform.position.x, 1.02f, transform.position.z);
+            particle_deathTrail.transform.position = new Vector3(transform.position.x, 1, transform.position.z);
 
             if (GetComponent<WinDetection>().slider_PlayerHealth.value < 100)
                 GetComponent<WinDetection>().slider_PlayerHealth.value += Time.deltaTime * 50f;

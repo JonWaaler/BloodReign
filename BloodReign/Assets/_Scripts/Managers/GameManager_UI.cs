@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -22,42 +23,65 @@ public class GameManager_UI : MonoBehaviour {
     public List<GameObject> logos;  // Character faces
     public List<Transform> logo_PositionsUI;    // The game that holds the logos
 
+    [Header("Profile & Element UI")]
+    public List<Image> profilesAndElements_Original;
+    public List<Image> profilesAndElements_Placement;
+
+
     private void Start()
     {
+        /* 0 - 
+         * 
+         * 
+         * */
+        
         // Set up vars
         canvas_GameUI = GameObject.Find("Canvas_GameUI");
 
         if (playerSettings.playerActive_01)
         {
-            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_01]);
-            profileInst.transform.SetParent(logo_PositionsUI[4]);
-            //GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_01 + 5], new Vector3(500, 0, 0), Quaternion.Euler(0,0,0)); WHY CANT I MOVE THIS!
-            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_01 + 5]);
-            abilityInst.transform.SetParent(logo_PositionsUI[4]);
+            profilesAndElements_Placement[0].sprite = profilesAndElements_Original[playerSettings.characterSelection_01].sprite;
+            profilesAndElements_Placement[4].sprite = profilesAndElements_Original[playerSettings.gunSelection_01 + 4].sprite;
+        }
+        else
+        {
+            profilesAndElements_Placement[0].enabled = false;
+            profilesAndElements_Placement[4].enabled = false;
         }
         if (playerSettings.playerActive_02)
         {
-            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_02]);
-            profileInst.transform.SetParent(logo_PositionsUI[5]);
-            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_02 + 5]);
-            abilityInst.transform.SetParent(logo_PositionsUI[5]);
+            profilesAndElements_Placement[1].sprite = profilesAndElements_Original[playerSettings.characterSelection_02].sprite;
+            profilesAndElements_Placement[5].sprite = profilesAndElements_Original[playerSettings.gunSelection_02 + 4].sprite;
         }
-        if (playerSettings.playerActive_03)
+        else
         {
-            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_03]);
-            profileInst.transform.SetParent(logo_PositionsUI[6]);
-            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_03 + 5]);
-            abilityInst.transform.SetParent(logo_PositionsUI[6]);
-        }
-        if (playerSettings.playerActive_04)
-        {
-            GameObject profileInst = Instantiate(logos[playerSettings.characterSelection_04]);
-            profileInst.transform.SetParent(logo_PositionsUI[7]);
-            GameObject abilityInst = Instantiate(logos[playerSettings.gunSelection_04 + 5]);
-            abilityInst.transform.SetParent(logo_PositionsUI[7]);
+            profilesAndElements_Placement[1].enabled = false;
+            profilesAndElements_Placement[5].enabled = false;
         }
 
-        // Give the players the amount of logos per lifes
+        if (playerSettings.playerActive_03)
+        {
+            profilesAndElements_Placement[2].sprite = profilesAndElements_Original[playerSettings.characterSelection_03].sprite;
+            profilesAndElements_Placement[6].sprite = profilesAndElements_Original[playerSettings.gunSelection_03 + 4].sprite;
+        }
+        else
+        {
+            profilesAndElements_Placement[2].enabled = false;
+            profilesAndElements_Placement[6].enabled = false;
+        }
+
+        if (playerSettings.playerActive_04)
+        {
+            profilesAndElements_Placement[3].sprite = profilesAndElements_Original[playerSettings.characterSelection_04].sprite;
+            profilesAndElements_Placement[7].sprite = profilesAndElements_Original[playerSettings.gunSelection_04 + 4].sprite;
+        }
+        else
+        {
+            profilesAndElements_Placement[3].enabled = false;
+            profilesAndElements_Placement[7].enabled = false;
+        }
+
+        // Give the players the amount of Heart per lifes
         for (int i = 0; i < gameSettings.stockCount; i++)
         {
             if (playerSettings.playerActive_01)

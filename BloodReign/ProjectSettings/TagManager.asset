@@ -22,7 +22,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - Death
   - 
   - 
   - 
@@ -48,4 +48,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: DeathThingy
+    uniqueID: 953100247
     locked: 0
