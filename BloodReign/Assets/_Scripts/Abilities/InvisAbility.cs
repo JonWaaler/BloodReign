@@ -72,7 +72,7 @@ public class InvisAbility : AbilityCommand
         // Disable gun model
         GameObject child = transform.GetChild(activeGun).gameObject;
         child.GetComponent<Renderer>().enabled = false;
-        //child.GetComponentInChildren<LineRenderer>().enabled = false;
+        child.GetComponentInChildren<LineRenderer>().enabled = false;
         Player player_script = GetComponent<Player>();
         player_script.elementRef.gameObject.SetActive(false);
         WinDetection windection = GetComponent<WinDetection>();
@@ -92,7 +92,7 @@ public class InvisAbility : AbilityCommand
         // Enable Enerything
         // Ease-in to Visible
         child.GetComponent<Renderer>().enabled = true;
-        //child.GetComponentInChildren<LineRenderer>().enabled = true;
+        child.GetComponentInChildren<LineRenderer>().enabled = true;
         player_script.elementRef.gameObject.SetActive(true);
         windection.slider_PlayerHealth.gameObject.SetActive(true);
         gunsThingy.SetActive(true);

@@ -7,7 +7,7 @@ public class SphereCollisionCheck : MonoBehaviour
 
     public bool isCollision = false;
     public bool isPlayerCollision = false;
-    public bool isDummyCollision = false;// JOn Waaler New Stuff
+    public bool isDummyCollision = false;
     public GameObject playerThrow;
     public GameObject playerHit;
     public GameObject DebugVaraiable;
@@ -38,14 +38,10 @@ public class SphereCollisionCheck : MonoBehaviour
                 playerHit = other.gameObject;
             }
         }
-        // Jon Waaler New Stuff
         else if(other.transform.tag == "Dummy")
         {
             isDummyCollision = true;
-        }
-        else
-        {
-            isPlayerCollision = false;
+            playerHit = other.gameObject;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -56,6 +52,11 @@ public class SphereCollisionCheck : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             isPlayerCollision = false;
+            playerHit = null;
+        }
+        if (other.transform.tag == "Dummy")
+        {
+            isDummyCollision = false;
             playerHit = null;
         }
     }

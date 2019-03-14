@@ -195,6 +195,14 @@ public class Player : MonoBehaviour {
 
         if (activeState == PlayerState.dead)
         {
+            if (playerEnum == PlayerAbil.hook)
+            {
+                // i.e you are already grappling
+                if ((Input.GetButtonDown(abilButton)) && Time.time < nextAbil)
+                {
+                    ability.ResetSphere();
+                }
+            }
             //print("Dead");
             elementRef.gameObject.SetActive(false);
 
@@ -252,6 +260,7 @@ public class Player : MonoBehaviour {
                 elementRef.gameObject.SetActive(true);
                 GetComponent<WinDetection>().slider_PlayerHealth.value = 100;
                 activeState = PlayerState.alive;
+                status = StatusEffect.nothing;
             }
         }
     }

@@ -18,6 +18,7 @@ public class HookAbility : AbilityCommand
         nothing,
         wall,
         player,
+        dummy,
         other
     };
     void Start()
@@ -33,10 +34,15 @@ public class HookAbility : AbilityCommand
     }
     public override void ResetSphere()
     {
+        if(sphereCol.GetComponent<SphereCollisionCheck>().playerHit && sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision == true)
+        {
+            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
+        }
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision = false;
+        sphereCol.GetComponent<SphereCollisionCheck>().isDummyCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().playerThrow = transform.gameObject;
         extendHook = false;
         reelHook = false;
@@ -64,12 +70,15 @@ public class HookAbility : AbilityCommand
         sphereCol.GetComponent<Collider>().enabled = true;
         sphereCol.GetComponent<SphereCollisionCheck>().isCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision = false;
+        sphereCol.GetComponent<SphereCollisionCheck>().isDummyCollision = false;
         extendHook = true;
         grabbedObj grabbed = grabbedObj.nothing;
         // extend hook out
         while (extendHook == true)
         {
-            transform.position = origin;
+            if (transform.GetComponent<Player>().status != StatusEffect.grappled)
+                transform.position = origin;
+
             // Continue Hook until any 3 conditions met
             if (sphereCol.GetComponent<SphereCollisionCheck>().isCollision)
             { // Wall hit
@@ -109,7 +118,12 @@ public class HookAbility : AbilityCommand
                     extendHook = false;
                     grabbed = grabbedObj.nothing;
                 }
-
+            }
+            else if (sphereCol.GetComponent<SphereCollisionCheck>().isDummyCollision)
+            { // Dummy hit
+                extendHook = false;
+                grabbed = grabbedObj.dummy;
+                sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<DummyDamage>().health.value -= abilSettings.grappleDmg;
             }
             else if (current > range) // Missed
             {
@@ -131,6 +145,18 @@ public class HookAbility : AbilityCommand
             StartCoroutine(lerpHook(gameObject, sphereCol, abilSettings.lerpReelSpd * 2, transform.gameObject));
             while (reelHook)
             {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2.0f, layerMask))
+                {
+                    if (hit.collider.tag.Equals("Wall"))
+                    {
+                        if (Mathf.Abs(hit.distance) < 2.0f)
+                        {
+                            StopCoroutine(lerpHook(gameObject, sphereCol, abilSettings.lerpReelSpd * 2, transform.gameObject));
+                            reelHook = false;
+                        }
+                    }
+                }
                 yield return null;
             }
         }
@@ -140,7 +166,20 @@ public class HookAbility : AbilityCommand
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
             {
-                transform.position = origin;
+                if (transform.GetComponent<Player>().status != StatusEffect.grappled)
+                {
+                    transform.position = origin;
+                }
+                yield return null;
+            }
+            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
+        }
+        else if (grabbed == grabbedObj.dummy)
+        {
+            StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit, gameObject, abilSettings.lerpReelSpd * 3, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
+            StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
+            while (reelHook)
+            {
                 yield return null;
             }
         }
@@ -151,15 +190,20 @@ public class HookAbility : AbilityCommand
             while (reelHook)
                 yield return null;
         }
+
+
+
+        if (grabbed == grabbedObj.player)
+            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
+
         // Make sure its set off after were done
         sphereCol.GetComponent<SphereCollisionCheck>().isCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision = false;
+        sphereCol.GetComponent<SphereCollisionCheck>().isDummyCollision = false;
 
         // Don't need the collider anymore
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
-        if (grabbed == grabbedObj.player)
-            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
 
     }
     private IEnumerator lerpHook(GameObject start, GameObject end, float velocity, GameObject affectedObj)
@@ -170,10 +214,10 @@ public class HookAbility : AbilityCommand
 
         while (current <= totalTime)
         {
-//            if((end.transform.position - start.transform.position).magnitude < .025f)
-//            {
-//                current = totalTime;
-//            }
+            if ((end.transform.position - start.transform.position).magnitude < .025f)
+            {
+                current = totalTime;
+            }
             current = current + Time.deltaTime;
             float tValue = Mathf.Clamp01(current / totalTime);
             affectedObj.GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(start.transform.position, end.transform.position, tValue));
