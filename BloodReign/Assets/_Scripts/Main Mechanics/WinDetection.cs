@@ -14,6 +14,10 @@ public class WinDetection : MonoBehaviour {
     public PlayerSettings playerSettings;
     public GameManager_UI gameManager;
 
+    [Header("HeatMap writing")]
+    public bool writeHeatMap = false;
+    public HeatMap_UI heatMap;
+
     // Attach to the player.
     private void Start()
     {
@@ -83,12 +87,15 @@ public class WinDetection : MonoBehaviour {
         {
             if (gameManager.RemoveLife(playerNum))
             {
-                print("Removed a life from player");
+                // We only want to write to the text file
+                if (writeHeatMap)
+                    heatMap.WriteSigCoords(transform.position.x, transform.position.z);
 
 
                 transform.position = new Vector3(Random.Range(-34,50), 1, Random.Range(10,-50));
 
-
+                    //heatMap.WriteSigCoords(transform.position.x, transform.position.z);
+                print("Wrote Signature");
 
                 GetComponent<Player>().activeState = PlayerState.dead;
             }

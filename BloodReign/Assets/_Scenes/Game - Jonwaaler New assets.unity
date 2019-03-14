@@ -3303,6 +3303,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 1
+  heatMap: {fileID: 534669913}
 --- !u!114 &211271532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3486,7 +3488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -8.799988}
+  m_AnchoredPosition: {x: 0, y: -8.799957}
   m_SizeDelta: {x: -824, y: -420}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &217035673
@@ -17235,6 +17237,7 @@ GameObject:
   - component: {fileID: 534669910}
   - component: {fileID: 534669911}
   - component: {fileID: 534669912}
+  - component: {fileID: 534669913}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -17480,6 +17483,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundManager: {fileID: 0}
+--- !u!114 &534669913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a45acbfb609e0243b3878531ad5b593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heatSignature: {fileID: 0}
+  heatSignature_Parent: {fileID: 0}
+  deathData: DeathCoords
+  amtRandomPlacements: 0
 --- !u!1 &542665439
 GameObject:
   m_ObjectHideFlags: 0
@@ -53141,6 +53159,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 1
+  heatMap: {fileID: 534669913}
 --- !u!114 &1256823348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58911,7 +58931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -8.799988}
+  m_AnchoredPosition: {x: 0, y: -8.799957}
   m_SizeDelta: {x: -824, y: -420}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1367890845
@@ -59626,6 +59646,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 1
+  heatMap: {fileID: 534669913}
 --- !u!114 &1417814888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75555,6 +75577,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 1
+  heatMap: {fileID: 534669913}
 --- !u!114 &1854359606
 MonoBehaviour:
   m_ObjectHideFlags: 0
