@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2179,6 +2179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  hookActive: 0
   grappleDmg: 25
 --- !u!114 &211271531
 MonoBehaviour:
@@ -2198,6 +2200,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 0
+  heatMap: {fileID: 0}
 --- !u!114 &211271532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2211,6 +2215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  invisPartIns: {fileID: 0}
 --- !u!136 &211271534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2325,6 +2331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  rollActive: 0
 --- !u!114 &211271539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,6 +2346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  telePartIns: {fileID: 0}
 --- !u!4 &216182237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4912689671712818, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -36366,6 +36376,26 @@ MonoBehaviour:
     vol: 1
     pitch: 1
     source: {fileID: 0}
+  - soundName: 5
+    clip: {fileID: 8300000, guid: 04e7cb25a79f4144aa8a501675ddf87b, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 5
+    clip: {fileID: 8300000, guid: 04e7cb25a79f4144aa8a501675ddf87b, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 5
+    clip: {fileID: 8300000, guid: 04e7cb25a79f4144aa8a501675ddf87b, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 5
+    clip: {fileID: 8300000, guid: 04e7cb25a79f4144aa8a501675ddf87b, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &1100329029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4601866623568326, guid: 2eac55143f450394587e2447c1b5a36f,
@@ -38740,6 +38770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  hookActive: 0
   grappleDmg: 25
 --- !u!114 &1256823347
 MonoBehaviour:
@@ -38759,6 +38791,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 0
+  heatMap: {fileID: 0}
 --- !u!114 &1256823348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38772,6 +38806,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  invisPartIns: {fileID: 0}
 --- !u!136 &1256823350
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -38886,6 +38922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  rollActive: 0
 --- !u!114 &1256823355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38899,6 +38937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  telePartIns: {fileID: 0}
 --- !u!4 &1258607203 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4375825656715928, guid: 6536f4ff816ddae44948249f2ab339e4,
@@ -45027,6 +45067,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  hookActive: 0
   grappleDmg: 25
 --- !u!54 &1417814885
 Rigidbody:
@@ -45080,6 +45122,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 0
+  heatMap: {fileID: 0}
 --- !u!114 &1417814888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45093,6 +45137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  invisPartIns: {fileID: 0}
 --- !u!136 &1417814890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -45173,6 +45219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  rollActive: 0
 --- !u!114 &1417814893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45186,6 +45234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  telePartIns: {fileID: 0}
 --- !u!4 &1417842182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4564779282234792, guid: 91a1cf35fdc25e94dbb9fa212d44db74,
@@ -50986,6 +51036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  hookActive: 0
   grappleDmg: 25
 --- !u!54 &1854359603
 Rigidbody:
@@ -51039,6 +51091,8 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
+  writeHeatMap: 0
+  heatMap: {fileID: 0}
 --- !u!114 &1854359606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51052,6 +51106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  invisPartIns: {fileID: 0}
 --- !u!136 &1854359608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -51132,6 +51188,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  rollActive: 0
 --- !u!114 &1854359611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51145,6 +51203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 0}
+  telePartIns: {fileID: 0}
 --- !u!1001 &1866469527
 Prefab:
   m_ObjectHideFlags: 0
