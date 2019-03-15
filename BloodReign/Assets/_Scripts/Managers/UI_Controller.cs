@@ -133,6 +133,7 @@ public class UI_Controller : MonoBehaviour
                 readyIMG[i].SetActive(false);
                 ReadySelect[i] = false;
                 GunSelect[i] = true;
+                gunPointers[i].SetActive(false);
             }
         }
 
@@ -200,6 +201,7 @@ public class UI_Controller : MonoBehaviour
 
             if (GunSelect[i])
             {
+                gunPointers[i].SetActive(true);
                 // Increment gun counter (LS Right)
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
                 {
@@ -263,7 +265,8 @@ public class UI_Controller : MonoBehaviour
         {
             if (CharacterSelect[i])
             {
-                //charPointers[i].SetActive(true);
+                gunPointers[i].SetActive(false);
+                charPointers[i].SetActive(true);
 
                 // Increment character counter (LS Right)
                 if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
