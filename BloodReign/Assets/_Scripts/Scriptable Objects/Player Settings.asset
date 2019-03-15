@@ -19,9 +19,9 @@ MonoBehaviour:
   characterSelection_02: 1
   gunSelection_02: 2
   playerColor2: 1
-  playerActive_03: 0
-  characterSelection_03: 0
-  gunSelection_03: 0
+  playerActive_03: 1
+  characterSelection_03: 3
+  gunSelection_03: 3
   playerColor3: 3
   playerActive_04: 0
   characterSelection_04: 0

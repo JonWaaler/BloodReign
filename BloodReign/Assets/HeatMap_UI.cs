@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
 using System;
@@ -33,7 +34,8 @@ public class HeatMap_UI : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            WriteSigCoords(19.4f, 1235.1f);
+            SceneManager.LoadScene(5);
+
         }
     }
 
