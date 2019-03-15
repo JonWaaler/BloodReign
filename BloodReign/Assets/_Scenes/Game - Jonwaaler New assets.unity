@@ -3285,6 +3285,7 @@ MonoBehaviour:
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  hookActive: 0
   grappleDmg: 25
 --- !u!114 &211271531
 MonoBehaviour:
@@ -3304,7 +3305,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 0
+  writeHeatMap: 1
   heatMap: {fileID: 534669913}
 --- !u!114 &211271532
 MonoBehaviour:
@@ -3436,6 +3437,7 @@ MonoBehaviour:
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  rollActive: 0
 --- !u!114 &211271539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53168,6 +53170,7 @@ MonoBehaviour:
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  hookActive: 0
   grappleDmg: 25
 --- !u!114 &1256823347
 MonoBehaviour:
@@ -53187,7 +53190,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 0
+  writeHeatMap: 1
   heatMap: {fileID: 534669913}
 --- !u!114 &1256823348
 MonoBehaviour:
@@ -53319,6 +53322,7 @@ MonoBehaviour:
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  rollActive: 0
 --- !u!114 &1256823355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59627,6 +59631,7 @@ MonoBehaviour:
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  hookActive: 0
   grappleDmg: 25
 --- !u!54 &1417814885
 Rigidbody:
@@ -59680,7 +59685,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 0
+  writeHeatMap: 1
   heatMap: {fileID: 534669913}
 --- !u!114 &1417814888
 MonoBehaviour:
@@ -59778,6 +59783,7 @@ MonoBehaviour:
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  rollActive: 0
 --- !u!114 &1417814893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75564,6 +75570,7 @@ MonoBehaviour:
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  hookActive: 0
   grappleDmg: 25
 --- !u!54 &1854359603
 Rigidbody:
@@ -75617,7 +75624,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 0
+  writeHeatMap: 1
   heatMap: {fileID: 534669913}
 --- !u!114 &1854359606
 MonoBehaviour:
@@ -75715,6 +75722,7 @@ MonoBehaviour:
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
+  rollActive: 0
 --- !u!114 &1854359611
 MonoBehaviour:
   m_ObjectHideFlags: 0
