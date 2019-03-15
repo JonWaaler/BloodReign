@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HookAbility : AbilityCommand
 {
+    public SoundManager soundManager;
+
     public HookAbility()
     {
         if (abilSettings != null)
@@ -51,6 +53,7 @@ public class HookAbility : AbilityCommand
     public override void AbilityExcecution()
     {
         activate();
+        soundManager.Play(Sounds.SoundName.Grapple);
     }
     private void activate()
     {

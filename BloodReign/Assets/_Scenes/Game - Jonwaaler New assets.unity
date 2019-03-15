@@ -3318,6 +3318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  invisPartIns: {fileID: 0}
 --- !u!136 &211271534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3445,6 +3446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  telePartIns: {fileID: 0}
 --- !u!4 &212666862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b5f37be14cbe4794dbb3ef37bd8388e7,
@@ -49783,6 +49785,26 @@ MonoBehaviour:
     vol: 1
     pitch: 1
     source: {fileID: 0}
+  - soundName: 9
+    clip: {fileID: 8300000, guid: 5b68c791176c35d42b4b4ed6d4c66d0b, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 10
+    clip: {fileID: 8300000, guid: 16dab512a95e6a24bbe5508661d46823, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 11
+    clip: {fileID: 8300000, guid: 996b65b2457e037459a912f6c9f36417, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
+  - soundName: 12
+    clip: {fileID: 8300000, guid: 0dddf11f62f6c424f8c49fcd3971fe3c, type: 3}
+    vol: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &1100329029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4601866623568326, guid: 2eac55143f450394587e2447c1b5a36f,
@@ -53175,6 +53197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  invisPartIns: {fileID: 0}
 --- !u!136 &1256823350
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -53302,6 +53325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  telePartIns: {fileID: 0}
 --- !u!1 &1259212167
 GameObject:
   m_ObjectHideFlags: 0
@@ -59662,6 +59686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  invisPartIns: {fileID: 0}
 --- !u!136 &1417814890
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -59755,6 +59780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  telePartIns: {fileID: 0}
 --- !u!4 &1417842182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4564779282234792, guid: 91a1cf35fdc25e94dbb9fa212d44db74,
@@ -75593,6 +75619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  invisPartIns: {fileID: 0}
 --- !u!136 &1854359608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -75686,6 +75713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  telePartIns: {fileID: 0}
 --- !u!4 &1856335313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a22930798401e004ea7e87509b457445,

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class InvisAbility : AbilityCommand
 {
+    public SoundManager soundManager;
     // Spawn Particle System
     [SerializeField]
     private GameObject invisPartIns = null;
@@ -27,6 +28,7 @@ public class InvisAbility : AbilityCommand
     }
     private void activate()
     {
+        soundManager.Play(Sounds.SoundName.Invis);
         StartCoroutine(Invisible(abilSettings.lerpSpd_4, abilSettings.abilLength_4, transform.gameObject));
     }
     private IEnumerator Invisible(float easeInOut, float duration, GameObject affectedObj) // ( timeToActivate, timeToLast, player's gun)

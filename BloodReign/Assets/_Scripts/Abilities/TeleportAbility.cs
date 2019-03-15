@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TeleportAbility : AbilityCommand
 {
+    public SoundManager soundManager;
     [SerializeField]
     private GameObject telePartIns = null;
 
@@ -34,6 +35,7 @@ public class TeleportAbility : AbilityCommand
 
     private void activate()
     {
+        soundManager.Play(Sounds.SoundName.Teleport);
         //   if (Input.GetButtonDown(abilButton) && Time.time > nextAbil)
         {
             // set time for when next use of ability available

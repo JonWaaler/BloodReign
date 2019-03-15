@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RollAbility : AbilityCommand
 {
+    public SoundManager soundManager;
     private float rollDistance;
     public RollAbility() // or use awake
     {
@@ -27,6 +28,7 @@ public class RollAbility : AbilityCommand
     // Update is called once per frame
     private void activate()
     {
+        soundManager.Play(Sounds.SoundName.Dodge);
         //NOTELTime.time Might break networking
         {
             RaycastHit hit;
