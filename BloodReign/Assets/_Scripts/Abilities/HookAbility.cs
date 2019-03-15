@@ -193,9 +193,11 @@ public class HookAbility : AbilityCommand
                 {
                     transform.position = origin;
                 }
+                if ((sphereCol.transform.position - transform.position).magnitude <= 0.5f && sphereCol.GetComponent<SphereCollisionCheck>().playerHit)
+                    sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
                 yield return null;
             }
-            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
+
             // Set a destroy for system
             Destroy(hookPartIns, 1);
 
@@ -226,11 +228,10 @@ public class HookAbility : AbilityCommand
                 yield return null;
         }
 
-
-
-        if (grabbed == grabbedObj.player)
+        if (grabbed == grabbedObj.player && sphereCol.GetComponent<SphereCollisionCheck>().playerHit)
+        {
             sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
-
+        }
         // Make sure its set off after were done
         sphereCol.GetComponent<SphereCollisionCheck>().isCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision = false;

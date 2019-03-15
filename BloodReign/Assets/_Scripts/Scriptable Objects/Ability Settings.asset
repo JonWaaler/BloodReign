@@ -29,5 +29,7 @@ MonoBehaviour:
     type: 2}
   collisionSphereInit_2: {fileID: 1749906962109746, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
+  rollPart: {fileID: 1771226587573772, guid: d7bf4e049645c3740a494ebdd54f9aeb, type: 2}
+  hookPart: {fileID: 1771226587573772, guid: d7bf4e049645c3740a494ebdd54f9aeb, type: 2}
   invisPart: {fileID: 1771226587573772, guid: d7bf4e049645c3740a494ebdd54f9aeb, type: 2}
   telePart: {fileID: 1771226587573772, guid: d7bf4e049645c3740a494ebdd54f9aeb, type: 2}
