@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3303,7 +3303,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 1
+  writeHeatMap: 0
   heatMap: {fileID: 534669913}
 --- !u!114 &211271532
 MonoBehaviour:
@@ -53160,7 +53160,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 1
+  writeHeatMap: 0
   heatMap: {fileID: 534669913}
 --- !u!114 &1256823348
 MonoBehaviour:
@@ -59647,7 +59647,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 1
+  writeHeatMap: 0
   heatMap: {fileID: 534669913}
 --- !u!114 &1417814888
 MonoBehaviour:
@@ -75578,7 +75578,7 @@ MonoBehaviour:
     type: 2}
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
   gameManager: {fileID: 534669909}
-  writeHeatMap: 1
+  writeHeatMap: 0
   heatMap: {fileID: 534669913}
 --- !u!114 &1854359606
 MonoBehaviour:

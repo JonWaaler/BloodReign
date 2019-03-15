@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8efe8af5210d0349b4793d0b766ee5b, type: 3}
   m_Name: Game Settings
   m_EditorClassIdentifier: 
-  stockCount: 3
+  stockCount: 5
