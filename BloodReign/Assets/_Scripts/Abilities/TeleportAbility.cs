@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class TeleportAbility : AbilityCommand
 {
+    [SerializeField]
+    private GameObject telePartIns = null;
+
     public TeleportAbility()
     {
-        abilCool = abilSettings.abilCool_2;
+        if (abilSettings != null)
+            abilCool = abilSettings.abilCool_2;
     }
     private GameObject sphereCol;
     public override void AbilityExcecution()
@@ -45,12 +49,24 @@ public class TeleportAbility : AbilityCommand
         sphereCol.GetComponent<Collider>().enabled = true;
         Vector3 initalFoward = transform.forward;
         float deltaX = 0;
+
+        // Spawn Particle System
+        if (telePartIns == null)
+            telePartIns = Instantiate(abilSettings.telePart);
+        telePartIns.transform.SetParent(transform);
         while (deltaX <= maxDistance)
         {
+            // Place System
+            telePartIns.transform.position = transform.position;
+
             deltaX += velocity * Time.deltaTime;
             sphereCol.transform.position += (initalFoward * velocity * Time.deltaTime);
             yield return null;
         }
+        // Set a destroy for system
+        Destroy(telePartIns, 1);
+
+
         transform.position = sphereCol.transform.position;
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;

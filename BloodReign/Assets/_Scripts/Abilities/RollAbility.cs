@@ -7,8 +7,11 @@ public class RollAbility : AbilityCommand
     private float rollDistance;
     public RollAbility() // or use awake
     {
-        abilCool = abilSettings.abilCool_1;
-        rollDistance = abilSettings.abilLength_1; // actual roll distance
+        if (abilSettings != null)
+        {
+            abilCool = abilSettings.abilCool_1;
+            rollDistance = abilSettings.abilLength_1; // actual roll distance
+        }
     }
     public override void AbilityExcecution()
     {

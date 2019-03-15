@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class InvisAbility : AbilityCommand
 {
+    // Spawn Particle System
+    [SerializeField]
+    private GameObject invisPartIns = null;
+
     public InvisAbility()
     {
-        abilCool = abilSettings.abilCool_4;
+        if (abilSettings != null)
+            abilCool = abilSettings.abilCool_4;
     }
     public override void AbilityExcecution()
     {
@@ -33,6 +38,14 @@ public class InvisAbility : AbilityCommand
         // Any Child with skinnedMeshRenderer under the parent will have it disabled
         SkinnedMeshRenderer[] bodyParts = childBody.GetComponentsInChildren<SkinnedMeshRenderer>(true);
         // Ease in to invisiblity
+
+        // Spawn Particle System
+        if (invisPartIns == null)
+            invisPartIns = Instantiate(abilSettings.invisPart);
+        // Place System
+        invisPartIns.transform.position = transform.position;
+        //        invisPartIns.GetComponent<ParticleSystem>().Play();
+
         while (current <= easeInOut)
         {   // if there are multiple parts in the dumb model
             if (affectedObj.transform.childCount > 0)
@@ -61,7 +74,7 @@ public class InvisAbility : AbilityCommand
         // Keep track of which gun I will disable to re-enable later
         current = 0.0f;
         int activeGun = 0;
-        for (int i = 1; i < transform.childCount-1; i++)
+        for (int i = 1; i < transform.childCount - 1; i++)
         {
             if (transform.GetChild(i).gameObject.activeSelf)
             {
@@ -69,36 +82,41 @@ public class InvisAbility : AbilityCommand
             }
         }
         // Disable Everything
+
+        // Set a destroy for system
+        Destroy(invisPartIns, 1);
+
         // Disable gun model
         GameObject child = transform.GetChild(activeGun).gameObject;
         child.GetComponent<Renderer>().enabled = false;
-        child.GetComponentInChildren<LineRenderer>().enabled = false;
+        child.GetComponentInChildren<LineRenderer>(true).enabled = false;
         Player player_script = GetComponent<Player>();
         player_script.elementRef.gameObject.SetActive(false);
         WinDetection windection = GetComponent<WinDetection>();
         windection.slider_PlayerHealth.gameObject.SetActive(false);
+
         GameObject gunsThingy = player_script.elementRef.GetComponent<Element_FireAnimation>().gunBehavior.transform.GetChild(2).gameObject;
         gunsThingy.SetActive(false);
         GameObject sliderstuff = transform.GetChild(0).GetComponent<GunBehavior>().Slider_Reload.transform.parent.gameObject;
         sliderstuff.gameObject.SetActive(false);
-
         // Duration for invisibility
         while (current <= duration)
         {
             current = current + Time.deltaTime;
             yield return null;
         }
-
         // Enable Enerything
+        // Spawn Particle System
+        invisPartIns = Instantiate(abilSettings.telePart);
+        // Place System
+        invisPartIns.transform.position = transform.position;
         // Ease-in to Visible
         child.GetComponent<Renderer>().enabled = true;
-        child.GetComponentInChildren<LineRenderer>().enabled = true;
+        child.GetComponentInChildren<LineRenderer>(true).enabled = true;
         player_script.elementRef.gameObject.SetActive(true);
         windection.slider_PlayerHealth.gameObject.SetActive(true);
         gunsThingy.SetActive(true);
         sliderstuff.gameObject.SetActive(true);
-
-
         current = 0.0f;
         while (current <= easeInOut)
         {
@@ -125,5 +143,8 @@ public class InvisAbility : AbilityCommand
             }
             yield return null;
         }
+        // Set a destroy for system
+        Destroy(invisPartIns, 1);
+
     }
 }

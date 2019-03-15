@@ -6,7 +6,8 @@ public class HookAbility : AbilityCommand
 {
     public HookAbility()
     {
-        abilCool = abilSettings.abilCool_3;
+        if (abilSettings != null)
+            abilCool = abilSettings.abilCool_3;
     }
     private bool extendHook = false;
     private bool reelHook = false;
@@ -34,7 +35,7 @@ public class HookAbility : AbilityCommand
     }
     public override void ResetSphere()
     {
-        if(sphereCol.GetComponent<SphereCollisionCheck>().playerHit && sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision == true)
+        if (sphereCol.GetComponent<SphereCollisionCheck>().playerHit && sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision == true)
         {
             sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
         }

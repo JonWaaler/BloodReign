@@ -29,3 +29,5 @@ MonoBehaviour:
     type: 2}
   collisionSphereInit_2: {fileID: 1749906962109746, guid: e58df1945e94c3c4e8195045a486e08d,
     type: 2}
+  invisPart: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
+  telePart: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}

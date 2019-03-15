@@ -32,4 +32,11 @@ public class AbilitySettings : ScriptableObject
 
     [Header("Grapple Ball")]
     public GameObject collisionSphereInit_2;
+
+    [Header("Invisibility Particles")]
+    public GameObject invisPart;
+
+    [Header("Teleportation Particles")]
+    public GameObject telePart;
+
 }
