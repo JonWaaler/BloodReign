@@ -3286,6 +3286,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   hookActive: 0
+  hookPartIns: {fileID: 0}
   grappleDmg: 25
 --- !u!114 &211271531
 MonoBehaviour:
@@ -3438,6 +3439,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   rollActive: 0
+  rollPartIns: {fileID: 0}
 --- !u!114 &211271539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53185,6 +53187,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   hookActive: 0
+  hookPartIns: {fileID: 0}
   grappleDmg: 25
 --- !u!114 &1256823347
 MonoBehaviour:
@@ -53337,6 +53340,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   rollActive: 0
+  rollPartIns: {fileID: 0}
 --- !u!114 &1256823355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59646,6 +59650,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   hookActive: 0
+  hookPartIns: {fileID: 0}
   grappleDmg: 25
 --- !u!54 &1417814885
 Rigidbody:
@@ -59798,6 +59803,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   rollActive: 0
+  rollPartIns: {fileID: 0}
 --- !u!114 &1417814893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75585,6 +75591,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   hookActive: 0
+  hookPartIns: {fileID: 0}
   grappleDmg: 25
 --- !u!54 &1854359603
 Rigidbody:
@@ -75737,6 +75744,7 @@ MonoBehaviour:
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
   soundManager: {fileID: 1099083572}
   rollActive: 0
+  rollPartIns: {fileID: 0}
 --- !u!114 &1854359611
 MonoBehaviour:
   m_ObjectHideFlags: 0

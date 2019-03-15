@@ -169,10 +169,14 @@ public class Player : MonoBehaviour {
             }
             rb.velocity = new Vector3(speed * xVel, rb.velocity.y - 1.5f, speed * zvel);
 
+            if (playerEnum == PlayerAbil.hook && Time.time > nextAbil)
+            {
+                ability.ResetSphere();
+            }
 
             if ((Input.GetButtonDown(abilButton)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
-                if(playerEnum == PlayerAbil.hook)
+                if (playerEnum == PlayerAbil.hook)
                 {
                     ability.ResetSphere();
                 }

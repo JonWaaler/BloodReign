@@ -35,6 +35,7 @@ public class HookAbility : AbilityCommand
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;
         sphereCol.GetComponent<SphereCollisionCheck>().playerThrow = transform.gameObject;
+        sphereCol.GetComponent<LineRenderer>().enabled = false;
         extendHook = false;
         reelHook = false;
     }
@@ -50,6 +51,7 @@ public class HookAbility : AbilityCommand
         sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isDummyCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().playerThrow = transform.gameObject;
+        sphereCol.GetComponent<LineRenderer>().enabled = false;
         extendHook = false;
         reelHook = false;
     }
@@ -81,9 +83,13 @@ public class HookAbility : AbilityCommand
         sphereCol.GetComponent<SphereCollisionCheck>().isDummyCollision = false;
         extendHook = true;
         grabbedObj grabbed = grabbedObj.nothing;
+        sphereCol.GetComponent<LineRenderer>().enabled = true;
         // extend hook out
         while (extendHook == true)
         {
+            sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
+            sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
+
             if (transform.GetComponent<Player>().status != StatusEffect.grappled)
                 transform.position = origin;
 
@@ -144,6 +150,7 @@ public class HookAbility : AbilityCommand
                 grabbed = grabbedObj.other;
                 current = current + Time.deltaTime * moveSpeed;
                 sphereCol.transform.position += (initalFoward * moveSpeed * Time.deltaTime);
+                sphereCol.transform.forward = initalFoward;
             }
             yield return null;
         }
@@ -160,6 +167,7 @@ public class HookAbility : AbilityCommand
             StartCoroutine(lerpHook(gameObject, sphereCol, abilSettings.lerpReelSpd * 2, transform.gameObject));
             while (reelHook)
             {
+                sphereCol.transform.forward = initalFoward;
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2.0f, layerMask))
                 {
@@ -172,6 +180,8 @@ public class HookAbility : AbilityCommand
                         }
                     }
                 }
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
                 yield return null;
             }
             // Set a destroy for system
@@ -189,12 +199,16 @@ public class HookAbility : AbilityCommand
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
             {
+                sphereCol.transform.forward = initalFoward;
                 if (transform.GetComponent<Player>().status != StatusEffect.grappled)
                 {
                     transform.position = origin;
                 }
                 if ((sphereCol.transform.position - transform.position).magnitude <= 0.5f && sphereCol.GetComponent<SphereCollisionCheck>().playerHit)
                     sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
+
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
                 yield return null;
             }
 
@@ -214,6 +228,9 @@ public class HookAbility : AbilityCommand
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
             {
+                sphereCol.transform.forward = initalFoward;
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
                 yield return null;
             }
             // Set a destroy for system
@@ -225,7 +242,12 @@ public class HookAbility : AbilityCommand
             //transform.position = origin;
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 3, sphereCol.transform.gameObject));
             while (reelHook)
+            {
+                sphereCol.transform.forward = initalFoward;
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
                 yield return null;
+            }
         }
 
         if (grabbed == grabbedObj.player && sphereCol.GetComponent<SphereCollisionCheck>().playerHit)
@@ -236,7 +258,7 @@ public class HookAbility : AbilityCommand
         sphereCol.GetComponent<SphereCollisionCheck>().isCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isPlayerCollision = false;
         sphereCol.GetComponent<SphereCollisionCheck>().isDummyCollision = false;
-
+        sphereCol.GetComponent<LineRenderer>().enabled = false;
         // Don't need the collider anymore
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = false;
         sphereCol.GetComponent<Collider>().enabled = false;

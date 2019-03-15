@@ -27,7 +27,7 @@ MonoBehaviour:
   lerpSpd_4: 0.5
   collisionSphereInit_1: {fileID: 1290587940330434, guid: 0c13826a4e3db0b4c827e78be2aaff57,
     type: 2}
-  collisionSphereInit_2: {fileID: 1749906962109746, guid: e58df1945e94c3c4e8195045a486e08d,
+  collisionSphereInit_2: {fileID: 1296792379716552, guid: 8aeebf3fc586d374997e76d78a09827e,
     type: 2}
   rollPart: {fileID: 1771226587573772, guid: d7bf4e049645c3740a494ebdd54f9aeb, type: 2}
   hookPart: {fileID: 1771226587573772, guid: d7bf4e049645c3740a494ebdd54f9aeb, type: 2}

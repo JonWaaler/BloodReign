@@ -11,7 +11,7 @@ public class SphereCollisionCheck : MonoBehaviour
     public GameObject playerThrow;
     public GameObject playerHit;
     public GameObject DebugVaraiable;
-
+    
     private void OnTriggerStay(Collider other)
     {
         // only check for wall collisions
