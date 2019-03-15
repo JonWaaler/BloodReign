@@ -3284,6 +3284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   grappleDmg: 25
 --- !u!114 &211271531
 MonoBehaviour:
@@ -3318,6 +3319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   invisPartIns: {fileID: 0}
 --- !u!136 &211271534
 CapsuleCollider:
@@ -3433,6 +3435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
 --- !u!114 &211271539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3446,6 +3449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   telePartIns: {fileID: 0}
 --- !u!4 &212666862 stripped
 Transform:
@@ -3490,7 +3494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -8.799957}
+  m_AnchoredPosition: {x: 0, y: -8.799988}
   m_SizeDelta: {x: -824, y: -420}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &217035673
@@ -53163,6 +53167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   grappleDmg: 25
 --- !u!114 &1256823347
 MonoBehaviour:
@@ -53197,6 +53202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   invisPartIns: {fileID: 0}
 --- !u!136 &1256823350
 CapsuleCollider:
@@ -53312,6 +53318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
 --- !u!114 &1256823355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53325,6 +53332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   telePartIns: {fileID: 0}
 --- !u!1 &1259212167
 GameObject:
@@ -58956,7 +58964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -8.799957}
+  m_AnchoredPosition: {x: 0, y: -8.799988}
   m_SizeDelta: {x: -824, y: -420}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1367890845
@@ -59618,6 +59626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   grappleDmg: 25
 --- !u!54 &1417814885
 Rigidbody:
@@ -59686,6 +59695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   invisPartIns: {fileID: 0}
 --- !u!136 &1417814890
 CapsuleCollider:
@@ -59767,6 +59777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
 --- !u!114 &1417814893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59780,6 +59791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   telePartIns: {fileID: 0}
 --- !u!4 &1417842182 stripped
 Transform:
@@ -75551,6 +75563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 2
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   grappleDmg: 25
 --- !u!54 &1854359603
 Rigidbody:
@@ -75619,6 +75632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 4
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   invisPartIns: {fileID: 0}
 --- !u!136 &1854359608
 CapsuleCollider:
@@ -75700,6 +75714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
 --- !u!114 &1854359611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75713,6 +75728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilCool: 5
   abilSettings: {fileID: 11400000, guid: 43a9402b5fd6c804788482201923bb94, type: 2}
+  soundManager: {fileID: 1099083572}
   telePartIns: {fileID: 0}
 --- !u!4 &1856335313 stripped
 Transform:

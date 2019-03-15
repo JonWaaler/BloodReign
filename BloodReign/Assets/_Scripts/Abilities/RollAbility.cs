@@ -5,6 +5,7 @@ using UnityEngine;
 public class RollAbility : AbilityCommand
 {
     public SoundManager soundManager;
+    public bool rollActive;
     private float rollDistance;
     public RollAbility() // or use awake
     {
@@ -28,6 +29,7 @@ public class RollAbility : AbilityCommand
     // Update is called once per frame
     private void activate()
     {
+        rollActive = true;
         soundManager.Play(Sounds.SoundName.Dodge);
         //NOTELTime.time Might break networking
         {
@@ -77,6 +79,7 @@ public class RollAbility : AbilityCommand
         }
         //gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", originColor);
         gameObject.transform.GetComponent<Player>().status = StatusEffect.nothing;
+        rollActive = false;
     }
 
 }

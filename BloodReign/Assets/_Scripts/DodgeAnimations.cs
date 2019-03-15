@@ -5,6 +5,7 @@ using UnityEngine;
 public class DodgeAnimations : MonoBehaviour {
     Animator animator;
     private float PNum;
+    private bool dodgeActive;
 
 	// Use this for initialization
 	void Start () {
@@ -22,10 +23,11 @@ public class DodgeAnimations : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        dodgeActive = transform.parent.GetComponent<RollAbility>().rollActive;
         animator.SetFloat("InputX", Input.GetAxis("V_LStick" + PNum));
         animator.SetFloat("InputZ", Input.GetAxis("H_LStick" + PNum));
 
-        if (Input.GetButtonDown("LB" + PNum))
+        if (Input.GetButtonDown("LB" + PNum) && dodgeActive)
         {
             //switch animation
             animator.SetBool("IsDodge", true);

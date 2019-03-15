@@ -5,6 +5,7 @@ using UnityEngine;
 public class HookAbility : AbilityCommand
 {
     public SoundManager soundManager;
+    public bool hookActive = false;
 
     public HookAbility()
     {
@@ -67,6 +68,7 @@ public class HookAbility : AbilityCommand
     }
     private IEnumerator HookReelOut(Vector3 origin, float moveSpeed, float range)
     {
+        hookActive = true;
         // Make sure data is clean before we start
         sphereCol.GetComponentInChildren<MeshRenderer>().enabled = true;
         Vector3 initalFoward = transform.forward;
@@ -228,5 +230,6 @@ public class HookAbility : AbilityCommand
             yield return null;
         }
         reelHook = false;
+        hookActive = false;
     }
 }
