@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -40872,7 +40872,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -12.2
+      value: -41.5
       objectReference: {fileID: 0}
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -40910,17 +40910,31 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 52b7d70b1de7c4ce09662b77c14d9fda, type: 2}
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalScale.x
-      value: 40
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
       propertyPath: m_LocalScale.z
-      value: 40
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 114884413089088114, guid: 1241d6ce99a01e849af5ad3dce27bad1,
         type: 2}
       propertyPath: behaviour
       value: 
       objectReference: {fileID: 534669908}
+    - target: {fileID: 33745942348221960, guid: 1241d6ce99a01e849af5ad3dce27bad1,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 64306544999209392, guid: 1241d6ce99a01e849af5ad3dce27bad1,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4353393196291642, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 39.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1241d6ce99a01e849af5ad3dce27bad1, type: 2}
   m_IsPrefabAsset: 0
