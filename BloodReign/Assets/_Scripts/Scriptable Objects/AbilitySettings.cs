@@ -33,6 +33,12 @@ public class AbilitySettings : ScriptableObject
     [Header("Grapple Ball")]
     public GameObject collisionSphereInit_2;
 
+    [Header("Road Roller Particles")]
+    public GameObject rollPart;
+
+    [Header("Grapple Particles")]
+    public GameObject hookPart;
+
     [Header("Invisibility Particles")]
     public GameObject invisPart;
 

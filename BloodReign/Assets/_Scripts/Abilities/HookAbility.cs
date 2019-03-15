@@ -6,6 +6,8 @@ public class HookAbility : AbilityCommand
 {
     public SoundManager soundManager;
     public bool hookActive = false;
+    [SerializeField]
+    private GameObject hookPartIns = null;
 
     public HookAbility()
     {
@@ -116,7 +118,8 @@ public class HookAbility : AbilityCommand
                     else
                     {
                         grabbed = grabbedObj.player;
-                        sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.grappled;
+                        if (sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().playerEnum != PlayerAbil.hook)
+                            sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.grappled;
                     }
                 }
                 else
@@ -148,6 +151,12 @@ public class HookAbility : AbilityCommand
         // reel back depending on grabbed obj or max length
         if (grabbed == grabbedObj.wall)
         {
+            // Spawn Particle System
+            if (hookPartIns == null)
+                hookPartIns = Instantiate(abilSettings.hookPart);
+            hookPartIns.transform.SetParent(sphereCol.transform);
+            hookPartIns.transform.position = sphereCol.transform.position;
+
             StartCoroutine(lerpHook(gameObject, sphereCol, abilSettings.lerpReelSpd * 2, transform.gameObject));
             while (reelHook)
             {
@@ -165,9 +174,17 @@ public class HookAbility : AbilityCommand
                 }
                 yield return null;
             }
+            // Set a destroy for system
+            Destroy(hookPartIns, 1);
         }
         else if (grabbed == grabbedObj.player)
         {
+            // Spawn Particle System
+            if (hookPartIns == null)
+                hookPartIns = Instantiate(abilSettings.hookPart);
+            hookPartIns.transform.SetParent(sphereCol.transform);
+            hookPartIns.transform.position = sphereCol.transform.position;
+
             StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit, gameObject, abilSettings.lerpReelSpd * 2, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
@@ -179,15 +196,27 @@ public class HookAbility : AbilityCommand
                 yield return null;
             }
             sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
+            // Set a destroy for system
+            Destroy(hookPartIns, 1);
+
         }
         else if (grabbed == grabbedObj.dummy)
         {
+            // Spawn Particle System
+            if (hookPartIns == null)
+                hookPartIns = Instantiate(abilSettings.hookPart);
+            hookPartIns.transform.SetParent(sphereCol.transform);
+            hookPartIns.transform.position = sphereCol.transform.position;
+
             StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit, gameObject, abilSettings.lerpReelSpd * 3, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
             {
                 yield return null;
             }
+            // Set a destroy for system
+            Destroy(hookPartIns, 1);
+
         }
         else if (grabbed == grabbedObj.nothing)
         {

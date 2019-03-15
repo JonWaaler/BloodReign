@@ -7,6 +7,9 @@ public class RollAbility : AbilityCommand
     public SoundManager soundManager;
     public bool rollActive;
     private float rollDistance;
+    [SerializeField]
+    private GameObject rollPartIns = null;
+
     public RollAbility() // or use awake
     {
         if (abilSettings != null)
@@ -68,15 +71,23 @@ public class RollAbility : AbilityCommand
         float rollLengh = (target - origin).magnitude; //Distance
         float totalTime = rollLengh / velocity; // Total time to finish distance at said velocity with: T = D/V
 
+        // Spawn Particle System
+        if (rollPartIns == null)
+            rollPartIns = Instantiate(abilSettings.rollPart);
         while (current <= totalTime)
         {
             gameObject.transform.GetComponent<Player>().status = StatusEffect.invincible;
+            // Place System
+            rollPartIns.transform.position = transform.position;
 
             current += Time.deltaTime; // Elapsed time
             float tValue = Mathf.Clamp01(current / totalTime); // figure out how much of % time has passed of elaped time relative to total time 
             GetComponent<Rigidbody>().MovePosition(Vector3.Lerp(origin, target, tValue));
             yield return null;
         }
+        // Set a destroy for system
+        Destroy(rollPartIns, 1);
+
         //gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", originColor);
         gameObject.transform.GetComponent<Player>().status = StatusEffect.nothing;
         rollActive = false;
