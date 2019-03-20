@@ -23,6 +23,8 @@ public class UI_Controller : MonoBehaviour
     public GameObject[] gunPointers;
     public CanvasGroup PRESSSTART;
     public GameObject[] readyIMG;
+    public GameObject[] charRandIMG;
+    public GameObject[] gunRandIMG;
 
     public GameObject[] Card;
     public GameObject[] CardBack;
@@ -47,6 +49,8 @@ public class UI_Controller : MonoBehaviour
     private int joinedPlayers;
     private float fade = 1f;
     private bool Fade = true;
+    private bool[] isGunRand;
+    private bool[] isCharRand;
 
     public PlayerSettings playerSettings;
 
@@ -76,6 +80,8 @@ public class UI_Controller : MonoBehaviour
         ready = new bool[4];
         charCounter = new int[4];
         gunCounter = new int[4];
+        isGunRand = new bool[4];
+        isCharRand = new bool[4];
 
         readyPlayers = 0;
         joinedPlayers = 0;
@@ -96,11 +102,15 @@ public class UI_Controller : MonoBehaviour
             charPointers[i].SetActive(false);
             gunPointers[i].SetActive(false);
             readyIMG[i].SetActive(false);
+            charRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+            gunRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
 
             CharacterSelect[i] = false;
             GunSelect[i] = false;
             axisInUse[i] = false;
             playerWeapon[i] = false;
+            isCharRand[i] = false;
+            isGunRand[i] = false;
             charCounter[i] = 0;
             gunCounter[i] = 0;
         }
@@ -115,19 +125,20 @@ public class UI_Controller : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             // If BButton pressed then go back to main menu
-            if (Input.GetKeyDown("joystick " + (i + 1) + " button 1") && controllers.Contains(i + 1) && !GunSelect[i] && !ReadySelect[i])
+            if ((Input.GetKeyDown("joystick " + (i + 1) + " button 1") || Input.GetKeyDown(KeyCode.W)) && controllers.Contains(i + 1) && !GunSelect[i] && !ReadySelect[i])
                 SceneManager.LoadScene(0);
-            else if (Input.GetKeyDown("joystick " + (i + 1) + " button 1") && controllers.Contains(i + 1) && GunSelect[i] && !ReadySelect[i])
+            else if ((Input.GetKeyDown("joystick " + (i + 1) + " button 1") || Input.GetKeyDown(KeyCode.W)) && controllers.Contains(i + 1) && GunSelect[i] && !ReadySelect[i])
             {
                 // Go back to character selection
                 pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                gunRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 GunSelect[i] = false;
                 CharacterSelect[i] = true;
             }
-            else if (Input.GetKeyDown("joystick " + (i + 1) + " button 1") && controllers.Contains(i + 1) && !GunSelect[i] && ReadySelect[i])
+            else if ((Input.GetKeyDown("joystick " + (i + 1) + " button 1") || Input.GetKeyDown(KeyCode.W)) && controllers.Contains(i + 1) && !GunSelect[i] && ReadySelect[i])
             {
                 // Go back to gun selection
                 readyIMG[i].SetActive(false);
@@ -173,7 +184,7 @@ public class UI_Controller : MonoBehaviour
                     PRESSSTART.gameObject.SetActive(false);
                 }
 
-                if (Input.GetKeyDown("joystick " + (i + 1) + " button 7") && (joinedPlayers == 0) && (readyPlayers >= 2))
+                if ((Input.GetKeyDown(("joystick " + (i + 1) + " button 7")) || Input.GetKeyDown(KeyCode.Q)) && (joinedPlayers == 0) && (readyPlayers >= 2))
                 {
                     GunSelect[i] = false;
                     gunPointers[i].SetActive(false);
@@ -184,15 +195,65 @@ public class UI_Controller : MonoBehaviour
                     playerSettings.playerActive_03 = playerTXT[2].activeSelf;
                     playerSettings.playerActive_04 = playerTXT[3].activeSelf;
 
-                    playerSettings.characterSelection_01 = charCounter[0];
-                    playerSettings.characterSelection_02 = charCounter[1];
-                    playerSettings.characterSelection_03 = charCounter[2];
-                    playerSettings.characterSelection_04 = charCounter[3];
+                    // Character Update
+                    if (!isCharRand[0]) { playerSettings.characterSelection_01 = charCounter[0]; }
+                    else
+                    {
+                        charCounter[0] = Random.Range(0, 4);
+                        playerSettings.characterSelection_01 = charCounter[0];
+                    }
+                    if (!isCharRand[1]) { playerSettings.characterSelection_02 = charCounter[1]; }
+                    else
+                    {
+                        charCounter[1] = Random.Range(0, 4);
+                        playerSettings.characterSelection_02 = charCounter[1];
+                    }
+                    if (!isCharRand[2]) { playerSettings.characterSelection_03 = charCounter[2]; }
+                    else
+                    {
+                        charCounter[2] = Random.Range(0, 4);
+                        playerSettings.characterSelection_03 = charCounter[2];
+                    }
+                    if (!isCharRand[3]) { playerSettings.characterSelection_04 = charCounter[3]; }
+                    else
+                    {
+                        charCounter[3] = Random.Range(0, 4);
+                        playerSettings.characterSelection_04 = charCounter[3];
+                    }
+                    //Debug.Log("Char Counter 0 = " + charCounter[0]);
+                    //Debug.Log("Char Counter 1 = " + charCounter[1]);
+                    //Debug.Log("Char Counter 2 = " + charCounter[2]);
+                    //Debug.Log("Char Counter 3 = " + charCounter[3]);
 
-                    playerSettings.gunSelection_01 = gunCounter[0];
-                    playerSettings.gunSelection_02 = gunCounter[1];
-                    playerSettings.gunSelection_03 = gunCounter[2];
-                    playerSettings.gunSelection_04 = gunCounter[3];
+                    // Gun Update
+                    if (!isGunRand[0]) { playerSettings.gunSelection_01 = gunCounter[0]; }
+                    else
+                    {
+                        gunCounter[0] = Random.Range(0, 4);
+                        playerSettings.gunSelection_01 = gunCounter[0];
+                        //Debug.Log("Gun Counter 0 = " + gunCounter[0]);
+                    }
+                    if (!isGunRand[1]) { playerSettings.gunSelection_02 = gunCounter[1]; }
+                    else
+                    {
+                        gunCounter[1] = Random.Range(0, 4);
+                        playerSettings.gunSelection_02 = gunCounter[1];
+                        //Debug.Log("Gun Counter 1 = " + gunCounter[1]);
+                    }
+                    if (!isGunRand[2]) { playerSettings.gunSelection_03 = gunCounter[2]; }
+                    else
+                    {
+                        gunCounter[2] = Random.Range(0, 4);
+                        playerSettings.gunSelection_03 = gunCounter[2];
+                        //Debug.Log("Gun Counter 2 = " + gunCounter[2]);
+                    }
+                    if (!isGunRand[3]) { playerSettings.gunSelection_04 = gunCounter[3]; }
+                    else
+                    {
+                        gunCounter[3] = Random.Range(0, 4);
+                        playerSettings.gunSelection_04 = gunCounter[3];
+                        //Debug.Log("Gun Counter 3 = " + gunCounter[3]);
+                    }
 
                     soundManager.Stop(Sounds.SoundName.Menu_Music);
                     SceneManager.LoadScene(1);
@@ -228,14 +289,17 @@ public class UI_Controller : MonoBehaviour
                     axisInUse[i] = false;
 
                 // Gun counter range only 0, 1 and 2
-                gunCounter[i] = (gunCounter[i] < 0) ? 3 : gunCounter[i];
-                gunCounter[i] = (gunCounter[i] > 3) ? 0 : gunCounter[i];
+                gunCounter[i] = (gunCounter[i] < 0) ? 4 : gunCounter[i];
+                gunCounter[i] = (gunCounter[i] > 4) ? 0 : gunCounter[i];
 
                 // Set gun images
                 pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                gunRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                isGunRand[i] = false;
+
                 if (gunCounter[i] == 0)
                     pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
                 else if (gunCounter[i] == 1)
@@ -244,8 +308,13 @@ public class UI_Controller : MonoBehaviour
                     shotgunIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
                 else if (gunCounter[i] == 3)
                     rocketIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
+                else if (gunCounter[i] == 4)
+                {
+                    gunRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0.15f, 0.15f, 1f);
+                    isGunRand[i] = true;
+                }
 
-                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0"))
+                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0") || Input.GetKeyDown(KeyCode.Q))
                 {
                     GunSelect[i] = false;
                     ReadySelect[i] = true;
@@ -294,13 +363,15 @@ public class UI_Controller : MonoBehaviour
                     axisInUse[i] = false;
                 }
 
-                charCounter[i] = (charCounter[i] > 3) ? 0 : charCounter[i];
-                charCounter[i] = (charCounter[i] < 0) ? 3 : charCounter[i];
+                charCounter[i] = (charCounter[i] > 4) ? 0 : charCounter[i];
+                charCounter[i] = (charCounter[i] < 0) ? 4 : charCounter[i];
 
                 grappleIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 orbIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 rollIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 invisIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                charRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+                isCharRand[i] = false;
 
                 if (charCounter[i] == 0)
                     grappleIMG[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
@@ -310,9 +381,13 @@ public class UI_Controller : MonoBehaviour
                     rollIMG[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
                 else if (charCounter[i] == 3)
                     invisIMG[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-                Debug.Log(charCounter[0]);
+                else if (charCounter[i] == 4)
+                {
+                    charRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                    isCharRand[i] = true;
+                }
 
-                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0"))
+                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0") || Input.GetKeyDown(KeyCode.Q))
                 {
                     CharacterSelect[i] = false;
                     GunSelect[i] = true;
@@ -326,7 +401,7 @@ public class UI_Controller : MonoBehaviour
         {
             for (int i = 0; i < 4; i++)
             {
-                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0"))
+                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0") || Input.GetKeyDown(KeyCode.Q))
                 {
                     // if our list of controllers doesnt contain the new controller then...
                     if (!controllers.Contains(i + 1))
@@ -350,6 +425,8 @@ public class UI_Controller : MonoBehaviour
                         sniperIMG[i].GetComponent<Animator>().SetBool("Flip", true);
                         shotgunIMG[i].GetComponent<Animator>().SetBool("Flip", true);
                         rocketIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        charRandIMG[i].GetComponent<Animator>().SetBool("Flip", true);
+                        gunRandIMG[i].GetComponent<Animator>().SetBool("Flip", true);
                     }
                 }
             }
