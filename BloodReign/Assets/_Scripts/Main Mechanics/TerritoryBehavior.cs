@@ -12,8 +12,13 @@ public class TerritoryBehavior : MonoBehaviour {
     private Slider player3_Health;
     private Slider player4_Health;
 
+    public Texture doubleDmgActive_EmissionMap;
+    public Texture EmissionMap;
+
     void Start()
     {
+        GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", EmissionMap);
+
         player1_Health = GameObject.Find("Player 1 - Health").GetComponent<Slider>();
         player2_Health = GameObject.Find("Player 2 - Health").GetComponent<Slider>();
         player3_Health = GameObject.Find("Player 3 - Health").GetComponent<Slider>();
@@ -21,52 +26,82 @@ public class TerritoryBehavior : MonoBehaviour {
     }
 
     // When player touching collider, give damage
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+        //print("Player:" + gameObject.name + "      DOUBLE DMG");
+
+        //if (terrioryType == TerritoryType.Damage)
+        //{
+        //    if (collision.gameObject.tag == "Player")
+        //    {
+        //        if (collision.transform.GetChild(1).tag == "Gun")
+        //        {
+        //            collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage = collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage * 2;
+        //        }
+        //        else
+        //            print("<color = red>ERROR: Set " + collision.gameObject.name + "'s TAG to Gun./n Or");
+        //    }
+        //}
         if (terrioryType == TerritoryType.Damage)
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.tag == "Player")
             {
-                if (collision.transform.GetChild(1).tag == "Gun")
-                {
-                    collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage = collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage * 2;
-                }
-                else
-                    print("<color = red>ERROR: Set " + collision.gameObject.name + "'s TAG to Gun./n Or");
+                GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", doubleDmgActive_EmissionMap);
             }
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+
+    private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.name == "Player Parent 1")
-            player1_Health.value += Time.deltaTime;
+        if(terrioryType == TerritoryType.Regen)
+        {
+            if (collision.gameObject.name == "Player Parent 1")
+                player1_Health.value += Time.deltaTime;
 
-        if (collision.gameObject.name == "Player Parent 2")
-            player2_Health.value += Time.deltaTime;
+            if (collision.gameObject.name == "Player Parent 2")
+                player2_Health.value += Time.deltaTime;
 
-        if (collision.gameObject.name == "Player Parent 3")
-            player3_Health.value += Time.deltaTime;
+            if (collision.gameObject.name == "Player Parent 3")
+                player3_Health.value += Time.deltaTime;
 
-        if (collision.gameObject.name == "Player Parent 4")
-            player4_Health.value += Time.deltaTime;
+            if (collision.gameObject.name == "Player Parent 4")
+                player4_Health.value += Time.deltaTime;
 
+        }
+        if(terrioryType == TerritoryType.Damage)
+        {
+            if (collision.tag == "Player")
+            {
+                GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", doubleDmgActive_EmissionMap);
+
+            }
+        }
     }
 
 
     // When player leaves the zone, take away boost
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
+        //print("Player:" + gameObject.name + "      reg DMG");
+        //if (terrioryType == TerritoryType.Damage)
+        //{
+        //    if (collision.gameObject.tag == "Player")
+        //    {
+        //        if (collision.transform.GetChild(1).tag == "Gun")
+        //        {
+        //            collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage = collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage / 2.0f;
+        //        }
+        //        else
+        //            print("<color = red>ERROR: Set " + collision.gameObject.name + "'s TAG to Gun./n Or");
+        //    }
+        //}
         if (terrioryType == TerritoryType.Damage)
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.tag == "Player")
             {
-                if (collision.transform.GetChild(1).tag == "Gun")
-                {
-                    collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage = collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage / 2.0f;
-                }
-                else
-                    print("<color = red>ERROR: Set " + collision.gameObject.name + "'s TAG to Gun./n Or");
+                GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", EmissionMap);
+
             }
         }
     }

@@ -12,6 +12,7 @@ TagManager:
   - Floor
   - Gun
   - Dummy
+  - DoubleDamage
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - PostProcessing
   - Death
-  - 
+  - NoBloom
   - 
   - 
   - 

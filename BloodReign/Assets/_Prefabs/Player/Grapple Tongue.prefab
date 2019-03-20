@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4501023792415556}
   - component: {fileID: 33060482282984282}
   - component: {fileID: 23738744585561420}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: grappleclaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4985988799189642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Grapple Tongue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4809013545609454}
   - component: {fileID: 33711282138709016}
   - component: {fileID: 23341544011189916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: grappletongue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ Transform:
   m_GameObject: {fileID: 1704201556540966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -48.78002, y: 1.016352, z: -51.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 4809013545609454}
   - {fileID: 4501023792415556}

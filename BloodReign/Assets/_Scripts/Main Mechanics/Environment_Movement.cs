@@ -21,10 +21,14 @@ public class Environment_Movement : MonoBehaviour {
     private float t_lerp = 0;
     private bool add = true;        // For lerping up to list.count and back to 0
 
+    public Material stationary_mat;
+    public Material moving_mat;
+
     private void Start()
     {
         //rb = gameObject.GetComponent<Rigidbody>();
         startPos = gameObject.transform;
+        GetComponent<MeshRenderer>().material = stationary_mat;
     }
 
     void FixedUpdate ()
@@ -37,6 +41,8 @@ public class Environment_Movement : MonoBehaviour {
 
         if (start)
         {
+            GetComponent<MeshRenderer>().material = moving_mat;
+
             // update player pos
             gameObject.transform.position = Vector3.Lerp(transform.position, objectPositions[pos].position, t_lerp);
             gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, objectPositions[pos].rotation, t_lerp);
@@ -66,6 +72,8 @@ public class Environment_Movement : MonoBehaviour {
             if (pos == objectPositions.Count)
             {
                 start = false;
+                GetComponent<MeshRenderer>().material = stationary_mat;
+
                 pos = 0;
             }
         }

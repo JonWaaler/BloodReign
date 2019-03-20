@@ -40,8 +40,17 @@ public class GunBehavior : MonoBehaviour
     public GameObject Prefab_Bullet;    // This is a copy of our bullet
     public Transform Emitter;           // Emitter is the spawn point of the bullet
 
+    [Header("Double Damage Set-up")]
+    public GameObject bullet_Doubledmg;
+    public List<GameObject> Bullets_DD;    // A "dynamic" array type for the Double Damage bullets
+    private bool useDoubleDamage = false;
+
     [Header("ReloadUI")]
     public UnityEngine.UI.Slider Slider_Reload;
+
+
+
+
 
     private GameObject player;
     private bool requestReload = false;
@@ -68,6 +77,17 @@ public class GunBehavior : MonoBehaviour
             myInstance.GetComponent<Bullet>().Damage = Damage;
             myInstance.GetComponent<Bullet>().ID = RT_PNum.Substring(RT_PNum.Length-1);
 
+            //Double Dmg Instances
+            if (bullet_Doubledmg != null)
+            {
+                GameObject myDDInstance = Instantiate<GameObject>(bullet_Doubledmg);
+                myDDInstance.SetActive(false);
+                Bullets_DD.Add(myDDInstance);
+                myDDInstance.GetComponent<Bullet>().Damage = Damage;
+                myDDInstance.GetComponent<Bullet>().ID = RT_PNum.Substring(RT_PNum.Length - 1);
+            }
+            else
+                Debug.LogError("Player:" + gameObject.name + "   does not have double damage bullet", gameObject);
         }
     }
 
@@ -117,58 +137,118 @@ public class GunBehavior : MonoBehaviour
                 int sprayAmount = Random.Range(minBullets, maxBullets);
                 int foundCounter = 0;
                 soundManager.Play(Sound_GunShot);
-                for (int i = 0; i < BULLET_POOL_SIZE; i++)
+
+                // Shooting
+                if (!useDoubleDamage)
                 {
-                    if (Bullets[i].activeInHierarchy == false)
+                    for (int i = 0; i < BULLET_POOL_SIZE; i++)
                     {
-                        foundCounter++;
-                        Bullets[i].transform.position = Emitter.position;
-                        Bullets[i].SetActive(true);
-                        float randomAngle = Random.Range(Recoil, -Recoil);
-                        Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
-                        Bullets[i].GetComponent<Bullet>().Damage = Damage;
-
-                        t_RateOfFireTimer = 0; // Reset ROF timer
-
-                        // Check if we've shot required bullets
-                        if (foundCounter >= sprayAmount)
+                        if (Bullets[i].activeInHierarchy == false)
                         {
-                            BulletsInMag--;
-                            return;
+                            foundCounter++;
+                            Bullets[i].transform.position = Emitter.position;
+                            Bullets[i].SetActive(true);
+                            float randomAngle = Random.Range(Recoil, -Recoil);
+                            Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
+                            Bullets[i].GetComponent<Bullet>().Damage = Damage;
+
+                            t_RateOfFireTimer = 0; // Reset ROF timer
+
+                            // Check if we've shot required bullets
+                            if (foundCounter >= sprayAmount)
+                            {
+                                BulletsInMag--;
+                                return;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < BULLET_POOL_SIZE; i++)
+                    {
+                        if (Bullets_DD[i].activeInHierarchy == false)
+                        {
+                            foundCounter++;
+                            Bullets_DD[i].transform.position = Emitter.position;
+                            Bullets_DD[i].SetActive(true);
+                            float randomAngle = Random.Range(Recoil, -Recoil);
+                            Bullets_DD[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
+                            Bullets_DD[i].GetComponent<Bullet>().Damage = Bullets[i].GetComponent<Bullet>().Damage * 2; // Double damage
+
+                            t_RateOfFireTimer = 0; // Reset ROF timer
+
+                            // Check if we've shot required bullets
+                            if (foundCounter >= sprayAmount)
+                            {
+                                BulletsInMag--;
+                                return;
+                            }
                         }
                     }
                 }
 
+
             }
-
-            for (int i = 0; i < BULLET_POOL_SIZE; i++)
+            if (!useDoubleDamage)
             {
-                if (Bullets[i].activeInHierarchy == false)
+                for (int i = 0; i < BULLET_POOL_SIZE; i++)
                 {
-                    // Play shot sound
+                    if (Bullets[i].activeInHierarchy == false)
+                    {
+                        soundManager.Play(Sound_GunShot);
 
-                    soundManager.Play(Sound_GunShot);
-                    // Play shot anim
-                    // Play shot particles
-                    Bullets[i].transform.position = Emitter.position;
-                    Bullets[i].SetActive(true);
-                    // Recoil
-                    float randomAngle = Random.Range(Recoil, -Recoil);
-                    Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
-                    //Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
-                    Bullets[i].GetComponent<Bullet>().Damage = Damage;
-                    BulletsInMag--;
+                        Bullets[i].transform.position = Emitter.position;
+                        Bullets[i].SetActive(true);
+                        // Recoil
+                        float randomAngle = Random.Range(Recoil, -Recoil);
+                        Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
+                        //Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
+                        Bullets[i].GetComponent<Bullet>().Damage = Damage;
+                        BulletsInMag--;
 
-                    t_RateOfFireTimer = 0; // Reset ROF timer
-                    return;
+                        t_RateOfFireTimer = 0; // Reset ROF timer
+                        return;
+                    }
                 }
             }
+            else
+            {
+                for (int i = 0; i < BULLET_POOL_SIZE; i++)
+                {
+                    if (Bullets_DD[i].activeInHierarchy == false)
+                    {
+                        soundManager.Play(Sound_GunShot);
+
+                        Bullets_DD[i].transform.position = Emitter.position;
+                        Bullets_DD[i].SetActive(true);
+                        // Recoil
+                        float randomAngle = Random.Range(Recoil, -Recoil);
+                        Bullets_DD[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
+                        //Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
+                        Bullets_DD[i].GetComponent<Bullet>().Damage = Bullets[i].GetComponent<Bullet>().Damage * 2; // Get Regular bullet value and *2 for Double damage
+                        BulletsInMag--;
+
+                        t_RateOfFireTimer = 0; // Reset ROF timer
+                        return;
+                    }
+                }
+            }
+
         }
 
         if (isRocket)
         {
-            for (int i = 0; i < BULLET_POOL_SIZE; i++)
-                Bullets[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxisRaw(V_RS_PNum), Input.GetAxisRaw(H_RS_PNum)) * Mathf.Rad2Deg + 90, 0);
+            if (!useDoubleDamage)
+            {
+                for (int i = 0; i < BULLET_POOL_SIZE; i++)
+                    Bullets[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxisRaw(V_RS_PNum), Input.GetAxisRaw(H_RS_PNum)) * Mathf.Rad2Deg + 90, 0);
+            }
+            else
+            {
+                for (int i = 0; i < BULLET_POOL_SIZE; i++)
+                    Bullets_DD[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxisRaw(V_RS_PNum), Input.GetAxisRaw(H_RS_PNum)) * Mathf.Rad2Deg + 90, 0);
+            }
         }
 
         if ((Input.GetButtonDown(xButton_PNum)) && (!requestReload))
@@ -203,5 +283,21 @@ public class GunBehavior : MonoBehaviour
         }
 
         t_RateOfFireTimer += Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "DoubleDamage")
+        {
+            useDoubleDamage = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "DoubleDamage")
+        {
+            useDoubleDamage = false;
+
+        }
     }
 }

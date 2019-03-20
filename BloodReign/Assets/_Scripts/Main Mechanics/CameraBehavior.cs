@@ -77,7 +77,7 @@ public class CameraBehavior : MonoBehaviour {
 
     void Zoom()
     {
-        float newZoom = Mathf.Lerp(minSize, maxSize, GetLongestDist() / 30f);
+        float newZoom = Mathf.Lerp(minSize, maxSize, GetLongestDist() / maxSize);
         
         newZoom = Mathf.Lerp(camera.orthographicSize, newZoom, Time.deltaTime);
         camera.orthographicSize = newZoom;
