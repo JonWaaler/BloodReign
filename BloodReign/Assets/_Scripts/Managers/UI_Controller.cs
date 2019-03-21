@@ -264,7 +264,7 @@ public class UI_Controller : MonoBehaviour
             {
                 gunPointers[i].SetActive(true);
                 // Increment gun counter (LS Right)
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
+                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1 || (Input.GetAxisRaw("H_DPad" + (i + 1)) == 1))
                 {
                     if (axisInUse[i] == false)
                     {
@@ -275,7 +275,7 @@ public class UI_Controller : MonoBehaviour
                 }
 
                 // Increment gun counter (LS Left)
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == -1)
+                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == -1 || (Input.GetAxisRaw("H_DPad" + (i + 1)) == -1))
                 {
                     if (axisInUse[i] == false)
                     {
@@ -285,7 +285,7 @@ public class UI_Controller : MonoBehaviour
                     }
                 }
                 // Do not Increment gun counter and axis is not in use
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 0)
+                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 0 && (Input.GetAxisRaw("H_DPad" + (i + 1)) == 0))
                     axisInUse[i] = false;
 
                 // Gun counter range only 0, 1 and 2
@@ -336,9 +336,11 @@ public class UI_Controller : MonoBehaviour
             {
                 gunPointers[i].SetActive(false);
                 charPointers[i].SetActive(true);
-
+                Debug.Log("dpad " + Input.GetAxisRaw("H_DPad" + (i + 1)));
+                Debug.Log("lstick " + Input.GetAxisRaw("H_LStick" + (i + 1)));
+                Debug.Log(axisInUse[i]);
                 // Increment character counter (LS Right)
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1)
+                if ((Input.GetAxisRaw("H_LStick" + (i + 1)) == 1) || (Input.GetAxisRaw("H_DPad" + (i + 1)) == 1))
                 {
                     //Debug.Log(1);
                     if (axisInUse[i] == false)
@@ -349,7 +351,7 @@ public class UI_Controller : MonoBehaviour
                     }
                 }
                 // Increment character counter (LS Left)
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == -1)
+                if ((Input.GetAxisRaw("H_LStick" + (i + 1))) == -1 || (Input.GetAxisRaw("H_DPad" + (i + 1)) == -1))
                 {
                     if (axisInUse[i] == false)
                     {
@@ -358,7 +360,7 @@ public class UI_Controller : MonoBehaviour
                         soundManager.Play(menu_move);
                     }
                 }
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 0)
+                if ((Input.GetAxisRaw("H_LStick" + (i + 1)) == 0) && (Input.GetAxisRaw("H_DPad" + (i + 1)) == 0))
                 {
                     axisInUse[i] = false;
                 }
