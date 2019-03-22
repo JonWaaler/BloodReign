@@ -11,19 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf4326086a1e5c4798b06ee14bdb3fb, type: 3}
   m_Name: Ability Settings
   m_EditorClassIdentifier: 
-  abilCool_1: 3
-  abilLength_1: 8
-  lerpSpd_1: 40
-  abilCool_2: 5
-  abilLength_2: 8
-  lerpSpd_2: 40
+  abilCool_1: 2
+  abilLength_1: 12
+  lerpSpd_1: 80
+  abilCool_2: 1
+  abilLength_2: 16
+  lerpSpd_2: 200
   abilCool_3: 2
   abilLength_3: 30
   lerpSpd_3: 60
   lerpReelSpd: 70
   grappleDmg: 25
-  abilCool_4: 4
-  abilLength_4: 5
+  abilCool_4: 4.3
+  abilLength_4: 4
   lerpSpd_4: 0.5
   collisionSphereInit_1: {fileID: 1290587940330434, guid: 0c13826a4e3db0b4c827e78be2aaff57,
     type: 2}

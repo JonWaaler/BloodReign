@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class InvisAbility : AbilityCommand
 {
     public SoundManager soundManager;
+    public string ShootButton;
     // Spawn Particle System
     [SerializeField]
     private GameObject invisPartIns = null;
@@ -23,8 +24,9 @@ public class InvisAbility : AbilityCommand
     public override void ResetSphere()
     {
     }
-    private void Start()
+    private void Update()
     {
+
     }
     private void activate()
     {
@@ -33,6 +35,9 @@ public class InvisAbility : AbilityCommand
     }
     private IEnumerator Invisible(float easeInOut, float duration, GameObject affectedObj) // ( timeToActivate, timeToLast, player's gun)
     {
+
+
+
         float current = 0.0f; // ElapsedTime
 
         // Skip the guns and get to the armature or w.e

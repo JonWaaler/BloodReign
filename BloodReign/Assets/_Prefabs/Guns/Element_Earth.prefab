@@ -1244,7 +1244,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316047655427522}
   m_LocalRotation: {x: -0, y: 0.40954033, z: -0, w: 0.912292}
-  m_LocalPosition: {x: 26.85, y: 0.9929788, z: -21.34}
+  m_LocalPosition: {x: 43.74134, y: 1.4143671, z: -54.320477}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4720391989446964}
@@ -2277,8 +2277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rot: {x: 0, y: 90, z: 0}
-  objRot: {fileID: 0}
   numObjects: 13
+  curObjects: 0
   radius: 2
   orbitingObjects:
   - {fileID: 4225088728287682}
@@ -2294,6 +2294,7 @@ MonoBehaviour:
   - {fileID: 4362961373973954}
   - {fileID: 4847314995134454}
   - {fileID: 4671004653257940}
+  useThisShit: 1
   gunBehavior: {fileID: 0}
 --- !u!198 &198010334571566272
 ParticleSystem:
@@ -134395,8 +134396,8 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 569dee8f4352f8d4f96f4d6b07aeefbc, type: 2}
-  - {fileID: 2100000, guid: 569dee8f4352f8d4f96f4d6b07aeefbc, type: 2}
+  - {fileID: 2100000, guid: 3811acb24c3427f4cabb7edcd0fb296e, type: 2}
+  - {fileID: 2100000, guid: 3811acb24c3427f4cabb7edcd0fb296e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

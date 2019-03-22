@@ -49,7 +49,7 @@ public class GunBehavior : MonoBehaviour
     public UnityEngine.UI.Slider Slider_Reload;
 
 
-
+    public AbilitySettings abilitySettings;
 
 
     private GameObject player;
@@ -145,6 +145,19 @@ public class GunBehavior : MonoBehaviour
                     {
                         if (Bullets[i].activeInHierarchy == false)
                         {
+                            if (!transform.GetChild(2).gameObject.activeSelf)
+                            {
+                                //if (Input.GetButtonDown(ShootButton))
+
+                                // Spawn Particle System
+                                //if (invisPartIns == null)
+                                GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
+                                // Place System
+                                invisPartIns_New.transform.position = transform.position;
+                                Destroy(invisPartIns_New, 4f);
+
+                            }
+                            
                             foundCounter++;
                             Bullets[i].transform.position = Emitter.position;
                             Bullets[i].SetActive(true);
@@ -169,6 +182,17 @@ public class GunBehavior : MonoBehaviour
                     {
                         if (Bullets_DD[i].activeInHierarchy == false)
                         {
+                            if (!transform.GetChild(2).gameObject.activeSelf)
+                            {
+                                // Spawn Particle System
+                                //if (invisPartIns == null)
+                                GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
+                                // Place System
+                                invisPartIns_New.transform.position = transform.position;
+                                Destroy(invisPartIns_New, 4f);
+
+                            }
+
                             foundCounter++;
                             Bullets_DD[i].transform.position = Emitter.position;
                             Bullets_DD[i].SetActive(true);
@@ -196,7 +220,17 @@ public class GunBehavior : MonoBehaviour
                 {
                     if (Bullets[i].activeInHierarchy == false)
                     {
-                        soundManager.Play(Sound_GunShot);
+                        if (!transform.GetChild(2).gameObject.activeSelf)
+                        {
+                            // Spawn Particle System
+                            //if (invisPartIns == null)
+                            GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
+                            // Place System
+                            invisPartIns_New.transform.position = transform.position;
+                            Destroy(invisPartIns_New, 4f);
+
+                        }
+
 
                         Bullets[i].transform.position = Emitter.position;
                         Bullets[i].SetActive(true);
@@ -207,6 +241,7 @@ public class GunBehavior : MonoBehaviour
                         Bullets[i].GetComponent<Bullet>().Damage = Damage;
                         BulletsInMag--;
 
+                        soundManager.Play(Sound_GunShot);
                         t_RateOfFireTimer = 0; // Reset ROF timer
                         return;
                     }
@@ -218,7 +253,17 @@ public class GunBehavior : MonoBehaviour
                 {
                     if (Bullets_DD[i].activeInHierarchy == false)
                     {
-                        soundManager.Play(Sound_GunShot);
+                        // Spawn Particle System
+                        //if (invisPartIns == null)
+                        if (!transform.GetChild(2).gameObject.activeSelf)
+                        {
+                            GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
+                            // Place System
+                            invisPartIns_New.transform.position = transform.position;
+                            Destroy(invisPartIns_New, 4f);
+
+                        }
+
 
                         Bullets_DD[i].transform.position = Emitter.position;
                         Bullets_DD[i].SetActive(true);
@@ -229,6 +274,7 @@ public class GunBehavior : MonoBehaviour
                         Bullets_DD[i].GetComponent<Bullet>().Damage = Bullets[i].GetComponent<Bullet>().Damage * 2; // Get Regular bullet value and *2 for Double damage
                         BulletsInMag--;
 
+                        soundManager.Play(Sound_GunShot);
                         t_RateOfFireTimer = 0; // Reset ROF timer
                         return;
                     }
