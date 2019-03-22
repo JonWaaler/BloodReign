@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf4326086a1e5c4798b06ee14bdb3fb, type: 3}
   m_Name: Ability Settings
   m_EditorClassIdentifier: 
-  abilCool_1: 2
+  abilCool_1: 1.5
   abilLength_1: 12
   lerpSpd_1: 80
   abilCool_2: 1
