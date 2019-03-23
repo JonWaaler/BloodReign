@@ -51,6 +51,9 @@ public class GunBehavior : MonoBehaviour
 
     public AbilitySettings abilitySettings;
 
+    [Header("Ammo - UI")]
+    public Transform ammo_parent;
+    public GameObject ammo_shotUI;
 
     private GameObject player;
     private bool requestReload = false;
@@ -88,6 +91,11 @@ public class GunBehavior : MonoBehaviour
             }
             else
                 Debug.LogError("Player:" + gameObject.name + "   does not have double damage bullet", gameObject);
+        }
+
+        for (int i = 0; i < MagazineCapacity; i++)
+        {
+            Instantiate(ammo_shotUI).transform.SetParent(ammo_parent);
         }
     }
 
@@ -326,6 +334,18 @@ public class GunBehavior : MonoBehaviour
                 Slider_Reload.value = 0;
                 Slider_Reload.gameObject.SetActive(false);
             }
+        }
+
+
+        // Update Ammo UI
+        for (int i = 0; i < MagazineCapacity; i++)
+        {
+            if(i <= BulletsInMag - 1)
+            {
+                // Should be active
+                ammo_parent.GetChild(i).gameObject.SetActive(true);
+            }else
+                ammo_parent.GetChild(i).gameObject.SetActive(false);
         }
 
         t_RateOfFireTimer += Time.deltaTime;

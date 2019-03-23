@@ -22,6 +22,7 @@ public class WinDetection : MonoBehaviour {
     private void Start()
     {
         cameraBehavior = FindObjectOfType<CameraBehavior>();
+
     }
 
     public void Update()
@@ -78,7 +79,8 @@ public class WinDetection : MonoBehaviour {
 
         // Spawn blood, set pos to bullet pos
         ParticleSystem bloodInst = Instantiate<ParticleSystem>(Particles_Blood);
-        //bloodInst.transform.position = transform.position;
+        bloodInst.transform.position = transform.position + Vector3.up * 4;
+        bloodInst.transform.rotation = transform.rotation;
 
         // Wait 35 seconds to destroy the blood
         Destroy(bloodInst, 35);

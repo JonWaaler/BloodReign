@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Player Settings
   m_EditorClassIdentifier: 
   playerActive_01: 1
-  characterSelection_01: 1
+  characterSelection_01: 2
   gunSelection_01: 0
   playerColor1: 0
   playerActive_02: 1
