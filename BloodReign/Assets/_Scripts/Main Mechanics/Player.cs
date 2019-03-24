@@ -160,14 +160,29 @@ public class Player : MonoBehaviour {
 
         inputVector = new Vector3(xVel, 0, zvel);
 
+
         // Player movement
         if (activeState == PlayerState.alive)
         {
             if (xVel != 0 || zvel != 0)
             {
+                // Jon w would like to know about this (march 23rd) msg discord if you see this
                 rb.AddForce(inputVector.normalized * speed);
             }
-            rb.velocity = new Vector3(speed * xVel, rb.velocity.y - 1.5f, speed * zvel);
+
+            // Diagonal Speed control
+            if(xVel != 0 && zvel != 0)
+            {
+                // Slowed Diagonal
+                rb.velocity = new Vector3(speed * xVel * .708f, rb.velocity.y - 1.5f, speed * zvel *.708f);
+            }
+            else
+            {
+                // Use regular
+                rb.velocity = new Vector3(speed * xVel, rb.velocity.y - 1.5f, speed * zvel);
+
+            }
+
 
             if (playerEnum == PlayerAbil.hook && Time.time > nextAbil)
             {
