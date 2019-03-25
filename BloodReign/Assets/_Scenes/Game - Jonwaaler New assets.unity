@@ -1552,6 +1552,10 @@ Prefab:
       propertyPath: m_Center.z
       value: -0.008381709
       objectReference: {fileID: 0}
+    - target: {fileID: 1233173465307912, guid: f4c02b731f67f1c4387874441649e858, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4c02b731f67f1c4387874441649e858, type: 2}
   m_IsPrefabAsset: 0
@@ -3929,6 +3933,7 @@ MonoBehaviour:
   smr: []
   mr: []
   particle_deathTrail: {fileID: 163875093}
+  coolDown: 0
 --- !u!54 &211271536
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19499,7 +19504,7 @@ GameObject:
   - component: {fileID: 558037158}
   m_Layer: 0
   m_Name: wall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45676,6 +45681,7 @@ MonoBehaviour:
   smr: []
   mr: []
   particle_deathTrail: {fileID: 236513592}
+  coolDown: 0
 --- !u!54 &1256823352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -52286,6 +52292,7 @@ MonoBehaviour:
   smr: []
   mr: []
   particle_deathTrail: {fileID: 2091121710}
+  coolDown: 0
 --- !u!114 &1417814892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59255,7 +59262,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &1836557327
@@ -59932,6 +59939,7 @@ MonoBehaviour:
   smr: []
   mr: []
   particle_deathTrail: {fileID: 1196563571}
+  coolDown: 0
 --- !u!114 &1854359610
 MonoBehaviour:
   m_ObjectHideFlags: 0

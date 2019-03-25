@@ -8,6 +8,9 @@ public class HookAbility : AbilityCommand
     public bool hookActive = false;
     [SerializeField]
     private GameObject hookPartIns = null;
+    private Vector3 moveLineRendererUp = new Vector3(0.0f, 2.0f, 0.0f);
+    private Vector3 posMovedUp;
+    private Vector3 spherePosMovedUp;
 
     public HookAbility()
     {
@@ -87,9 +90,10 @@ public class HookAbility : AbilityCommand
         // extend hook out
         while (extendHook == true)
         {
-            sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
-            sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
-
+            posMovedUp = transform.position + moveLineRendererUp;
+            spherePosMovedUp = sphereCol.transform.position + moveLineRendererUp;
+            sphereCol.GetComponent<LineRenderer>().SetPosition(1, posMovedUp);
+            sphereCol.GetComponent<LineRenderer>().SetPosition(0, spherePosMovedUp);
             if (transform.GetComponent<Player>().status != StatusEffect.grappled)
                 transform.position = origin;
 
@@ -158,11 +162,13 @@ public class HookAbility : AbilityCommand
         // reel back depending on grabbed obj or max length
         if (grabbed == grabbedObj.wall)
         {
+            /*
             // Spawn Particle System
             if (hookPartIns == null)
                 hookPartIns = Instantiate(abilSettings.hookPart);
             hookPartIns.transform.SetParent(sphereCol.transform);
             hookPartIns.transform.position = sphereCol.transform.position;
+            */
 
             StartCoroutine(lerpHook(gameObject, sphereCol, abilSettings.lerpReelSpd * 2, transform.gameObject));
             while (reelHook)
@@ -180,21 +186,24 @@ public class HookAbility : AbilityCommand
                         }
                     }
                 }
-                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
-                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
+                posMovedUp = transform.position + moveLineRendererUp;
+                spherePosMovedUp = sphereCol.transform.position + moveLineRendererUp;
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, posMovedUp);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, spherePosMovedUp);
                 yield return null;
             }
             // Set a destroy for system
-            Destroy(hookPartIns, 1);
+          //  Destroy(hookPartIns, 1);
         }
         else if (grabbed == grabbedObj.player)
         {
+            /*
             // Spawn Particle System
             if (hookPartIns == null)
                 hookPartIns = Instantiate(abilSettings.hookPart);
             hookPartIns.transform.SetParent(sphereCol.transform);
             hookPartIns.transform.position = sphereCol.transform.position;
-
+            */
             StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit, gameObject, abilSettings.lerpReelSpd * 2, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
@@ -207,34 +216,39 @@ public class HookAbility : AbilityCommand
                 if ((sphereCol.transform.position - transform.position).magnitude <= 0.5f && sphereCol.GetComponent<SphereCollisionCheck>().playerHit)
                     sphereCol.GetComponent<SphereCollisionCheck>().playerHit.GetComponent<Player>().status = StatusEffect.nothing;
 
-                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
-                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
+                posMovedUp = transform.position + moveLineRendererUp;
+                spherePosMovedUp = sphereCol.transform.position + moveLineRendererUp;
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, posMovedUp);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, spherePosMovedUp);
                 yield return null;
             }
 
             // Set a destroy for system
-            Destroy(hookPartIns, 1);
+            //Destroy(hookPartIns, 1);
 
         }
         else if (grabbed == grabbedObj.dummy)
         {
+            /*
             // Spawn Particle System
             if (hookPartIns == null)
                 hookPartIns = Instantiate(abilSettings.hookPart);
             hookPartIns.transform.SetParent(sphereCol.transform);
             hookPartIns.transform.position = sphereCol.transform.position;
-
+            */
             StartCoroutine(lerpHook(sphereCol.GetComponent<SphereCollisionCheck>().playerHit, gameObject, abilSettings.lerpReelSpd * 3, sphereCol.GetComponent<SphereCollisionCheck>().playerHit));
             StartCoroutine(lerpHook(sphereCol, gameObject, abilSettings.lerpReelSpd * 2, sphereCol));
             while (reelHook)
             {
                 sphereCol.transform.forward = initalFoward;
-                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
-                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
+                posMovedUp = transform.position + moveLineRendererUp;
+                spherePosMovedUp = sphereCol.transform.position + moveLineRendererUp;
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, posMovedUp);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, spherePosMovedUp);
                 yield return null;
             }
             // Set a destroy for system
-            Destroy(hookPartIns, 1);
+          //  Destroy(hookPartIns, 1);
 
         }
         else if (grabbed == grabbedObj.nothing)
@@ -244,8 +258,11 @@ public class HookAbility : AbilityCommand
             while (reelHook)
             {
                 sphereCol.transform.forward = initalFoward;
-                sphereCol.GetComponent<LineRenderer>().SetPosition(1, transform.position);
-                sphereCol.GetComponent<LineRenderer>().SetPosition(0, sphereCol.transform.position);
+
+                posMovedUp = transform.position + moveLineRendererUp;
+                spherePosMovedUp = sphereCol.transform.position + moveLineRendererUp;
+                sphereCol.GetComponent<LineRenderer>().SetPosition(1, posMovedUp);
+                sphereCol.GetComponent<LineRenderer>().SetPosition(0, spherePosMovedUp);
                 yield return null;
             }
         }

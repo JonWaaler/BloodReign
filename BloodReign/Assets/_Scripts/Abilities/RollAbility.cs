@@ -70,15 +70,16 @@ public class RollAbility : AbilityCommand
         float current = 0.0f;//Elapsed time
         float rollLengh = (target - origin).magnitude; //Distance
         float totalTime = rollLengh / velocity; // Total time to finish distance at said velocity with: T = D/V
-
+        /*
         // Spawn Particle System
         if (rollPartIns == null)
             rollPartIns = Instantiate(abilSettings.rollPart);
+        */
         while (current <= totalTime)
         {
             gameObject.transform.GetComponent<Player>().status = StatusEffect.invincible;
             // Place System
-            rollPartIns.transform.position = transform.position;
+          //  rollPartIns.transform.position = transform.position;
 
             current += Time.deltaTime; // Elapsed time
             float tValue = Mathf.Clamp01(current / totalTime); // figure out how much of % time has passed of elaped time relative to total time 
@@ -86,11 +87,10 @@ public class RollAbility : AbilityCommand
             yield return null;
         }
         // Set a destroy for system
-        Destroy(rollPartIns, 1);
+        //Destroy(rollPartIns, 1);
 
         //gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", originColor);
         gameObject.transform.GetComponent<Player>().status = StatusEffect.nothing;
         rollActive = false;
     }
-
 }

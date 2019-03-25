@@ -69,6 +69,7 @@ public class Player : MonoBehaviour {
     public List<Transform> smr;
     public List<Transform> mr;
     public GameObject particle_deathTrail;
+    public float coolDown;
 
     void Awake ()
 	{
@@ -117,18 +118,22 @@ public class Player : MonoBehaviour {
             case PlayerAbil.roll:
                 ability = GetComponent<RollAbility>();
                 ability.abilCool = ability.abilSettings.abilCool_1;
+                coolDown = ability.abilSettings.abilCool_1;
                 break;
             case PlayerAbil.invisible:
                 ability = GetComponent<InvisAbility>();
                 ability.abilCool = ability.abilSettings.abilCool_4;
+                coolDown = ability.abilSettings.abilCool_4;
                 break;
             case PlayerAbil.teleport:
                 ability = GetComponent<TeleportAbility>();
                 ability.abilCool = ability.abilSettings.abilCool_2;
+                coolDown = ability.abilSettings.abilCool_2;
                 break;
             case PlayerAbil.hook:
                 ability = GetComponent<HookAbility>();
                 ability.abilCool = ability.abilSettings.abilCool_3;
+                coolDown = ability.abilSettings.abilCool_3;
                 break;                
         }
     }
@@ -183,11 +188,14 @@ public class Player : MonoBehaviour {
 
             }
 
-
+            // emergency hook hider
             if (playerEnum == PlayerAbil.hook && Time.time > nextAbil)
             {
                 ability.ResetSphere();
             }
+
+            coolDown = 1 - ( (nextAbil - Time.time) / ability.abilCool );
+            coolDown = Mathf.Clamp01(coolDown);
 
             if ((Input.GetButtonDown(abilButton)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
@@ -214,7 +222,7 @@ public class Player : MonoBehaviour {
 
         if (activeState == PlayerState.dead)
         {
-            if (playerEnum == PlayerAbil.hook)
+            if (playerEnum == PlayerAbil.hook || playerEnum == PlayerAbil.teleport)
             {
                 // i.e you are already grappling
                 if ((Input.GetButtonDown(abilButton)) && Time.time < nextAbil)

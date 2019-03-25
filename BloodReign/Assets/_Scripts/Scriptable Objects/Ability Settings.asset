@@ -14,7 +14,7 @@ MonoBehaviour:
   abilCool_1: 1.5
   abilLength_1: 12
   lerpSpd_1: 80
-  abilCool_2: 1
+  abilCool_2: 1.25
   abilLength_2: 16
   lerpSpd_2: 200
   abilCool_3: 2
