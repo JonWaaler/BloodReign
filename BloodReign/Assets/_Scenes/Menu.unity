@@ -2480,7 +2480,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - soundName: 6
-    clip: {fileID: 8300000, guid: 8caa172541a6023449272dd97919f615, type: 3}
+    clip: {fileID: 8300000, guid: 66753dc7dd436d541ae03535c15c1a06, type: 3}
     vol: 1
     pitch: 1
     source: {fileID: 0}
