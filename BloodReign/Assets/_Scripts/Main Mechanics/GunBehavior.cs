@@ -30,7 +30,7 @@ public class GunBehavior : MonoBehaviour
     public float chargeTime = 1;
     private float t_chargeTime = 0;
     public float percentageDmgReduction = .25f;
-    //public GameObject
+    public GameObject p_ChargeSystem;
 
     [Header("Particle Effects")]
     public ParticleSystem Gun_Shot; //When a bullet is shot sparks
@@ -106,7 +106,7 @@ public class GunBehavior : MonoBehaviour
         }
     }
 
-
+    GameObject chargeParticles_ref;
     void Update()
     {
         if(transform.parent.GetComponent<Player>().activeState == PlayerState.dead)
@@ -117,13 +117,28 @@ public class GunBehavior : MonoBehaviour
             return;
         }
 
+
         if ((Input.GetButtonDown(RB_PNum)))
         {
             isShooting = true;
+
+            p_ChargeSystem.SetActive(true);
+
+            //p_ChargeSystem.GetComponent<ParticleSystem>().Play();
+            
+            if(chargeParticles_ref == null)
+            {
+                chargeParticles_ref = Instantiate(p_ChargeSystem);
+                chargeParticles_ref.transform.position = transform.position;
+            
+                Destroy(chargeParticles_ref,1);
+            }
+
         }
         else if ((Input.GetButtonUp(RB_PNum)))
         {
             isShooting = false;
+            //Destroy(chargeParticles_ref);
 
             if (isChargeGun && (t_RateOfFireTimer >= RateOfFire) && (BulletsInMag > 0) && !requestReload)
             {
@@ -134,12 +149,36 @@ public class GunBehavior : MonoBehaviour
                         if (Bullets[i].activeInHierarchy == false)
                         {
                             InvisParticles();
-                            print("1_Shoot");
 
                             ShootBullet(Bullets, i, 1);
                             t_chargeTime = 0;
                             t_RateOfFireTimer = 0;
                             soundManager.Play(Sound_GunShot);
+                            //p_ChargeSystem.GetComponent<ParticleSystem>().Clear();
+                            //p_ChargeSystem.SetActive(false);
+                            Destroy(chargeParticles_ref);
+
+
+                            return;
+                        }
+                    }
+                }
+                else if (useDoubleDamage)
+                {
+                    for (int i = 0; i < BULLET_POOL_SIZE; i++)
+                    {
+                        if (Bullets_DD[i].activeInHierarchy == false)
+                        {
+                            InvisParticles();
+
+                            ShootBullet(Bullets_DD, i, 2);
+                            t_chargeTime = 0;
+                            t_RateOfFireTimer = 0;
+                            soundManager.Play(Sound_GunShot);
+                            //p_ChargeSystem.GetComponent<ParticleSystem>().Clear();
+                            //p_ChargeSystem.SetActive(false);
+                            if (chargeParticles_ref != null)
+                                Destroy(chargeParticles_ref);
 
                             return;
                         }
@@ -258,7 +297,11 @@ public class GunBehavior : MonoBehaviour
             else if(isChargeGun)
             {
                 // Play Charge Sound
-                
+                if(chargeParticles_ref != null)
+                {
+                    chargeParticles_ref.transform.position = transform.position;
+
+                }
                 t_chargeTime += Time.deltaTime; // Increment time
             }
         }
