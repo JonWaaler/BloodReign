@@ -25,6 +25,13 @@ public class GunBehavior : MonoBehaviour
     public bool isRocket = false;
     public string H_RS_PNum, V_RS_PNum;
 
+    [Header("CHARGE")]
+    public bool isChargeGun = false;
+    public float chargeTime = 1;
+    private float t_chargeTime = 0;
+    public float percentageDmgReduction = .25f;
+    //public GameObject
+
     [Header("Particle Effects")]
     public ParticleSystem Gun_Shot; //When a bullet is shot sparks
     public ParticleSystem Gun_Smoke;// After a bullet is shot smoke, or when reloading...
@@ -110,25 +117,35 @@ public class GunBehavior : MonoBehaviour
             return;
         }
 
-        //print("RT1 : " + Input.GetAxisRaw("RT1"));
-        //print("RT2 : " + Input.GetAxisRaw("RT2"));
-        //print("LT1 : " + Input.GetAxisRaw("LT1"));
-        //print("LT2 : " + Input.GetAxisRaw("LT2"));
-        //for (int i = 0; i < 20; i++)
-        //{
-        //    if (Input.GetKeyDown("joystick 1 button " + i)) { print("joystick 1 button " + i); }
-        //    if (Input.GetKeyDown("joystick 2 button " + i)) { print("joystick 2 button " + i); }
-        //}
-
-        if ((Input.GetButton(RB_PNum)))
+        if ((Input.GetButtonDown(RB_PNum)))
         {
             isShooting = true;
         }
-        else
+        else if ((Input.GetButtonUp(RB_PNum)))
         {
             isShooting = false;
 
-            // Play shot smoke particles
+            if (isChargeGun && (t_RateOfFireTimer >= RateOfFire) && (BulletsInMag > 0) && !requestReload)
+            {
+                if (!useDoubleDamage)
+                {
+                    for (int i = 0; i < BULLET_POOL_SIZE; i++)
+                    {
+                        if (Bullets[i].activeInHierarchy == false)
+                        {
+                            InvisParticles();
+                            print("1_Shoot");
+
+                            ShootBullet(Bullets, i, 1);
+                            t_chargeTime = 0;
+                            t_RateOfFireTimer = 0;
+                            soundManager.Play(Sound_GunShot);
+
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         if (isShooting && BulletsInMag == 0)
@@ -153,31 +170,18 @@ public class GunBehavior : MonoBehaviour
                     {
                         if (Bullets[i].activeInHierarchy == false)
                         {
-                            if (!transform.GetChild(2).gameObject.activeSelf)
-                            {
-                                //if (Input.GetButtonDown(ShootButton))
+                            print("SG_RD");
 
-                                // Spawn Particle System
-                                //if (invisPartIns == null)
-                                GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
-                                // Place System
-                                invisPartIns_New.transform.position = transform.position;
-                                Destroy(invisPartIns_New, 4f);
-
-                            }
-                            
+                            ShootBullet(Bullets, i, 1);
                             foundCounter++;
-                            Bullets[i].transform.position = Emitter.position;
-                            Bullets[i].SetActive(true);
-                            float randomAngle = Random.Range(Recoil, -Recoil);
-                            Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
-                            Bullets[i].GetComponent<Bullet>().Damage = Damage;
+                            
 
                             t_RateOfFireTimer = 0; // Reset ROF timer
 
                             // Check if we've shot required bullets
                             if (foundCounter >= sprayAmount)
                             {
+                                InvisParticles();
                                 BulletsInMag--;
                                 return;
                             }
@@ -190,105 +194,73 @@ public class GunBehavior : MonoBehaviour
                     {
                         if (Bullets_DD[i].activeInHierarchy == false)
                         {
-                            if (!transform.GetChild(2).gameObject.activeSelf)
-                            {
-                                // Spawn Particle System
-                                //if (invisPartIns == null)
-                                GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
-                                // Place System
-                                invisPartIns_New.transform.position = transform.position;
-                                Destroy(invisPartIns_New, 4f);
 
-                            }
+                            print("SG_DD");
+
+                            ShootBullet(Bullets, i, 2);
 
                             foundCounter++;
-                            Bullets_DD[i].transform.position = Emitter.position;
-                            Bullets_DD[i].SetActive(true);
-                            float randomAngle = Random.Range(Recoil, -Recoil);
-                            Bullets_DD[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
-                            Bullets_DD[i].GetComponent<Bullet>().Damage = Bullets[i].GetComponent<Bullet>().Damage * 2; // Double damage
 
                             t_RateOfFireTimer = 0; // Reset ROF timer
 
                             // Check if we've shot required bullets
                             if (foundCounter >= sprayAmount)
                             {
+                                InvisParticles();
                                 BulletsInMag--;
                                 return;
                             }
                         }
                     }
                 }
-
-
+                
             }
-            if (!useDoubleDamage)
+
+
+            if (!isChargeGun)
             {
                 for (int i = 0; i < BULLET_POOL_SIZE; i++)
                 {
-                    if (Bullets[i].activeInHierarchy == false)
+                    if (!useDoubleDamage)
                     {
-                        if (!transform.GetChild(2).gameObject.activeSelf)
+                        if (Bullets[i].activeInHierarchy == false)
                         {
-                            // Spawn Particle System
-                            //if (invisPartIns == null)
-                            GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
-                            // Place System
-                            invisPartIns_New.transform.position = transform.position;
-                            Destroy(invisPartIns_New, 4f);
+                            InvisParticles();
+                            print("3");
 
+                            ShootBullet(Bullets, i, 1);
+
+                            BulletsInMag--;
+
+                            soundManager.Play(Sound_GunShot);
+                            t_RateOfFireTimer = 0; // Reset ROF timer
+                            return;
                         }
+                    }
+                    else
+                    {
+                        if (Bullets_DD[i].activeInHierarchy == false)
+                        {
+                            InvisParticles();
 
+                            print("4");
+                            ShootBullet(Bullets_DD, i, 2);
 
-                        Bullets[i].transform.position = Emitter.position;
-                        Bullets[i].SetActive(true);
-                        // Recoil
-                        float randomAngle = Random.Range(Recoil, -Recoil);
-                        Bullets[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
-                        //Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
-                        Bullets[i].GetComponent<Bullet>().Damage = Damage;
-                        BulletsInMag--;
+                            BulletsInMag--;
 
-                        soundManager.Play(Sound_GunShot);
-                        t_RateOfFireTimer = 0; // Reset ROF timer
-                        return;
+                            soundManager.Play(Sound_GunShot);
+                            t_RateOfFireTimer = 0; // Reset ROF timer
+                            return;
+                        }
                     }
                 }
             }
-            else
+            else if(isChargeGun)
             {
-                for (int i = 0; i < BULLET_POOL_SIZE; i++)
-                {
-                    if (Bullets_DD[i].activeInHierarchy == false)
-                    {
-                        // Spawn Particle System
-                        //if (invisPartIns == null)
-                        if (!transform.GetChild(2).gameObject.activeSelf)
-                        {
-                            GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
-                            // Place System
-                            invisPartIns_New.transform.position = transform.position;
-                            Destroy(invisPartIns_New, 4f);
-
-                        }
-
-
-                        Bullets_DD[i].transform.position = Emitter.position;
-                        Bullets_DD[i].SetActive(true);
-                        // Recoil
-                        float randomAngle = Random.Range(Recoil, -Recoil);
-                        Bullets_DD[i].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
-                        //Debug.Log(gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0));
-                        Bullets_DD[i].GetComponent<Bullet>().Damage = Bullets[i].GetComponent<Bullet>().Damage * 2; // Get Regular bullet value and *2 for Double damage
-                        BulletsInMag--;
-
-                        soundManager.Play(Sound_GunShot);
-                        t_RateOfFireTimer = 0; // Reset ROF timer
-                        return;
-                    }
-                }
+                // Play Charge Sound
+                
+                t_chargeTime += Time.deltaTime; // Increment time
             }
-
         }
 
         if (isRocket)
@@ -337,6 +309,7 @@ public class GunBehavior : MonoBehaviour
         }
 
 
+
         // Update Ammo UI
         for (int i = 0; i < MagazineCapacity; i++)
         {
@@ -344,11 +317,53 @@ public class GunBehavior : MonoBehaviour
             {
                 // Should be active
                 ammo_parent.GetChild(i).gameObject.SetActive(true);
-            }else
+            }
+            else
                 ammo_parent.GetChild(i).gameObject.SetActive(false);
         }
 
         t_RateOfFireTimer += Time.deltaTime;
+    }
+
+    // The timer increments when the shoot button is held down
+    // Called on fire, takes in timer, recalculates dmg
+    private float ChargeUp(float timer)
+    {
+        /* [Header("CHARGE")]
+         * public bool isChargeGun = false;
+         * public float chargeTime = 1;
+         * private float t_chargeTime = 0;
+         */
+
+        if (!isChargeGun) // If not charge gun, dont change dmg
+        {
+            print("Not Charge");
+            return 1;
+        }
+
+        if(timer >= chargeTime)
+        {
+            // return regular dmg
+            print("Regular Dmg");
+            return 1;
+        }
+        else
+        {
+            print("Dmg Reduction");
+
+            // Calculate smaller dmg
+            return Mathf.Lerp(percentageDmgReduction, 1, timer/RateOfFire);
+        }
+    }
+
+    private void ShootBullet(List<GameObject> bulletPool, int index, int dmgMultiplier)
+    {
+        print("Pew");
+        bulletPool[index].transform.position = Emitter.position;
+        bulletPool[index].SetActive(true);
+        float randomAngle = Random.Range(Recoil, -Recoil);
+        bulletPool[index].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
+        bulletPool[index].GetComponent<Bullet>().Damage = Damage * dmgMultiplier * ChargeUp(t_chargeTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -364,6 +379,18 @@ public class GunBehavior : MonoBehaviour
         {
             useDoubleDamage = false;
 
+        }
+    }
+
+
+    private void InvisParticles()
+    {
+        // Particles while invis
+        if (!transform.GetChild(2).gameObject.activeSelf)
+        {
+            GameObject invisPartIns_New = Instantiate(abilitySettings.invisPart);
+            invisPartIns_New.transform.position = transform.position;
+            Destroy(invisPartIns_New, 4f);
         }
     }
 }

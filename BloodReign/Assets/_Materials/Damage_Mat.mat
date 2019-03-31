@@ -35,7 +35,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: e925da0bd3918c641a29e9eb21e3f9c8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 14c4b898b7a8e2842b2f32d3e1d332cf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -80,5 +80,5 @@ Material:
     - _ColorMain: {r: 0.4339623, g: 0.0020469967, b: 0.0020469967, a: 1}
     - _ColorPURP: {r: 0.21568628, g: 0.14901961, b: 0.32941177, a: 1}
     - _ColorPurple: {r: 1, g: 0, b: 0, a: 1}
-    - _EmissionColor: {r: 47.937256, g: 4.0156865, b: 35.890198, a: 1}
+    - _EmissionColor: {r: 48.502926, g: 3.6139436, b: 36.329643, a: 1}
     - _ScrollSpeeds: {r: -5, g: -20, b: 0, a: 0}

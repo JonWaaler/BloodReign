@@ -28,20 +28,7 @@ public class TerritoryBehavior : MonoBehaviour {
     // When player touching collider, give damage
     private void OnTriggerEnter(Collider collision)
     {
-        //print("Player:" + gameObject.name + "      DOUBLE DMG");
 
-        //if (terrioryType == TerritoryType.Damage)
-        //{
-        //    if (collision.gameObject.tag == "Player")
-        //    {
-        //        if (collision.transform.GetChild(1).tag == "Gun")
-        //        {
-        //            collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage = collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage * 2;
-        //        }
-        //        else
-        //            print("<color = red>ERROR: Set " + collision.gameObject.name + "'s TAG to Gun./n Or");
-        //    }
-        //}
         if (terrioryType == TerritoryType.Damage)
         {
             if (collision.tag == "Player")
@@ -54,6 +41,8 @@ public class TerritoryBehavior : MonoBehaviour {
 
     private void OnTriggerStay(Collider collision)
     {
+
+
         if(terrioryType == TerritoryType.Regen)
         {
             if (collision.gameObject.name == "Player Parent 1")
@@ -83,19 +72,7 @@ public class TerritoryBehavior : MonoBehaviour {
     // When player leaves the zone, take away boost
     private void OnTriggerExit(Collider collision)
     {
-        //print("Player:" + gameObject.name + "      reg DMG");
-        //if (terrioryType == TerritoryType.Damage)
-        //{
-        //    if (collision.gameObject.tag == "Player")
-        //    {
-        //        if (collision.transform.GetChild(1).tag == "Gun")
-        //        {
-        //            collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage = collision.transform.GetChild(1).GetComponent<GunBehavior>().Damage / 2.0f;
-        //        }
-        //        else
-        //            print("<color = red>ERROR: Set " + collision.gameObject.name + "'s TAG to Gun./n Or");
-        //    }
-        //}
+
         if (terrioryType == TerritoryType.Damage)
         {
             if (collision.tag == "Player")

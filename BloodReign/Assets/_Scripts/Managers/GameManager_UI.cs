@@ -41,43 +41,51 @@ public class GameManager_UI : MonoBehaviour {
         if (playerSettings.playerActive_01)
         {
             profilesAndElements_Placement[0].sprite = profilesAndElements_Original[playerSettings.characterSelection_01].sprite;
+            //profilesAndElements_Placement[8].fillAmount = 0.5f;
             profilesAndElements_Placement[4].sprite = profilesAndElements_Original[playerSettings.gunSelection_01 + 4].sprite;
         }
         else
         {
             profilesAndElements_Placement[0].enabled = false;
+            //profilesAndElements_Placement[8].enabled = false;
             profilesAndElements_Placement[4].enabled = false;
         }
         if (playerSettings.playerActive_02)
         {
             profilesAndElements_Placement[1].sprite = profilesAndElements_Original[playerSettings.characterSelection_02].sprite;
+            //profilesAndElements_Placement[9].sprite = profilesAndElements_Original[playerSettings.characterSelection_02].sprite;
             profilesAndElements_Placement[5].sprite = profilesAndElements_Original[playerSettings.gunSelection_02 + 4].sprite;
         }
         else
         {
             profilesAndElements_Placement[1].enabled = false;
+            //profilesAndElements_Placement[9].enabled = false;
             profilesAndElements_Placement[5].enabled = false;
         }
 
         if (playerSettings.playerActive_03)
         {
             profilesAndElements_Placement[2].sprite = profilesAndElements_Original[playerSettings.characterSelection_03].sprite;
+            //profilesAndElements_Placement[10].sprite = profilesAndElements_Original[playerSettings.characterSelection_03].sprite;
             profilesAndElements_Placement[6].sprite = profilesAndElements_Original[playerSettings.gunSelection_03 + 4].sprite;
         }
         else
         {
             profilesAndElements_Placement[2].enabled = false;
+            //profilesAndElements_Placement[10].enabled = false;
             profilesAndElements_Placement[6].enabled = false;
         }
 
         if (playerSettings.playerActive_04)
         {
             profilesAndElements_Placement[3].sprite = profilesAndElements_Original[playerSettings.characterSelection_04].sprite;
+            //profilesAndElements_Placement[11].sprite = profilesAndElements_Original[playerSettings.characterSelection_04].sprite;
             profilesAndElements_Placement[7].sprite = profilesAndElements_Original[playerSettings.gunSelection_04 + 4].sprite;
         }
         else
         {
             profilesAndElements_Placement[3].enabled = false;
+            //profilesAndElements_Placement[11].enabled = false;
             profilesAndElements_Placement[7].enabled = false;
         }
 
