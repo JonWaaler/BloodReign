@@ -108,7 +108,7 @@ public class GunBehavior : MonoBehaviour
 
     GameObject chargeParticles_ref;
     void Update()
-    {
+    { 
         if(transform.parent.GetComponent<Player>().activeState == PlayerState.dead)
         {
             BulletsInMag = MagazineCapacity;
@@ -117,23 +117,29 @@ public class GunBehavior : MonoBehaviour
             return;
         }
 
-
+        if (chargeParticles_ref != null)
+        {
+            chargeParticles_ref.transform.position = transform.position;
+        }
         if ((Input.GetButtonDown(RB_PNum)))
         {
             isShooting = true;
 
-            p_ChargeSystem.SetActive(true);
-
-            //p_ChargeSystem.GetComponent<ParticleSystem>().Play();
-            
-            if(chargeParticles_ref == null)
+            if (isChargeGun)
             {
-                chargeParticles_ref = Instantiate(p_ChargeSystem);
-                chargeParticles_ref.transform.position = transform.position;
-            
-                Destroy(chargeParticles_ref,1);
-            }
+                p_ChargeSystem.SetActive(true);
 
+                if (chargeParticles_ref == null)
+                {
+                    if((t_RateOfFireTimer >= RateOfFire) && (BulletsInMag > 0) && !requestReload)
+                    {
+                        chargeParticles_ref = Instantiate(p_ChargeSystem);
+                        chargeParticles_ref.transform.position = transform.position;
+
+                        Destroy(chargeParticles_ref, 1);
+                    }
+                }
+            }
         }
         else if ((Input.GetButtonUp(RB_PNum)))
         {

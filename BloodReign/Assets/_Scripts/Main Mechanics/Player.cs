@@ -50,6 +50,7 @@ public class Player : MonoBehaviour {
     // Particle system
     public GameObject p_Inst;
     public GameObject p_Inst1;
+    public GameObject FootSteps;
 
     [Header("Element Ref")]
     public Transform elementRef;
@@ -217,6 +218,8 @@ public class Player : MonoBehaviour {
             p_Inst.SetActive(false);
             p_Inst1.SetActive(false);
             particle_deathTrail.GetComponent<TrailRenderer>().Clear();
+            if (FootSteps != null)
+                FootSteps.SetActive(true);
             AliveMaterialSetter();
         }
 
@@ -232,9 +235,11 @@ public class Player : MonoBehaviour {
             }
             //print("Dead");
             elementRef.gameObject.SetActive(false);
+            if(FootSteps != null)
+            FootSteps.SetActive(true);
 
             // Death shader
-            if(smr.Count > 0)
+            if (smr.Count > 0)
             {
                 foreach (var item in smr)
                 {

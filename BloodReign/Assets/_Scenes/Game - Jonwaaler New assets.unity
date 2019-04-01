@@ -3921,6 +3921,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
@@ -45844,6 +45845,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
@@ -52577,6 +52579,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
@@ -60342,6 +60345,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
