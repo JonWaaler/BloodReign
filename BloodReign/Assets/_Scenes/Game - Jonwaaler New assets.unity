@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43975496, g: 0.48817927, b: 0.5683981, a: 1}
+  m_IndirectSpecularColor: {r: 0.4397552, g: 0.48818004, b: 0.56839955, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12833,6 +12833,11 @@ Prefab:
       propertyPath: chargeTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: p_ChargeSystem
+      value: 
+      objectReference: {fileID: 1672128554}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -31149,6 +31154,11 @@ Prefab:
       propertyPath: chargeTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: p_ChargeSystem
+      value: 
+      objectReference: {fileID: 1672128554}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -42855,6 +42865,11 @@ Prefab:
       propertyPath: chargeTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: p_ChargeSystem
+      value: 
+      objectReference: {fileID: 1672128554}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0

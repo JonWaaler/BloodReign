@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2234,6 +2234,7 @@ GameObject:
   - component: {fileID: 211271529}
   - component: {fileID: 211271539}
   - component: {fileID: 211271538}
+  - component: {fileID: 211271530}
   m_Layer: 0
   m_Name: Player4_Parent 4
   m_TagString: Player
@@ -2258,6 +2259,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &211271530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211271528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 3
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!114 &211271531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2342,6 +2361,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
@@ -2803,6 +2823,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0.02520442
       objectReference: {fileID: 0}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: cc45825963de7a64480914e6bf25ec92,
+        type: 2}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 461648625}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 461648626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a6c50820a9506b4bb690a301bebc057, type: 2}
   m_IsPrefabAsset: 0
@@ -3507,6 +3543,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0.02520442
       objectReference: {fileID: 0}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: a8b8d8ef14c898c48ba9e9f7a3dcaf19,
+        type: 2}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 461648625}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 461648626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
   m_IsPrefabAsset: 0
@@ -4408,6 +4460,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: e89382686f1248147b19a10f32a6ad81,
+        type: 2}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 951035230}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 951035231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b193baa2110d81d4488fbbe9047f4e7d, type: 2}
   m_IsPrefabAsset: 0
@@ -4826,6 +4894,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: a8b8d8ef14c898c48ba9e9f7a3dcaf19,
+        type: 2}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1964075446}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1964075447}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
   m_IsPrefabAsset: 0
@@ -10072,6 +10156,43 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0.02520442
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: isChargeGun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: p_ChargeSystem
+      value: 
+      objectReference: {fileID: 1046621536816658, guid: 569e5393700a8ec43a75227b3161dac9,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: 8013ab01d97331f42bcdbf45d0e46886,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 461648625}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 461648626}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -14801,6 +14922,10 @@ RectTransform:
   - {fileID: 513933726}
   - {fileID: 1619414361}
   - {fileID: 783704401}
+  - {fileID: 951035231}
+  - {fileID: 1964075447}
+  - {fileID: 461648626}
+  - {fileID: 1189307092}
   - {fileID: 823045121}
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -14943,6 +15068,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4375825656715928, guid: 6536f4ff816ddae44948249f2ab339e4,
     type: 2}
   m_PrefabInternal: {fileID: 2001996241}
+--- !u!1 &461648625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 461648626}
+  - component: {fileID: 461648629}
+  - component: {fileID: 461648628}
+  - component: {fileID: 461648627}
+  m_Layer: 5
+  m_Name: Player3 - Ammo Group (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &461648626
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461648625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7999957, y: 0.7999957, z: 0.7999957}
+  m_Children: []
+  m_Father: {fileID: 436165018}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 282.2, y: -54.199997}
+  m_SizeDelta: {x: 440.5, y: 25.450012}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &461648627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461648625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 6.5, y: 24.56}
+  m_Spacing: {x: 5, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
+--- !u!114 &461648628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461648625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: 0.06818819, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &461648629
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461648625}
+  m_CullTransparentMesh: 0
 --- !u!4 &465667108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4375825656715928, guid: 6536f4ff816ddae44948249f2ab339e4,
@@ -26899,6 +27117,43 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.r
       value: 0.9827944
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: isChargeGun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: p_ChargeSystem
+      value: 
+      objectReference: {fileID: 1046621536816658, guid: 569e5393700a8ec43a75227b3161dac9,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: 8013ab01d97331f42bcdbf45d0e46886,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1189307088}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1189307092}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -32990,7 +33245,7 @@ RectTransform:
   - {fileID: 77809618}
   - {fileID: 839228765}
   m_Father: {fileID: 436165018}
-  m_RootOrder: 16
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34948,6 +35203,99 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6536f4ff816ddae44948249f2ab339e4, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &951035230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 951035231}
+  - component: {fileID: 951035234}
+  - component: {fileID: 951035233}
+  - component: {fileID: 951035232}
+  m_Layer: 5
+  m_Name: Player1 - Ammo Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &951035231
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951035230}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7999957, y: 0.7999957, z: 0.7999957}
+  m_Children: []
+  m_Father: {fileID: 436165018}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 275.2, y: 57.759995}
+  m_SizeDelta: {x: 440.5, y: 25.45}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &951035232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951035230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 1
+  m_StartAxis: 0
+  m_CellSize: {x: 6.5, y: 24.56}
+  m_Spacing: {x: 5, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
+--- !u!114 &951035233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951035230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &951035234
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951035230}
+  m_CullTransparentMesh: 0
 --- !u!4 &955488221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4823274447746416, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -36517,6 +36865,43 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.g
       value: 0.1465373
       objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: isChargeGun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: p_ChargeSystem
+      value: 
+      objectReference: {fileID: 1046621536816658, guid: 569e5393700a8ec43a75227b3161dac9,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: 8013ab01d97331f42bcdbf45d0e46886,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1964075446}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1964075447}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -37432,6 +37817,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: a8b8d8ef14c898c48ba9e9f7a3dcaf19,
+        type: 2}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1189307088}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1189307092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
   m_IsPrefabAsset: 0
@@ -37814,6 +38215,99 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 0.75}
   m_AnchoredPosition: {x: 4.964, y: 0}
   m_SizeDelta: {x: -0.063, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1189307088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189307092}
+  - component: {fileID: 1189307091}
+  - component: {fileID: 1189307090}
+  - component: {fileID: 1189307089}
+  m_Layer: 5
+  m_Name: Player4 - Ammo Group (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1189307089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189307088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 2
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 6.5, y: 24.56}
+  m_Spacing: {x: 5, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
+--- !u!114 &1189307090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189307088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1189307091
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189307088}
+  m_CullTransparentMesh: 0
+--- !u!224 &1189307092
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189307088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7999957, y: 0.7999957, z: 0.7999957}
+  m_Children: []
+  m_Father: {fileID: 436165018}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -268.9, y: -58.608017}
+  m_SizeDelta: {x: 419.35, y: 24.756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1192458828
 Prefab:
@@ -38945,6 +39439,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.r
       value: 0.9827944
       objectReference: {fileID: 0}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: e89382686f1248147b19a10f32a6ad81,
+        type: 2}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1189307088}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1189307092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b193baa2110d81d4488fbbe9047f4e7d, type: 2}
   m_IsPrefabAsset: 0
@@ -38970,6 +39480,7 @@ GameObject:
   - component: {fileID: 1256823345}
   - component: {fileID: 1256823355}
   - component: {fileID: 1256823354}
+  - component: {fileID: 1256823346}
   m_Layer: 0
   m_Name: Player3_Parent 3
   m_TagString: Player
@@ -38994,6 +39505,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &1256823346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256823344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 2
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!114 &1256823347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39078,6 +39607,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
@@ -44601,6 +45131,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0.02520442
       objectReference: {fileID: 0}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: e89382686f1248147b19a10f32a6ad81,
+        type: 2}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 461648625}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 461648626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b193baa2110d81d4488fbbe9047f4e7d, type: 2}
   m_IsPrefabAsset: 0
@@ -45271,6 +45817,7 @@ GameObject:
   - component: {fileID: 1417814883}
   - component: {fileID: 1417814893}
   - component: {fileID: 1417814892}
+  - component: {fileID: 1417814884}
   m_Layer: 0
   m_Name: Player2_Parent 2
   m_TagString: Player
@@ -45295,6 +45842,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &1417814884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417814882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 1
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!54 &1417814885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -45413,6 +45978,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
@@ -46277,6 +46843,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key0.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: a8b8d8ef14c898c48ba9e9f7a3dcaf19,
+        type: 2}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 951035230}
+    - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 951035231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89591d1faefe5ea44bff69ce1b76fa19, type: 2}
   m_IsPrefabAsset: 0
@@ -47136,6 +47718,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: cc45825963de7a64480914e6bf25ec92,
+        type: 2}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1964075446}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1964075447}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a6c50820a9506b4bb690a301bebc057, type: 2}
   m_IsPrefabAsset: 0
@@ -49147,6 +49745,43 @@ Prefab:
     - target: {fileID: 120733319240265246, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: m_Parameters.colorGradient.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: isChargeGun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: p_ChargeSystem
+      value: 
+      objectReference: {fileID: 1046621536816658, guid: 569e5393700a8ec43a75227b3161dac9,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: 8013ab01d97331f42bcdbf45d0e46886,
+        type: 2}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 951035230}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 951035231}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -51244,6 +51879,7 @@ GameObject:
   - component: {fileID: 1854359601}
   - component: {fileID: 1854359611}
   - component: {fileID: 1854359610}
+  - component: {fileID: 1854359602}
   m_Layer: 0
   m_Name: Player1_Parent 1
   m_TagString: Player
@@ -51268,6 +51904,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &1854359602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854359600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 0
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!54 &1854359603
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51386,6 +52040,7 @@ MonoBehaviour:
   system1: {fileID: 1684993695075966, guid: c6b3203d87b1457459b61adba59ddc04, type: 2}
   p_Inst: {fileID: 0}
   p_Inst1: {fileID: 0}
+  FootSteps: {fileID: 0}
   elementRef: {fileID: 0}
   Ghost_Mat: {fileID: 2100000, guid: e290584328176954e935099efd07c9c1, type: 2}
   Player_Mats:
@@ -51550,6 +52205,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: cc45825963de7a64480914e6bf25ec92,
+        type: 2}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1189307088}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1189307092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a6c50820a9506b4bb690a301bebc057, type: 2}
   m_IsPrefabAsset: 0
@@ -52350,6 +53021,99 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6536f4ff816ddae44948249f2ab339e4, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1964075446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1964075447}
+  - component: {fileID: 1964075450}
+  - component: {fileID: 1964075449}
+  - component: {fileID: 1964075448}
+  m_Layer: 5
+  m_Name: Player2 - Ammo Group (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1964075447
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964075446}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7999957, y: 0.7999957, z: 0.7999957}
+  m_Children: []
+  m_Father: {fileID: 436165018}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -276.40002, y: 60.300003}
+  m_SizeDelta: {x: 440.5, y: 25.45}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1964075448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964075446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 2
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 6.5, y: 24.56}
+  m_Spacing: {x: 5, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
+--- !u!114 &1964075449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964075446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1964075450
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964075446}
+  m_CullTransparentMesh: 0
 --- !u!4 &1964491880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4823274447746416, guid: 02e6ee7286d6ae541a84f27e971e4d2a,
@@ -52795,6 +53559,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0.03997326
       objectReference: {fileID: 0}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: cc45825963de7a64480914e6bf25ec92,
+        type: 2}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 951035230}
+    - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 951035231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a6c50820a9506b4bb690a301bebc057, type: 2}
   m_IsPrefabAsset: 0
@@ -53902,6 +54682,22 @@ Prefab:
       propertyPath: m_Parameters.colorGradient.key1.g
       value: 0.1465373
       objectReference: {fileID: 0}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: bullet_Doubledmg
+      value: 
+      objectReference: {fileID: 1861613144313666, guid: e89382686f1248147b19a10f32a6ad81,
+        type: 2}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_shotUI
+      value: 
+      objectReference: {fileID: 1964075446}
+    - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
+        type: 2}
+      propertyPath: ammo_parent
+      value: 
+      objectReference: {fileID: 1964075447}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b193baa2110d81d4488fbbe9047f4e7d, type: 2}
   m_IsPrefabAsset: 0

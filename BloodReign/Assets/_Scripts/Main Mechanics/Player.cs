@@ -146,9 +146,6 @@ public class Player : MonoBehaviour {
     {
         //if (activeState.Equals(PlayerState.dead))
         //    return;
-
-        
-
         if (transform.childCount > 3 && !playerHasModelAttached)
         {
             for (int i = 0; i < transform.GetChild(transform.childCount - 1).childCount; i++)

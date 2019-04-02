@@ -124,24 +124,26 @@ public class GunBehavior : MonoBehaviour
         if ((Input.GetButtonDown(RB_PNum)))
         {
             isShooting = true;
-
             if (isChargeGun)
             {
                 p_ChargeSystem.SetActive(true);
 
                 if (chargeParticles_ref == null)
                 {
-                    if((t_RateOfFireTimer >= RateOfFire) && (BulletsInMag > 0) && !requestReload)
+                    if ((t_RateOfFireTimer >= RateOfFire) && (BulletsInMag > 0) && !requestReload)
                     {
                         chargeParticles_ref = Instantiate(p_ChargeSystem);
                         chargeParticles_ref.transform.position = transform.position;
-
                         Destroy(chargeParticles_ref, 1);
+                    }
+                    else
+                    {
+                        isShooting = false;
                     }
                 }
             }
         }
-        else if ((Input.GetButtonUp(RB_PNum)))
+        else if ((Input.GetButtonUp(RB_PNum)) && isShooting)
         {
             isShooting = false;
             //Destroy(chargeParticles_ref);
@@ -221,7 +223,6 @@ public class GunBehavior : MonoBehaviour
                     {
                         if (Bullets[i].activeInHierarchy == false)
                         {
-                            print("SG_RD");
 
                             ShootBullet(Bullets, i, 1);
                             foundCounter++;
@@ -246,7 +247,6 @@ public class GunBehavior : MonoBehaviour
                         if (Bullets_DD[i].activeInHierarchy == false)
                         {
 
-                            print("SG_DD");
 
                             ShootBullet(Bullets, i, 2);
 
@@ -277,7 +277,7 @@ public class GunBehavior : MonoBehaviour
                         if (Bullets[i].activeInHierarchy == false)
                         {
                             InvisParticles();
-                            print("3");
+
 
                             ShootBullet(Bullets, i, 1);
 
@@ -294,7 +294,6 @@ public class GunBehavior : MonoBehaviour
                         {
                             InvisParticles();
 
-                            print("4");
                             ShootBullet(Bullets_DD, i, 2);
 
                             BulletsInMag--;
@@ -399,19 +398,16 @@ public class GunBehavior : MonoBehaviour
 
         if (!isChargeGun) // If not charge gun, dont change dmg
         {
-            print("Not Charge");
             return 1;
         }
 
         if(timer >= chargeTime)
         {
             // return regular dmg
-            print("Regular Dmg");
             return 1;
         }
         else
         {
-            print("Dmg Reduction");
 
             // Calculate smaller dmg
             return Mathf.Lerp(percentageDmgReduction, 1, timer/RateOfFire);
@@ -422,7 +418,6 @@ public class GunBehavior : MonoBehaviour
     {
         transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.5f);
         transform.parent.GetComponent<RumblePack>().addRumbleTimerH(0.10f, 0.02f);
-        print("Pew");
         bulletPool[index].transform.position = Emitter.position;
         bulletPool[index].SetActive(true);
         float randomAngle = Random.Range(Recoil, -Recoil);
