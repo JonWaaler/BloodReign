@@ -3813,6 +3813,7 @@ GameObject:
   - component: {fileID: 211271539}
   - component: {fileID: 211271529}
   - component: {fileID: 211271532}
+  - component: {fileID: 211271530}
   m_Layer: 0
   m_Name: Player4_Parent 4
   m_TagString: Player
@@ -3837,6 +3838,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &211271530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211271528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 3
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!114 &211271531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45737,6 +45756,7 @@ GameObject:
   - component: {fileID: 1256823355}
   - component: {fileID: 1256823345}
   - component: {fileID: 1256823348}
+  - component: {fileID: 1256823346}
   m_Layer: 0
   m_Name: Player3_Parent 3
   m_TagString: Player
@@ -45761,6 +45781,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &1256823346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1256823344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 2
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!114 &1256823347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52437,6 +52475,7 @@ GameObject:
   - component: {fileID: 1417814893}
   - component: {fileID: 1417814883}
   - component: {fileID: 1417814888}
+  - component: {fileID: 1417814884}
   m_Layer: 0
   m_Name: Player2_Parent 2
   m_TagString: Player
@@ -52461,6 +52500,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &1417814884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417814882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 1
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!54 &1417814885
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -60203,6 +60260,7 @@ GameObject:
   - component: {fileID: 1854359611}
   - component: {fileID: 1854359601}
   - component: {fileID: 1854359606}
+  - component: {fileID: 1854359602}
   m_Layer: 0
   m_Name: Player1_Parent 1
   m_TagString: Player
@@ -60227,6 +60285,24 @@ MonoBehaviour:
   hookActive: 0
   hookPartIns: {fileID: 0}
   grappleDmg: 25
+--- !u!114 &1854359602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854359600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIndex: 0
+  rumbleTimerH: []
+  rumbleTimerL: []
+  rumbleIntensityH: []
+  rumbleIntensityL: []
+  rumbleTotalH: 0
+  rumbleTotalL: 0
 --- !u!54 &1854359603
 Rigidbody:
   m_ObjectHideFlags: 0

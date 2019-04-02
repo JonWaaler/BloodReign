@@ -72,6 +72,7 @@ public class Player : MonoBehaviour {
     public GameObject particle_deathTrail;
     public float coolDown;
 
+    private float pulseCounter = 0;
     void Awake ()
 	{
 		Rigidbody rb = GetComponent<Rigidbody>();
@@ -146,6 +147,8 @@ public class Player : MonoBehaviour {
         //if (activeState.Equals(PlayerState.dead))
         //    return;
 
+        
+
         if (transform.childCount > 3 && !playerHasModelAttached)
         {
             for (int i = 0; i < transform.GetChild(transform.childCount - 1).childCount; i++)
@@ -170,6 +173,8 @@ public class Player : MonoBehaviour {
         // Player movement
         if (activeState == PlayerState.alive)
         {
+            pulseCounter = 0;
+
             if (xVel != 0 || zvel != 0)
             {
                 // Jon w would like to know about this (march 23rd) msg discord if you see this
@@ -198,8 +203,11 @@ public class Player : MonoBehaviour {
             coolDown = 1 - ( (nextAbil - Time.time) / ability.abilCool );
             coolDown = Mathf.Clamp01(coolDown);
 
+
             if ((Input.GetButtonDown(abilButton)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
+                GetComponent<RumblePack>().addRumbleTimerL(0.24f, 0.5f);
+
                 if (playerEnum == PlayerAbil.hook)
                 {
                     ability.ResetSphere();
@@ -208,6 +216,7 @@ public class Player : MonoBehaviour {
                 // set time for when next use of ability available
                 nextAbil = Time.time + ability.abilCool;
                 ability.AbilityExcecution();
+
             }
             // Look direction
             Vector3 playerDirection = Vector3.right * Input.GetAxisRaw(H_RS_PNum) + Vector3.forward * -Input.GetAxisRaw(V_RS_PNum);
@@ -225,6 +234,22 @@ public class Player : MonoBehaviour {
 
         if (activeState == PlayerState.dead)
         {
+            pulseCounter += Time.deltaTime;
+            if (pulseCounter > 2.0f && pulseCounter < 3.0f)
+            {
+                GetComponent<RumblePack>().addRumbleTimerL(0.15f, 0.5f);
+                pulseCounter = 3.0f;
+            }
+            else if (pulseCounter > 3.2f && pulseCounter < 4.5f)
+            {
+                GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.73f);
+                pulseCounter = 5.0f;
+            }
+            else if (pulseCounter > 5.0f)
+            {
+                pulseCounter = 1.0f;
+            }
+
             if (playerEnum == PlayerAbil.hook || playerEnum == PlayerAbil.teleport)
             {
                 // i.e you are already grappling
@@ -531,12 +556,16 @@ public class Player : MonoBehaviour {
 		//}
 	}
 
-	// void OnCollisioneExit(Collision other)
-	// {
-	// 	if (other.gameObject.tag == "Floor")
-	// 	{
-	// 		isGrounded = false;
-	// 		Debug.Log("false");
-	// 	}
-	// }
+    // void OnCollisioneExit(Collision other)
+    // {
+    // 	if (other.gameObject.tag == "Floor")
+    // 	{
+    // 		isGrounded = false;
+    // 		Debug.Log("false");
+    // 	}
+    // }
+    private void OnDestroy()
+    {
+        GetComponent<RumblePack>().stopRumbles();
+    }
 }

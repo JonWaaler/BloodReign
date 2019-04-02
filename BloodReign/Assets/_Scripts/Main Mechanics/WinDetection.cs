@@ -22,7 +22,6 @@ public class WinDetection : MonoBehaviour {
     private void Start()
     {
         cameraBehavior = FindObjectOfType<CameraBehavior>();
-
     }
 
     public void Update()
@@ -76,7 +75,7 @@ public class WinDetection : MonoBehaviour {
     public void DamagePlayer(float dmg)
     {
         slider_PlayerHealth.value -= dmg;
-
+        GetComponent<RumblePack>().addRumbleTimerH(0.05f, 1.1f - (slider_PlayerHealth.value / 100.0f));
         // Spawn blood, set pos to bullet pos
         ParticleSystem bloodInst = Instantiate<ParticleSystem>(Particles_Blood);
         bloodInst.transform.position = transform.position + Vector3.up * 4;
@@ -87,16 +86,18 @@ public class WinDetection : MonoBehaviour {
 
         if (slider_PlayerHealth.value <= 0.1f)
         {
+            GetComponent<RumblePack>().addRumbleTimerH(0.5f, 0.1f);
+            GetComponent<RumblePack>().addRumbleTimerH(0.4f, 0.1f);
+            GetComponent<RumblePack>().addRumbleTimerH(0.3f, 0.1f);
+            GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.1f);
+            GetComponent<RumblePack>().addRumbleTimerH(0.1f, 0.1f);
             if (gameManager.RemoveLife(playerNum))
             {
                 // We only want to write to the text file
                 if (writeHeatMap)
                 {
-                    //print("Game Object For Bellow Pos: " + gameObject.name);
-                    
-                    heatMap.WriteSigCoords(GetComponent<Transform>().position.x, transform.position.z);
-
-                    
+                    //print("Game Object For Bellow Pos: " + gameObject.name);                    
+                    heatMap.WriteSigCoords(GetComponent<Transform>().position.x, transform.position.z);                    
                 }
 
                 //print("Death Transform Vec:" + transform.position);
@@ -104,6 +105,7 @@ public class WinDetection : MonoBehaviour {
 
 
                 GetComponent<Player>().activeState = PlayerState.dead;
+                GetComponent<RumblePack>().addRumbleTimerL(0.7f, 0.112f);
             }
             else
             {

@@ -195,8 +195,14 @@ public class GunBehavior : MonoBehaviour
 
         if (isShooting && BulletsInMag == 0)
         {
+            if (requestReload == false)
+            {
+                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.30f, 0.1f);
+                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.20f, 0.1f);
+                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.1f);
+            }
             requestReload = true;
-            soundManager.Play(Sounds.SoundName.Reload_Shotgun);
+            soundManager.Play(Sounds.SoundName.Reload_Shotgun);            
         }
 
         if ((isShooting) && (t_RateOfFireTimer >= RateOfFire) && (BulletsInMag > 0) && !requestReload)
@@ -330,10 +336,13 @@ public class GunBehavior : MonoBehaviour
         {
             // Play Reload Sound
             // Also play a reload graphic on screen
-
+            transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.1f);
+            transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.20f, 0.1f);
+            
             tempReloading_Str = xButton_PNum;
             //print("This: " + tempReloading_Str);
             soundManager.Play(Sounds.SoundName.Reload_Shotgun);
+
             requestReload = true;
         }
 
@@ -354,6 +363,10 @@ public class GunBehavior : MonoBehaviour
                 t_Reload = 0;
                 Slider_Reload.value = 0;
                 Slider_Reload.gameObject.SetActive(false);
+
+                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.30f, 0.1f);
+                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.20f, 0.1f);
+                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.1f);
             }
         }
 
@@ -407,6 +420,8 @@ public class GunBehavior : MonoBehaviour
 
     private void ShootBullet(List<GameObject> bulletPool, int index, int dmgMultiplier)
     {
+        transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.5f);
+        transform.parent.GetComponent<RumblePack>().addRumbleTimerH(0.10f, 0.02f);
         print("Pew");
         bulletPool[index].transform.position = Emitter.position;
         bulletPool[index].SetActive(true);

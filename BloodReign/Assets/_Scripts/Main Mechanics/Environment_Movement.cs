@@ -23,6 +23,8 @@ public class Environment_Movement : MonoBehaviour {
 
     public Material stationary_mat;
     public Material moving_mat;
+    bool pulseRumble;
+    int pulseCounter = 0;
 
     private void Start()
     {
@@ -34,13 +36,30 @@ public class Environment_Movement : MonoBehaviour {
     void FixedUpdate ()
     {
         // Will have to change to suite Makee Makee, for now key board events
-        if (Input.GetKeyDown(activationButton))
+        if (Input.GetKeyDown(activationButton) && start == false)
         {
             start = true;
+            pulseRumble = true;
+            pulseCounter = 0;
         }
 
         if (start)
         {
+            if (pulseRumble && pulseCounter % 10 == 0)
+            {
+                RumblePack[] playersToRumble = FindObjectsOfType<RumblePack>();
+                foreach (RumblePack controller in playersToRumble)
+                {
+                    controller.addRumbleTimerH(0.3f, 0.25f);
+                }
+            }
+
+            if (pulseCounter < 30)
+            {
+                pulseCounter++;
+                pulseRumble = false;
+            }
+
             GetComponent<MeshRenderer>().material = moving_mat;
 
             // update player pos
@@ -67,6 +86,8 @@ public class Environment_Movement : MonoBehaviour {
                     t_lerp = 0;
                     pos--;
                 }
+                pulseCounter = 0;
+                pulseRumble = true;
             }
 
             if (pos == objectPositions.Count)

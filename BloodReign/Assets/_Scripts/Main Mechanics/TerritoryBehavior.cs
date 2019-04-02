@@ -63,7 +63,7 @@ public class TerritoryBehavior : MonoBehaviour {
             if (collision.tag == "Player")
             {
                 GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", doubleDmgActive_EmissionMap);
-
+                collision.GetComponent<RumblePack>().addRumbleTimerL(0.05f, 0.02f);
             }
         }
     }

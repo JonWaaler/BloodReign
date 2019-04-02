@@ -161,6 +161,10 @@ public class UI_Controller : MonoBehaviour
                     joinedPlayers--;
                     readyPlayers++;
                     soundManager.Play(readyup);
+                    transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerL(0.1f, 0.4f);
+                    transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerL(0.2f, 0.4f);
+                    transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerL(0.3f, 0.4f);
+                    transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerL(0.4f, 0.4f);
                 }
 
                 // If all joined players are ready flash press start text
@@ -271,6 +275,7 @@ public class UI_Controller : MonoBehaviour
                         gunCounter[i]++;
                         axisInUse[i] = true;
                         soundManager.Play(menu_move);
+                        transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerL(0.22f, 0.42f);
                     }
                 }
 
@@ -282,6 +287,7 @@ public class UI_Controller : MonoBehaviour
                         gunCounter[i]--;
                         axisInUse[i] = true;
                         soundManager.Play(menu_move);
+                        transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerH(0.22f, 0.42f);
                     }
                 }
                 // Do not Increment gun counter and axis is not in use
@@ -348,6 +354,7 @@ public class UI_Controller : MonoBehaviour
                         charCounter[i]++;
                         axisInUse[i] = true;
                         soundManager.Play(menu_move);
+                        transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerL(0.2f, 0.4f);
                     }
                 }
                 // Increment character counter (LS Left)
@@ -358,6 +365,7 @@ public class UI_Controller : MonoBehaviour
                         charCounter[i]--;
                         axisInUse[i] = true;
                         soundManager.Play(menu_move);
+                        transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.4f);
                     }
                 }
                 if ((Input.GetAxisRaw("H_LStick" + (i + 1)) == 0) && (Input.GetAxisRaw("H_DPad" + (i + 1)) == 0))
