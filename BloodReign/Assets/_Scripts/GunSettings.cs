@@ -30,6 +30,7 @@ public class GunSettings : MonoBehaviour
     public GameObject Element_Electricity;  // Pistol
     public GameObject Element_Earth;    // Rocket Launcher
     public List<Transform> playersElements;
+
     void Start()
     {
         p1Gun1.SetActive(false);
@@ -372,5 +373,25 @@ public class GunSettings : MonoBehaviour
             * Then we controll the position here to fix the stutter bug.
             */
 }
+    private void Update()
+    {
+        if (Input.GetKeyUp("7"))
+        {
+            players[0].GetComponent<RumblePack>().changePlayerToRumble();            
+        }
+        if (Input.GetKeyUp("8"))
+        {
+            players[1].GetComponent<RumblePack>().changePlayerToRumble();
+        }
+        if (Input.GetKeyUp("9"))
+        {
+            players[2].GetComponent<RumblePack>().changePlayerToRumble();
+        }
+        if (Input.GetKeyUp("0"))
+        {
+            players[3].GetComponent<RumblePack>().changePlayerToRumble();
+        }
+
+    }
 
 }

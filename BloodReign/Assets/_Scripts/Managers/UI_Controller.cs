@@ -441,5 +441,33 @@ public class UI_Controller : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyUp("7"))
+        {
+            transform.GetChild(0).GetComponent<RumblePack>().stopRumbles();
+            transform.GetChild(0).GetComponent<RumblePack>().changePlayerToRumble();
+            transform.GetChild(0).GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.4f);
+        }
+        if (Input.GetKeyUp("8"))
+        {
+            transform.GetChild(1).GetComponent<RumblePack>().GetComponent<RumblePack>().stopRumbles();
+            transform.GetChild(1).GetComponent<RumblePack>().changePlayerToRumble();
+            transform.GetChild(1).GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.4f);
+        }
+        if (Input.GetKeyUp("9"))
+        {
+            transform.GetChild(2).GetComponent<RumblePack>().GetComponent<RumblePack>().stopRumbles();
+            transform.GetChild(2).GetComponent<RumblePack>().changePlayerToRumble();
+            transform.GetChild(2).GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.4f);
+        }
+        if (Input.GetKeyUp("0"))
+        {
+            transform.GetChild(3).GetComponent<RumblePack>().GetComponent<RumblePack>().stopRumbles();
+            transform.GetChild(3).GetComponent<RumblePack>().changePlayerToRumble();
+            transform.GetChild(3).GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.4f);
+        }
+
+
+
     }
 }

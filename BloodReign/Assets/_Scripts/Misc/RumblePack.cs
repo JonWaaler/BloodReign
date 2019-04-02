@@ -33,6 +33,7 @@ public class RumblePack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!prevState.IsConnected)
         {
             Debug.Log(string.Format("GamePad not found {0}", playerIndex));
@@ -126,6 +127,17 @@ public class RumblePack : MonoBehaviour
     }
     private void OnDestroy()
     {
-        stopRumbles();        
+        stopRumbles();
+    }
+    public void changePlayerToRumble()
+    {
+        if ((int)playerIndex < 3)
+        {
+            playerIndex++;
+        }
+        else
+        {
+            playerIndex = PlayerIndex.One;
+        }
     }
 }

@@ -248,7 +248,7 @@ public class GunBehavior : MonoBehaviour
                         {
 
 
-                            ShootBullet(Bullets, i, 2);
+                            ShootBullet(Bullets_DD, i, 2);
 
                             foundCounter++;
 

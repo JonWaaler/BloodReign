@@ -317,6 +317,11 @@ public class Player : MonoBehaviour {
                 status = StatusEffect.nothing;
             }
         }
+
+        if(transform.position.y < -250)
+        {
+            GetComponent<WinDetection>().DamagePlayer(100);
+        }
     }
 
     public void AssignTexture()

@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour {
     }
     private void OnDisable()
     {
-        
+        trail.Clear();
     }
 
     // Update is called once per frame

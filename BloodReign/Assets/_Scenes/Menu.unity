@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 1
+  playerIndex: 2
   rumbleTimerH: []
   rumbleTimerL: []
   rumbleIntensityH: []
@@ -1894,7 +1894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 3
+  playerIndex: 0
   rumbleTimerH: []
   rumbleTimerL: []
   rumbleIntensityH: []
@@ -3834,7 +3834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
+  playerIndex: 3
   rumbleTimerH: []
   rumbleTimerL: []
   rumbleIntensityH: []
@@ -6478,7 +6478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 2
+  playerIndex: 1
   rumbleTimerH: []
   rumbleTimerL: []
   rumbleIntensityH: []
