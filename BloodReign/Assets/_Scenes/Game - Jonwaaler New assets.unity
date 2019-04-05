@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4397552, g: 0.48818004, b: 0.56839955, a: 1}
+  m_IndirectSpecularColor: {r: 0.43975496, g: 0.48817927, b: 0.5683981, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3849,7 +3849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 3
+  playerIndex: 0
   rumbleTimerH: []
   rumbleTimerL: []
   rumbleIntensityH: []
@@ -12816,7 +12816,7 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: Damage
-      value: 70
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
@@ -12826,18 +12826,28 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: percentageDmgReduction
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: chargeTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: p_ChargeSystem
       value: 
       objectReference: {fileID: 1672128554}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -31143,7 +31153,7 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: Damage
-      value: 70
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
@@ -31153,18 +31163,28 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: percentageDmgReduction
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: chargeTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: p_ChargeSystem
       value: 
       objectReference: {fileID: 1672128554}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -42854,7 +42874,7 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: Damage
-      value: 70
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
@@ -42864,18 +42884,28 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: percentageDmgReduction
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: chargeTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: p_ChargeSystem
       value: 
       objectReference: {fileID: 1672128554}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
   m_IsPrefabAsset: 0
@@ -45896,7 +45926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 2
+  playerIndex: 0
   rumbleTimerH: []
   rumbleTimerL: []
   rumbleIntensityH: []
@@ -52615,7 +52645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aad3dc75817c424da16203db1517f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 1
+  playerIndex: 0
   rumbleTimerH: []
   rumbleTimerL: []
   rumbleIntensityH: []
@@ -57355,7 +57385,7 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: Damage
-      value: 70
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
@@ -57365,12 +57395,12 @@ Prefab:
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: percentageDmgReduction
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: chargeTime
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
@@ -57380,6 +57410,16 @@ Prefab:
     - target: {fileID: 4145279176869110, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: RateOfFire
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
+        type: 2}
+      propertyPath: t_RateOfFireTimer
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 626872ae3e854534ba00c7f95c162ae6, type: 2}

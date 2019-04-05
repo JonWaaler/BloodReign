@@ -124,6 +124,8 @@ public class GunBehavior : MonoBehaviour
         if ((Input.GetButtonDown(RB_PNum)))
         {
             isShooting = true;
+            t_chargeTime = 0;
+
             if (isChargeGun)
             {
                 p_ChargeSystem.SetActive(true);
@@ -410,7 +412,11 @@ public class GunBehavior : MonoBehaviour
         {
 
             // Calculate smaller dmg
-            return Mathf.Lerp(percentageDmgReduction, 1, timer/RateOfFire);
+            print(Mathf.Lerp(percentageDmgReduction, 1, timer));
+
+            float value = Mathf.Lerp(percentageDmgReduction, 1, timer/chargeTime);
+            timer = 0;
+            return value;
         }
     }
 
@@ -423,6 +429,7 @@ public class GunBehavior : MonoBehaviour
         float randomAngle = Random.Range(Recoil, -Recoil);
         bulletPool[index].transform.eulerAngles = gameObject.transform.parent.transform.eulerAngles - new Vector3(0, randomAngle, 0);
         bulletPool[index].GetComponent<Bullet>().Damage = Damage * dmgMultiplier * ChargeUp(t_chargeTime);
+        print("DMG:" + bulletPool[index].GetComponent<Bullet>().Damage);
     }
 
     private void OnTriggerEnter(Collider other)
