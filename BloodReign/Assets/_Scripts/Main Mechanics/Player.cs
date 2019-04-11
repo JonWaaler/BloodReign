@@ -201,7 +201,7 @@ public class Player : MonoBehaviour {
             coolDown = Mathf.Clamp01(coolDown);
 
 
-            if ((Input.GetButtonDown(abilButton)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
+            if ((Input.GetButtonDown(abilButton) || Input.GetAxis(LT_PNum) == -1) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
                 GetComponent<RumblePack>().addRumbleTimerL(0.24f, 0.5f);
 
@@ -250,7 +250,7 @@ public class Player : MonoBehaviour {
             if (playerEnum == PlayerAbil.hook || playerEnum == PlayerAbil.teleport)
             {
                 // i.e you are already grappling
-                if ((Input.GetButtonDown(abilButton)) && Time.time < nextAbil)
+                if ((Input.GetButtonDown(abilButton) || Input.GetAxis(LT_PNum) == -1) && Time.time < nextAbil)
                 {
                     ability.ResetSphere();
                 }

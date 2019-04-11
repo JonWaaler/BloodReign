@@ -121,7 +121,7 @@ public class GunBehavior : MonoBehaviour
         {
             chargeParticles_ref.transform.position = transform.position;
         }
-        if ((Input.GetButtonDown(RB_PNum)))
+        if (Input.GetButtonDown(RB_PNum) || Input.GetAxis(RT_PNum) == -1)
         {
             isShooting = true;
             t_chargeTime = 0;
@@ -145,7 +145,7 @@ public class GunBehavior : MonoBehaviour
                 }
             }
         }
-        else if ((Input.GetButtonUp(RB_PNum)) && isShooting)
+        else if ((Input.GetButtonUp(RB_PNum) || Input.GetAxis(RT_PNum) != -1) && isShooting)
         {
             isShooting = false;
             //Destroy(chargeParticles_ref);
