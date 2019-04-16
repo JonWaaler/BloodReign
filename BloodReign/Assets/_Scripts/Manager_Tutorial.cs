@@ -10,18 +10,23 @@ public class Manager_Tutorial : MonoBehaviour {
     public Image Radial_Button;
 
     public CameraBehavior cameraBehavior;
-
-    private bool[] playerIsReady;
+    public List<RumblePack> readyPlayers;
+    public List<bool> readyBools;
+    public List<GameObject> players;
     public List<MeshRenderer> platforms;
+    public int readyAmt = 0;
 
     // Use this for initialization
     void Start () {
-        playerIsReady = new bool[4];
-        playerIsReady[0] = false;
-        playerIsReady[1] = false;
-        playerIsReady[2] = false;
-        playerIsReady[3] = false;
-	}
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (players[i] != null)
+            {
+                readyPlayers.Add(players[i].GetComponent<RumblePack>());
+                readyBools.Add(false);
+            }
+        }
+    }
     
 
 	// Update is called once per frame
@@ -31,48 +36,38 @@ public class Manager_Tutorial : MonoBehaviour {
         //    Radial_Button.fillAmount += Time.deltaTime;
         //else
         //    Radial_Button.fillAmount -= Time.deltaTime;
-
-        if(Input.GetButton("BButton1") || Input.GetButton("BButton2") || Input.GetButton("BButton3") || Input.GetButton("BButton4"))
+        for(int i = readyPlayers.Count-1; i >= 0; i--)
         {
-            Radial_Button.fillAmount += Time.deltaTime;
-        }
-        else
-        {
-            Radial_Button.fillAmount -= Time.deltaTime;
-        }
-
-        int readyAmt = 0;
-        for (int i = 0; i < cameraBehavior.players.Count; i++)
-        {
-            if (playerIsReady[i])
+            if(players[i] == null)
             {
-                platforms[i].material.color = Color.green;
-                readyAmt++;
+                readyPlayers.Remove(readyPlayers[i]);
+                readyBools.Remove(readyBools[i]);
+                players.Remove(players[i]);
             }
         }
 
-        if (Input.GetButtonDown("AButton1"))
+        bool goBack = false;
+        for(int i = 0; i < readyPlayers.Count; i++)
         {
-            playerIsReady[0] = true;
-            //readyCount++;
+            if (readyPlayers[i].state.Buttons.B == 0)
+                goBack = true;             
         }
-        if (Input.GetButtonDown("AButton2"))
-        {
-            playerIsReady[1] = true;
-            //readyCount++;
-        }
-        if (Input.GetButtonDown("AButton3"))
-        {
-            playerIsReady[2] = true;
-            //readyCount++;
-        }
-        if (Input.GetButtonDown("AButton4"))
-        {
-            playerIsReady[3] = true;
-            //readyCount++;
-        }
+        if(goBack)
+            Radial_Button.fillAmount += Time.deltaTime;
+        else
+            Radial_Button.fillAmount -= Time.deltaTime;
 
-        if(readyAmt == cameraBehavior.players.Count)
+        for (int i = 0; i < readyPlayers.Count; i++)
+        {
+            if (readyPlayers[i].getButtonDown(0) && readyBools[i] == false)
+            {
+                readyBools[i] = true;
+                readyAmt++;
+            }
+            if (readyBools[i])
+                platforms[i].material.color = Color.green;
+        }
+        if (readyAmt >= players.Count)
         {
             // LoadGame
             SceneManager.LoadScene(2);

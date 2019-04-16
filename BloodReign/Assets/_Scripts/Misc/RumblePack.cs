@@ -5,13 +5,12 @@ using System.Collections.Generic;
 public class RumblePack : MonoBehaviour
 {
     public PlayerIndex playerIndex;
-    GamePadState state;
-    GamePadState prevState;
+    public GamePadState state;
+    public GamePadState prevState;
     public List<float> rumbleTimerH = new List<float>();
     public List<float> rumbleTimerL = new List<float>();
     public List<float> rumbleIntensityH = new List<float>();
     public List<float> rumbleIntensityL = new List<float>();
-
     public float rumbleTotalH = 0.0f;
     public float rumbleTotalL = 0.0f;
 
@@ -91,7 +90,6 @@ public class RumblePack : MonoBehaviour
             rumbleTotalH = 0.0f;
         if (rumbleTotalL < 0.0f)
             rumbleTotalL = 0.0f;
-
         /*
         // Detect if a button was pressed this frame
         if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
@@ -105,6 +103,121 @@ public class RumblePack : MonoBehaviour
         }
         */
     }
+    public bool getButtonDown(int inputID)
+    {
+        switch (inputID)
+        {
+            case 0:
+                if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
+                    return true;
+                break;
+            case 1:
+                if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed)
+                    return true;
+                break;
+            case 2:
+                if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed)
+                    return true;
+                break;
+            case 3:
+                if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed)
+                    return true;
+                break;
+            case 4:
+                if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed)
+                    return true;
+                break;
+            case 5:
+                if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed)
+                    return true;
+                break;
+            case 6:
+                if (prevState.Buttons.Back == ButtonState.Released && state.Buttons.Back == ButtonState.Pressed)
+                    return true;
+                break;
+            case 7:
+                if (prevState.Buttons.Start == ButtonState.Released && state.Buttons.Start == ButtonState.Pressed)
+                    return true;
+                break;
+            case 8:
+                if (prevState.Buttons.LeftStick == ButtonState.Released && state.Buttons.LeftStick == ButtonState.Pressed)
+                    return true;
+                break;
+            case 9:
+                if (prevState.Buttons.RightStick == ButtonState.Released && state.Buttons.RightStick == ButtonState.Pressed)
+                    return true;
+                break;
+            case 10:
+                if (prevState.Triggers.Left == 0 && state.Triggers.Left > 0)
+                    return true;
+                break;
+            case 11:
+                if (prevState.Triggers.Right == 0 && state.Triggers.Right> 0)
+                    return true;
+                break;
+            default:
+                return false;
+        }
+        return false;
+    }
+    public bool getButtonUp(int inputID)
+    {
+        switch (inputID)
+        {
+            case 0:
+                if (prevState.Buttons.A == ButtonState.Pressed && state.Buttons.A == ButtonState.Released)
+                    return true;
+                break;
+            case 1:
+                if (prevState.Buttons.B == ButtonState.Pressed && state.Buttons.B == ButtonState.Released)
+                    return true;
+                break;
+            case 2:
+                if (prevState.Buttons.X == ButtonState.Pressed && state.Buttons.X == ButtonState.Released)
+                    return true;
+                break;
+            case 3:
+                if (prevState.Buttons.Y == ButtonState.Pressed && state.Buttons.Y == ButtonState.Released)
+                    return true;
+                break;
+            case 4:
+                if (prevState.Buttons.RightShoulder == ButtonState.Pressed && state.Buttons.RightShoulder == ButtonState.Released)
+                    return true;
+                break;
+            case 5:
+                if (prevState.Buttons.LeftShoulder == ButtonState.Pressed && state.Buttons.LeftShoulder == ButtonState.Released)
+                    return true;
+                break;
+            case 6:
+                if (prevState.Buttons.Back == ButtonState.Pressed && state.Buttons.Back == ButtonState.Released)
+                    return true;
+                break;
+            case 7:
+                if (prevState.Buttons.Start == ButtonState.Pressed && state.Buttons.Start == ButtonState.Released)
+                    return true;
+                break;
+            case 8:
+                if (prevState.Buttons.LeftStick == ButtonState.Pressed && state.Buttons.LeftStick == ButtonState.Released)
+                    return true;
+                break;
+            case 9:
+                if (prevState.Buttons.RightStick == ButtonState.Pressed && state.Buttons.RightStick == ButtonState.Released)
+                    return true;
+                break;
+            case 10:
+                if (prevState.Triggers.Left > 0 && state.Triggers.Left == 0)
+                    return true;
+                break;
+            case 11:
+                if (prevState.Triggers.Right > 0 && state.Triggers.Right == 0)
+                    return true;
+                break;
+            default:
+                return false;
+        }
+        return false;
+    }
+
     public void addRumbleTimerH(float durationH, float intensityH)
     {
         rumbleTimerH.Add(durationH);

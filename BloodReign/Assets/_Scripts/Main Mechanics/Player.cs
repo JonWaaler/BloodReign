@@ -161,8 +161,8 @@ public class Player : MonoBehaviour {
         }
 
 
-        xVel = Input.GetAxis(H_LS_PNum);
-        zvel = Input.GetAxis(V_LS_PNum);
+        xVel = GetComponent<RumblePack>().state.ThumbSticks.Left.X;
+        zvel = GetComponent<RumblePack>().state.ThumbSticks.Left.Y;
 
         inputVector = new Vector3(xVel, 0, zvel);
 
@@ -200,8 +200,7 @@ public class Player : MonoBehaviour {
             coolDown = 1 - ( (nextAbil - Time.time) / ability.abilCool );
             coolDown = Mathf.Clamp01(coolDown);
 
-
-            if ((Input.GetButtonDown(abilButton) || Input.GetAxis(LT_PNum) == -1) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
+            if ((GetComponent<RumblePack>().getButtonDown(5) ||GetComponent<RumblePack>().getButtonDown(10)) && Time.time > nextAbil && !status.Equals(StatusEffect.grappled))
             {
                 GetComponent<RumblePack>().addRumbleTimerL(0.24f, 0.5f);
 
@@ -215,8 +214,9 @@ public class Player : MonoBehaviour {
                 ability.AbilityExcecution();
 
             }
-            // Look direction
-            Vector3 playerDirection = Vector3.right * Input.GetAxisRaw(H_RS_PNum) + Vector3.forward * -Input.GetAxisRaw(V_RS_PNum);
+            // Look direction            
+            Vector3 playerDirection = Vector3.right * GetComponent<RumblePack>().state.ThumbSticks.Right.X + Vector3.forward * GetComponent<RumblePack>().state.ThumbSticks.Right.Y;
+            playerDirection.Normalize();
             if (playerDirection.sqrMagnitude > 0.0f)
             {
                 transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
@@ -250,7 +250,7 @@ public class Player : MonoBehaviour {
             if (playerEnum == PlayerAbil.hook || playerEnum == PlayerAbil.teleport)
             {
                 // i.e you are already grappling
-                if ((Input.GetButtonDown(abilButton) || Input.GetAxis(LT_PNum) == -1) && Time.time < nextAbil)
+                if ((GetComponent<RumblePack>().getButtonDown(5) ||GetComponent<RumblePack>().getButtonDown(10)) && Time.time < nextAbil)
                 {
                     ability.ResetSphere();
                 }
@@ -290,7 +290,8 @@ public class Player : MonoBehaviour {
             rb.transform.position = new Vector3(rb.transform.position.x, 2, rb.transform.position.z);
 
             // Look direction
-            Vector3 playerDirection = Vector3.right * Input.GetAxisRaw(H_RS_PNum) + Vector3.forward * -Input.GetAxisRaw(V_RS_PNum);
+            Vector3 playerDirection = Vector3.right * GetComponent<RumblePack>().state.ThumbSticks.Right.X + Vector3.forward * GetComponent<RumblePack>().state.ThumbSticks.Right.Y;
+            playerDirection.Normalize();
             if (playerDirection.sqrMagnitude > 0.0f)
             {
                 transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
@@ -306,7 +307,7 @@ public class Player : MonoBehaviour {
                 GetComponent<WinDetection>().slider_PlayerHealth.value += Time.deltaTime * 50f;
 
             // The Respawn button
-            if (Input.GetButtonDown(AButton_PNum) && GetComponent<WinDetection>().slider_PlayerHealth.value >= 100)
+            if (GetComponent<RumblePack>().getButtonDown(0) && GetComponent<WinDetection>().slider_PlayerHealth.value >= 100)
             {
 
                 rb.transform.position = new Vector3(rb.transform.position.x, 1, rb.transform.position.z);

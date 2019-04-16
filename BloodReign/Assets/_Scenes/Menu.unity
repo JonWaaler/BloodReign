@@ -7484,6 +7484,11 @@ MonoBehaviour:
   readyup: 8
   menuMusic: 6
   playerSettings: {fileID: 11400000, guid: 4fbb38b575ec03e4faee2e0e41bd5ad0, type: 2}
+  controllerDLL:
+  - {fileID: 351473250}
+  - {fileID: 1317770713}
+  - {fileID: 104875262}
+  - {fileID: 809691802}
 --- !u!114 &1481733764
 MonoBehaviour:
   m_ObjectHideFlags: 0

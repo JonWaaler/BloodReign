@@ -76,7 +76,7 @@ public class GunBehavior : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = transform.parent.gameObject;
         
         for (int i = 0; i < BULLET_POOL_SIZE; i++)
         {
@@ -97,7 +97,7 @@ public class GunBehavior : MonoBehaviour
                 myDDInstance.GetComponent<Bullet>().ID = RT_PNum.Substring(RT_PNum.Length - 1);
             }
             else
-                Debug.LogError("Player:" + gameObject.name + "   does not have double damage bullet", gameObject);
+                Debug.LogError("Player:" + player.name + "   does not have double damage bullet", gameObject);
         }
 
         for (int i = 0; i < MagazineCapacity; i++)
@@ -107,13 +107,13 @@ public class GunBehavior : MonoBehaviour
     }
 
     GameObject chargeParticles_ref;
-    void Update()
+    void FixedUpdate()
     { 
         if(transform.parent.GetComponent<Player>().activeState == PlayerState.dead)
         {
             BulletsInMag = MagazineCapacity;
             Slider_Reload.transform.parent.position = transform.parent.position + Vector3.up * 2;
-
+            isShooting = false;
             return;
         }
 
@@ -121,7 +121,7 @@ public class GunBehavior : MonoBehaviour
         {
             chargeParticles_ref.transform.position = transform.position;
         }
-        if (Input.GetButtonDown(RB_PNum) || Input.GetAxis(RT_PNum) == -1)
+        if (player.GetComponent<RumblePack>().getButtonDown(4) || player.GetComponent<RumblePack>().getButtonDown(11))
         {
             isShooting = true;
             t_chargeTime = 0;
@@ -145,7 +145,7 @@ public class GunBehavior : MonoBehaviour
                 }
             }
         }
-        else if ((Input.GetButtonUp(RB_PNum) || Input.GetAxis(RT_PNum) != -1) && isShooting)
+        else if ((player.GetComponent<RumblePack>().getButtonUp(4) || player.GetComponent<RumblePack>().getButtonUp(11)) && isShooting)
         {
             isShooting = false;
             //Destroy(chargeParticles_ref);
@@ -167,8 +167,6 @@ public class GunBehavior : MonoBehaviour
                             //p_ChargeSystem.GetComponent<ParticleSystem>().Clear();
                             //p_ChargeSystem.SetActive(false);
                             Destroy(chargeParticles_ref);
-
-
                             return;
                         }
                     }
@@ -196,15 +194,8 @@ public class GunBehavior : MonoBehaviour
                 }
             }
         }
-
         if (isShooting && BulletsInMag == 0)
         {
-            if (requestReload == false)
-            {
-                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.30f, 0.1f);
-                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.20f, 0.1f);
-                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.1f);
-            }
             requestReload = true;
             soundManager.Play(Sounds.SoundName.Reload_Shotgun);            
         }
@@ -324,22 +315,19 @@ public class GunBehavior : MonoBehaviour
             if (!useDoubleDamage)
             {
                 for (int i = 0; i < BULLET_POOL_SIZE; i++)
-                    Bullets[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxisRaw(V_RS_PNum), Input.GetAxisRaw(H_RS_PNum)) * Mathf.Rad2Deg + 90, 0);
+                    Bullets[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(player.GetComponent<RumblePack>().state.ThumbSticks.Right.Y, player.GetComponent<RumblePack>().state.ThumbSticks.Right.X) * Mathf.Rad2Deg + 90, 0);
             }
             else
             {
                 for (int i = 0; i < BULLET_POOL_SIZE; i++)
-                    Bullets_DD[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxisRaw(V_RS_PNum), Input.GetAxisRaw(H_RS_PNum)) * Mathf.Rad2Deg + 90, 0);
+                    Bullets_DD[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(player.GetComponent<RumblePack>().state.ThumbSticks.Right.Y, player.GetComponent<RumblePack>().state.ThumbSticks.Right.X) * Mathf.Rad2Deg + 90, 0);
             }
         }
 
-        if ((Input.GetButtonDown(xButton_PNum)) && (!requestReload))
+        if (player.GetComponent<RumblePack>().getButtonDown(2) && (!requestReload))
         {
             // Play Reload Sound
             // Also play a reload graphic on screen
-            transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.1f);
-            transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.20f, 0.1f);
-            
             tempReloading_Str = xButton_PNum;
             //print("This: " + tempReloading_Str);
             soundManager.Play(Sounds.SoundName.Reload_Shotgun);
@@ -364,10 +352,6 @@ public class GunBehavior : MonoBehaviour
                 t_Reload = 0;
                 Slider_Reload.value = 0;
                 Slider_Reload.gameObject.SetActive(false);
-
-                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.30f, 0.1f);
-                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.20f, 0.1f);
-                transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.1f);
             }
         }
 
@@ -422,8 +406,7 @@ public class GunBehavior : MonoBehaviour
 
     private void ShootBullet(List<GameObject> bulletPool, int index, int dmgMultiplier)
     {
-        transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.10f, 0.5f);
-        transform.parent.GetComponent<RumblePack>().addRumbleTimerH(0.10f, 0.02f);
+        transform.parent.GetComponent<RumblePack>().addRumbleTimerL(0.1f, 0.3f);
         bulletPool[index].transform.position = Emitter.position;
         bulletPool[index].SetActive(true);
         float randomAngle = Random.Range(Recoil, -Recoil);

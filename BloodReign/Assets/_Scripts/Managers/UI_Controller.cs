@@ -40,7 +40,7 @@ public class UI_Controller : MonoBehaviour
     private bool[] CharacterSelect;
     private bool[] GunSelect;
     private bool[] ReadySelect;
-    private bool[] axisInUse;
+    public bool[] axisInUse;
     private bool[] playerWeapon;
     private bool[] ready;
     private int[] charCounter;
@@ -53,7 +53,7 @@ public class UI_Controller : MonoBehaviour
     private bool[] isCharRand;
 
     public PlayerSettings playerSettings;
-
+    public List<RumblePack> controllerDLL;
     List<int> controllers = new List<int>();
 
     private void Start()
@@ -104,7 +104,6 @@ public class UI_Controller : MonoBehaviour
             readyIMG[i].SetActive(false);
             charRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
             gunRandIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
-
             CharacterSelect[i] = false;
             GunSelect[i] = false;
             axisInUse[i] = false;
@@ -125,10 +124,11 @@ public class UI_Controller : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             // If BButton pressed then go back to main menu
-            if ((Input.GetKeyDown("joystick " + (i + 1) + " button 1") || Input.GetKeyDown(KeyCode.W)) && controllers.Contains(i + 1) && !GunSelect[i] && !ReadySelect[i])
-                SceneManager.LoadScene(0);
-            else if ((Input.GetKeyDown("joystick " + (i + 1) + " button 1") || Input.GetKeyDown(KeyCode.W)) && controllers.Contains(i + 1) && GunSelect[i] && !ReadySelect[i])
+            if ((controllerDLL[i].getButtonDown(1) || Input.GetKeyDown(KeyCode.W)) && controllerDLL[i].state.IsConnected && !GunSelect[i] && !ReadySelect[i])
+                SceneManager.LoadScene(0);                       
+            else if ((controllerDLL[i].getButtonDown(1)|| Input.GetKeyDown(KeyCode.W)) && controllerDLL[i].state.IsConnected && GunSelect[i] && !ReadySelect[i])
             {
+
                 // Go back to character selection
                 pistolIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
                 sniperIMG[i].GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
@@ -138,7 +138,7 @@ public class UI_Controller : MonoBehaviour
                 GunSelect[i] = false;
                 CharacterSelect[i] = true;
             }
-            else if ((Input.GetKeyDown("joystick " + (i + 1) + " button 1") || Input.GetKeyDown(KeyCode.W)) && controllers.Contains(i + 1) && !GunSelect[i] && ReadySelect[i])
+            else if ((controllerDLL[i].getButtonDown(1) || Input.GetKeyDown(KeyCode.W)) && controllerDLL[i].state.IsConnected && !GunSelect[i] && ReadySelect[i])
             {
                 // Go back to gun selection
                 readyIMG[i].SetActive(false);
@@ -188,7 +188,7 @@ public class UI_Controller : MonoBehaviour
                     PRESSSTART.gameObject.SetActive(false);
                 }
 
-                if ((Input.GetKeyDown(("joystick " + (i + 1) + " button 7")) || Input.GetKeyDown(KeyCode.Q)) && (joinedPlayers == 0) && (readyPlayers >= 2))
+                if ((controllerDLL[i].getButtonDown(7) || Input.GetKeyDown(KeyCode.Q)) && (joinedPlayers == 0) && (readyPlayers >= 2))
                 {
                     GunSelect[i] = false;
                     gunPointers[i].SetActive(false);
@@ -266,9 +266,10 @@ public class UI_Controller : MonoBehaviour
 
             if (GunSelect[i])
             {
+                print(controllerDLL[i].state.ThumbSticks.Left.X + " || " + controllerDLL[i].state.DPad.Right + " || " + controllerDLL[i].state.DPad.Left);
                 gunPointers[i].SetActive(true);
                 // Increment gun counter (LS Right)
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 1 || (Input.GetAxisRaw("H_DPad" + (i + 1)) == 1))
+                if (controllerDLL[i].state.ThumbSticks.Left.X >= 0.5 || (controllerDLL[i].state.DPad.Right == 0))
                 {
                     if (axisInUse[i] == false)
                     {
@@ -280,7 +281,7 @@ public class UI_Controller : MonoBehaviour
                 }
 
                 // Increment gun counter (LS Left)
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == -1 || (Input.GetAxisRaw("H_DPad" + (i + 1)) == -1))
+                if (controllerDLL[i].state.ThumbSticks.Left.X <= -0.5 || (controllerDLL[i].state.DPad.Left == 0))
                 {
                     if (axisInUse[i] == false)
                     {
@@ -291,7 +292,7 @@ public class UI_Controller : MonoBehaviour
                     }
                 }
                 // Do not Increment gun counter and axis is not in use
-                if (Input.GetAxisRaw("H_LStick" + (i + 1)) == 0 && (Input.GetAxisRaw("H_DPad" + (i + 1)) == 0))
+                if (controllerDLL[i].state.ThumbSticks.Left.X == 0 && controllerDLL[i].state.DPad.Left != 0 && controllerDLL[i].state.DPad.Right != 0)
                     axisInUse[i] = false;
 
                 // Gun counter range only 0, 1 and 2
@@ -320,7 +321,7 @@ public class UI_Controller : MonoBehaviour
                     isGunRand[i] = true;
                 }
 
-                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0") || Input.GetKeyDown(KeyCode.Q))
+                if (controllerDLL[i].getButtonDown(0)|| Input.GetKeyDown(KeyCode.Q))
                 {
                     GunSelect[i] = false;
                     ReadySelect[i] = true;
@@ -342,11 +343,8 @@ public class UI_Controller : MonoBehaviour
             {
                 gunPointers[i].SetActive(false);
                 charPointers[i].SetActive(true);
-                Debug.Log("dpad " + Input.GetAxisRaw("H_DPad" + (i + 1)));
-                Debug.Log("lstick " + Input.GetAxisRaw("H_LStick" + (i + 1)));
-                Debug.Log(axisInUse[i]);
                 // Increment character counter (LS Right)
-                if ((Input.GetAxisRaw("H_LStick" + (i + 1)) == 1) || (Input.GetAxisRaw("H_DPad" + (i + 1)) == 1))
+                if ((controllerDLL[i].state.ThumbSticks.Left.X >= 0.5) || controllerDLL[i].state.DPad.Right == 0)
                 {
                     //Debug.Log(1);
                     if (axisInUse[i] == false)
@@ -358,7 +356,7 @@ public class UI_Controller : MonoBehaviour
                     }
                 }
                 // Increment character counter (LS Left)
-                if ((Input.GetAxisRaw("H_LStick" + (i + 1))) == -1 || (Input.GetAxisRaw("H_DPad" + (i + 1)) == -1))
+                if ((controllerDLL[i].state.ThumbSticks.Left.X <= -0.5 ) || controllerDLL[i].state.DPad.Left == 0)
                 {
                     if (axisInUse[i] == false)
                     {
@@ -368,7 +366,7 @@ public class UI_Controller : MonoBehaviour
                         transform.GetChild(i).GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.4f);
                     }
                 }
-                if ((Input.GetAxisRaw("H_LStick" + (i + 1)) == 0) && (Input.GetAxisRaw("H_DPad" + (i + 1)) == 0))
+                if ((controllerDLL[i].state.ThumbSticks.Left.X == 0) && controllerDLL[i].state.DPad.Left != 0 && controllerDLL[i].state.DPad.Right != 0)
                 {
                     axisInUse[i] = false;
                 }
@@ -397,7 +395,7 @@ public class UI_Controller : MonoBehaviour
                     isCharRand[i] = true;
                 }
 
-                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0") || Input.GetKeyDown(KeyCode.Q))
+                if (controllerDLL[i].getButtonDown(0) || Input.GetKeyDown(KeyCode.Q))
                 {
                     CharacterSelect[i] = false;
                     GunSelect[i] = true;
@@ -411,7 +409,7 @@ public class UI_Controller : MonoBehaviour
         {
             for (int i = 0; i < 4; i++)
             {
-                if (Input.GetKeyDown("joystick " + (i + 1) + " button 0") || Input.GetKeyDown(KeyCode.Q))
+                if (controllerDLL[i].getButtonDown(0) || Input.GetKeyDown(KeyCode.Q))
                 {
                     // if our list of controllers doesnt contain the new controller then...
                     if (!controllers.Contains(i + 1))
