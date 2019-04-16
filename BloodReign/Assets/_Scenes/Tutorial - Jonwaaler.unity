@@ -2833,7 +2833,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 461648625}
+      objectReference: {fileID: 1219359285616738, guid: 13f2234e61d085e4394cf40691ceedeb,
+        type: 2}
     - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
         type: 2}
       propertyPath: ammo_parent
@@ -3553,7 +3554,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 461648625}
+      objectReference: {fileID: 1219359285616738, guid: 13f2234e61d085e4394cf40691ceedeb,
+        type: 2}
     - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
         type: 2}
       propertyPath: ammo_parent
@@ -4470,7 +4472,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 951035230}
+      objectReference: {fileID: 1219359285616738, guid: 6d01ee6aa76f8ed4990187beeae53584,
+        type: 2}
     - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
         type: 2}
       propertyPath: ammo_parent
@@ -4904,7 +4907,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1964075446}
+      objectReference: {fileID: 1219359285616738, guid: 7a17bff4ddb909345b0e3eeab50f0489,
+        type: 2}
     - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
         type: 2}
       propertyPath: ammo_parent
@@ -10177,7 +10181,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 461648625}
+      objectReference: {fileID: 1219359285616738, guid: 13f2234e61d085e4394cf40691ceedeb,
+        type: 2}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: ammo_parent
@@ -27139,7 +27144,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1189307088}
+      objectReference: {fileID: 1219359285616738, guid: 459d3b7d8028aae45aec38d3bffca988,
+        type: 2}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: ammo_parent
@@ -36962,7 +36968,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1964075446}
+      objectReference: {fileID: 1219359285616738, guid: 7a17bff4ddb909345b0e3eeab50f0489,
+        type: 2}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: ammo_parent
@@ -37903,7 +37910,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1189307088}
+      objectReference: {fileID: 1219359285616738, guid: 459d3b7d8028aae45aec38d3bffca988,
+        type: 2}
     - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
         type: 2}
       propertyPath: ammo_parent
@@ -39525,7 +39533,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1189307088}
+      objectReference: {fileID: 1219359285616738, guid: 459d3b7d8028aae45aec38d3bffca988,
+        type: 2}
     - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
         type: 2}
       propertyPath: ammo_parent
@@ -45217,7 +45226,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 461648625}
+      objectReference: {fileID: 1219359285616738, guid: 13f2234e61d085e4394cf40691ceedeb,
+        type: 2}
     - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
         type: 2}
       propertyPath: ammo_parent
@@ -46929,7 +46939,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 951035230}
+      objectReference: {fileID: 1219359285616738, guid: 6d01ee6aa76f8ed4990187beeae53584,
+        type: 2}
     - target: {fileID: 114168400227467828, guid: 89591d1faefe5ea44bff69ce1b76fa19,
         type: 2}
       propertyPath: ammo_parent
@@ -47804,7 +47815,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1964075446}
+      objectReference: {fileID: 1219359285616738, guid: 7a17bff4ddb909345b0e3eeab50f0489,
+        type: 2}
     - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
         type: 2}
       propertyPath: ammo_parent
@@ -49923,7 +49935,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 951035230}
+      objectReference: {fileID: 1219359285616738, guid: 6d01ee6aa76f8ed4990187beeae53584,
+        type: 2}
     - target: {fileID: 114108544803654790, guid: 626872ae3e854534ba00c7f95c162ae6,
         type: 2}
       propertyPath: ammo_parent
@@ -52370,7 +52383,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1189307088}
+      objectReference: {fileID: 1219359285616738, guid: 459d3b7d8028aae45aec38d3bffca988,
+        type: 2}
     - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
         type: 2}
       propertyPath: ammo_parent
@@ -53793,7 +53807,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 951035230}
+      objectReference: {fileID: 1219359285616738, guid: 6d01ee6aa76f8ed4990187beeae53584,
+        type: 2}
     - target: {fileID: 114966066932145218, guid: 4a6c50820a9506b4bb690a301bebc057,
         type: 2}
       propertyPath: ammo_parent
@@ -54916,7 +54931,8 @@ Prefab:
         type: 2}
       propertyPath: ammo_shotUI
       value: 
-      objectReference: {fileID: 1964075446}
+      objectReference: {fileID: 1219359285616738, guid: 7a17bff4ddb909345b0e3eeab50f0489,
+        type: 2}
     - target: {fileID: 114474312213984492, guid: b193baa2110d81d4488fbbe9047f4e7d,
         type: 2}
       propertyPath: ammo_parent

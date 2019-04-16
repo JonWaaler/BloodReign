@@ -107,7 +107,7 @@ public class GunBehavior : MonoBehaviour
     }
 
     GameObject chargeParticles_ref;
-    void FixedUpdate()
+    void Update()
     { 
         if(transform.parent.GetComponent<Player>().activeState == PlayerState.dead)
         {
