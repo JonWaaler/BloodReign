@@ -50,7 +50,7 @@ public class Environment_Movement : MonoBehaviour {
                 RumblePack[] playersToRumble = FindObjectsOfType<RumblePack>();
                 foreach (RumblePack controller in playersToRumble)
                 {
-                    controller.addRumbleTimerH(0.3f, 0.25f);
+                    controller.addRumbleTimerH(0.15f, 0.25f);
                 }
             }
 

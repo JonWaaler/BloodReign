@@ -22,11 +22,7 @@ public class Manager_Tutorial : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        readyBools.Add(false);
-        readyBools.Add(false);
-        readyBools.Add(false);
-        readyBools.Add(false);
-
+        
         playersActive = cameraBehavior.players.Count - 4;
         print("CamBeCount: " + cameraBehavior.players.Count);
 
@@ -35,6 +31,7 @@ public class Manager_Tutorial : MonoBehaviour {
             if (players[i] != null)
             {
                 readyPlayers.Add(players[i].GetComponent<RumblePack>());
+                readyBools.Add(false);
             }
         }
     }
@@ -47,33 +44,31 @@ public class Manager_Tutorial : MonoBehaviour {
         bool goBack = false;
         for(int i = 0; i < readyPlayers.Count; i++)
         {
-            if (readyPlayers[i].state.Buttons.B == 0)
-                goBack = true;             
+            if ((int)readyPlayers[i].state.Buttons.B == 0 && readyPlayers[i].state.IsConnected)
+            {
+                goBack = true;
+                i = readyPlayers.Count;
+            }
         }
 
         // Controls radial button visuals
         // Very bottom, check Radial_Button.fillAmount value and load scene if >= .99
         if (goBack)
         {
-            print("UP");
-            //Radial_Button.fillAmount += Time.deltaTime;
+            Radial_Button.fillAmount += Time.deltaTime/2.0f;
         }
         else
         {
-            print("DOWN");
             Radial_Button.fillAmount -= Time.deltaTime;
         }
 
-        for(int i = 0; i >= 0; i--)
+        for(int i = readyPlayers.Count-1; i >= 0; i--)
         {
             if(players[i] == null)
             {
-
-                //readyPlayers.Remove(readyPlayers[i]);
-                //readyBools.Remove(readyBools[i]);
-                //platforms.Remove(platforms[i]);
-
-                //players.Remove(players[i]);
+                players.Remove(players[i]);
+                readyPlayers.Remove(readyPlayers[i]);
+                readyBools.Remove(readyBools[i]);
             }
         }
 
@@ -84,7 +79,7 @@ public class Manager_Tutorial : MonoBehaviour {
             if (readyPlayers[i].getButtonDown(0) && readyBools[i] == false)
             {
                 readyBools[i] = true;
-                platforms[i].material.color = Color.green;
+                platforms[(int)readyPlayers[i].playerIndex].material.color = Color.green;
                 readyAmt++;
             }
             //if (readyBools[i])

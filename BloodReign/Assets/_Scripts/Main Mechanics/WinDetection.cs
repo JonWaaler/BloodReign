@@ -86,8 +86,6 @@ public class WinDetection : MonoBehaviour {
 
         if (slider_PlayerHealth.value <= 0.1f)
         {
-            GetComponent<RumblePack>().addRumbleTimerH(0.5f, 0.1f);
-            GetComponent<RumblePack>().addRumbleTimerH(0.4f, 0.1f);
             GetComponent<RumblePack>().addRumbleTimerH(0.3f, 0.1f);
             GetComponent<RumblePack>().addRumbleTimerH(0.2f, 0.1f);
             GetComponent<RumblePack>().addRumbleTimerH(0.1f, 0.1f);
@@ -134,6 +132,7 @@ public class WinDetection : MonoBehaviour {
                 gameObject.GetComponent<Player>().ability.StopAllCoroutines();
                 gameObject.GetComponent<Player>().ability.ResetSphere();
                 gameObject.GetComponent<Player>().activeState = PlayerState.dead;
+                gameObject.GetComponent<RumblePack>().stopRumbles();
                 // wasnt here before !@)(*#)!@#*)#(!#*!)
             }
         }

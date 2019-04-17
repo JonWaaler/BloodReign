@@ -315,12 +315,12 @@ public class GunBehavior : MonoBehaviour
             if (!useDoubleDamage)
             {
                 for (int i = 0; i < BULLET_POOL_SIZE; i++)
-                    Bullets[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(player.GetComponent<RumblePack>().state.ThumbSticks.Right.Y, player.GetComponent<RumblePack>().state.ThumbSticks.Right.X) * Mathf.Rad2Deg + 90, 0);
+                    Bullets[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(-player.GetComponent<RumblePack>().state.ThumbSticks.Right.Y, player.GetComponent<RumblePack>().state.ThumbSticks.Right.X) * Mathf.Rad2Deg + 90, 0);
             }
             else
             {
                 for (int i = 0; i < BULLET_POOL_SIZE; i++)
-                    Bullets_DD[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(player.GetComponent<RumblePack>().state.ThumbSticks.Right.Y, player.GetComponent<RumblePack>().state.ThumbSticks.Right.X) * Mathf.Rad2Deg + 90, 0);
+                    Bullets_DD[i].transform.eulerAngles = new Vector3(0, Mathf.Atan2(-player.GetComponent<RumblePack>().state.ThumbSticks.Right.Y, player.GetComponent<RumblePack>().state.ThumbSticks.Right.X) * Mathf.Rad2Deg + 90, 0);
             }
         }
 
