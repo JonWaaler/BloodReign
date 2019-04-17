@@ -232,8 +232,12 @@ MonoBehaviour:
   - {fileID: 4202587030929886}
   - {fileID: 4832706288020974}
   pos: 0
+  posf: 0
   stationary_mat: {fileID: 2100000, guid: 98ce6e5c22cc84347bc7619a42354efe, type: 2}
   moving_mat: {fileID: 2100000, guid: 9f3001d7a28d80547b1275ba41fc033b, type: 2}
+  velocity: 0.005
+  current: 0
+  totalTime: 0
 --- !u!114 &114549080101905784
 MonoBehaviour:
   m_ObjectHideFlags: 1

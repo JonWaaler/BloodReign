@@ -5727,7 +5727,7 @@ GameObject:
   - component: {fileID: 266004194}
   m_Layer: 0
   m_Name: wall1 (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19934,8 +19934,12 @@ MonoBehaviour:
   - {fileID: 198327592}
   - {fileID: 648146707}
   pos: 0
+  posf: 0
   stationary_mat: {fileID: 2100000, guid: d816007b3f5c5dc4fb7d3e0eab3d59aa, type: 2}
   moving_mat: {fileID: 2100000, guid: 1fc9e5893df72be4fa12edef1b14c119, type: 2}
+  velocity: 0.005
+  current: 0
+  totalTime: 0
 --- !u!65 &572414084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58432,8 +58436,12 @@ MonoBehaviour:
   - {fileID: 1591638964}
   - {fileID: 941549911}
   pos: 0
+  posf: 0
   stationary_mat: {fileID: 2100000, guid: d816007b3f5c5dc4fb7d3e0eab3d59aa, type: 2}
   moving_mat: {fileID: 2100000, guid: 1fc9e5893df72be4fa12edef1b14c119, type: 2}
+  velocity: 0.005
+  current: 0
+  totalTime: 0
 --- !u!65 &1704591641
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -59955,8 +59963,12 @@ MonoBehaviour:
   - {fileID: 741824400}
   - {fileID: 240378440}
   pos: 0
+  posf: 0
   stationary_mat: {fileID: 2100000, guid: 0fe11da7f92e68a419600d93f47f0bda, type: 2}
   moving_mat: {fileID: 2100000, guid: 909f6d9f97c43244e89530f1e8e273fd, type: 2}
+  velocity: 0.005
+  current: 0
+  totalTime: 0
 --- !u!65 &1841171166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62152,8 +62164,12 @@ MonoBehaviour:
   - {fileID: 2099095523}
   - {fileID: 466667087}
   pos: 0
+  posf: 0
   stationary_mat: {fileID: 2100000, guid: 0fe11da7f92e68a419600d93f47f0bda, type: 2}
   moving_mat: {fileID: 2100000, guid: 909f6d9f97c43244e89530f1e8e273fd, type: 2}
+  velocity: 0.005
+  current: 0
+  totalTime: 0
 --- !u!65 &1943776657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62504,7 +62520,7 @@ GameObject:
   - component: {fileID: 1980509057}
   m_Layer: 0
   m_Name: wall1 (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63335,8 +63351,12 @@ MonoBehaviour:
   - {fileID: 818200443}
   - {fileID: 446850205}
   pos: 0
+  posf: 0
   stationary_mat: {fileID: 2100000, guid: 0fe11da7f92e68a419600d93f47f0bda, type: 2}
   moving_mat: {fileID: 2100000, guid: 909f6d9f97c43244e89530f1e8e273fd, type: 2}
+  velocity: 0.005
+  current: 0
+  totalTime: 0
 --- !u!65 &2044538573
 BoxCollider:
   m_ObjectHideFlags: 0

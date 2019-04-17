@@ -36,6 +36,15 @@ public class TerritoryBehavior : MonoBehaviour {
                 GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", doubleDmgActive_EmissionMap);
             }
         }
+        if (terrioryType == TerritoryType.Damage)
+        {
+            if (collision.tag == "Player")
+            {
+                GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", doubleDmgActive_EmissionMap);
+                collision.GetComponent<RumblePack>().addRumbleTimerL(0.7f, 0.02f);
+                collision.GetComponent<RumblePack>().addRumbleTimerL(0.3f, 0.1f);
+            }
+        }
     }
 
 
@@ -58,14 +67,7 @@ public class TerritoryBehavior : MonoBehaviour {
                 player4_Health.value += Time.deltaTime;
 
         }
-        if(terrioryType == TerritoryType.Damage)
-        {
-            if (collision.tag == "Player")
-            {
-                GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", doubleDmgActive_EmissionMap);
-                collision.GetComponent<RumblePack>().addRumbleTimerL(0.05f, 0.02f);
-            }
-        }
+
     }
 
 
