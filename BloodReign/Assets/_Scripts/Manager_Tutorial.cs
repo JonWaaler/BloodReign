@@ -10,20 +10,31 @@ public class Manager_Tutorial : MonoBehaviour {
     public Image Radial_Button;
 
     public CameraBehavior cameraBehavior;
+
+    // Player stuff
     public List<RumblePack> readyPlayers;
     public List<bool> readyBools;
     public List<GameObject> players;
+
     public List<MeshRenderer> platforms;
     public int readyAmt = 0;
+    public int playersActive = 4; // Will subtract 1 for every non active player
 
     // Use this for initialization
     void Start () {
+        readyBools.Add(false);
+        readyBools.Add(false);
+        readyBools.Add(false);
+        readyBools.Add(false);
+
+        playersActive = cameraBehavior.players.Count - 4;
+        print("CamBeCount: " + cameraBehavior.players.Count);
+
         for (int i = 0; i < players.Count; i++)
         {
             if (players[i] != null)
             {
                 readyPlayers.Add(players[i].GetComponent<RumblePack>());
-                readyBools.Add(false);
             }
         }
     }
@@ -32,47 +43,102 @@ public class Manager_Tutorial : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //if (Input.GetKey(KeyCode.B))
-        //    Radial_Button.fillAmount += Time.deltaTime;
-        //else
-        //    Radial_Button.fillAmount -= Time.deltaTime;
-        for(int i = readyPlayers.Count-1; i >= 0; i--)
-        {
-            if(players[i] == null)
-            {
-                readyPlayers.Remove(readyPlayers[i]);
-                readyBools.Remove(readyBools[i]);
-                players.Remove(players[i]);
-            }
-        }
-
+        // Back button stuff
         bool goBack = false;
         for(int i = 0; i < readyPlayers.Count; i++)
         {
             if (readyPlayers[i].state.Buttons.B == 0)
                 goBack = true;             
         }
-        if(goBack)
-            Radial_Button.fillAmount += Time.deltaTime;
-        else
-            Radial_Button.fillAmount -= Time.deltaTime;
 
+        // Controls radial button visuals
+        // Very bottom, check Radial_Button.fillAmount value and load scene if >= .99
+        if (goBack)
+        {
+            print("UP");
+            //Radial_Button.fillAmount += Time.deltaTime;
+        }
+        else
+        {
+            print("DOWN");
+            Radial_Button.fillAmount -= Time.deltaTime;
+        }
+
+        for(int i = 0; i >= 0; i--)
+        {
+            if(players[i] == null)
+            {
+
+                //readyPlayers.Remove(readyPlayers[i]);
+                //readyBools.Remove(readyBools[i]);
+                //platforms.Remove(platforms[i]);
+
+                //players.Remove(players[i]);
+            }
+        }
+
+
+        // Ready up
         for (int i = 0; i < readyPlayers.Count; i++)
         {
             if (readyPlayers[i].getButtonDown(0) && readyBools[i] == false)
             {
                 readyBools[i] = true;
+                platforms[i].material.color = Color.green;
                 readyAmt++;
             }
-            if (readyBools[i])
-                platforms[i].material.color = Color.green;
+            //if (readyBools[i])
         }
-        if (readyAmt >= players.Count)
+
+        if (Input.GetKeyDown(KeyCode.Keypad1) && readyBools[0] == false)
+        {
+            if (players[0].activeSelf)
+            {
+                readyBools[0] = true;
+                platforms[0].material.color = Color.green;
+                readyAmt++;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2) && readyBools[1] == false)
+        {
+            if (players[1].activeSelf)
+            {
+                readyBools[1] = true;
+                platforms[1].material.color = Color.green;
+                readyAmt++;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3) && readyBools[2] == false)
+        {
+            if (players[2].activeSelf)
+            {
+                readyBools[2] = true;
+                platforms[2].material.color = Color.green;
+                readyAmt++;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad4) && readyBools[3] == false)
+        {
+            if (players[3].activeSelf)
+            {
+                readyBools[3] = true;
+                platforms[3].material.color = Color.green;
+                readyAmt++;
+            }
+        }
+
+        // Scene load (back and game scenes)
+        if (readyAmt >= cameraBehavior.players.Count - 4)
         {
             // LoadGame
             SceneManager.LoadScene(2);
         }
+        print("ReadyAmt: " + readyAmt + "      PlayerCount: " + (cameraBehavior.players.Count - 4));
 
+        // Back Button Scene change
         if (Radial_Button.fillAmount > 0.99f)
         {
             // load menu

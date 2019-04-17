@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a972dd7a34cd04c84af7551e4bbc83, type: 3}
   m_Name: Player Settings
   m_EditorClassIdentifier: 
-  playerActive_01: 1
+  playerActive_01: 0
   characterSelection_01: 0
   gunSelection_01: 0
   playerColor1: 0
@@ -23,7 +23,7 @@ MonoBehaviour:
   characterSelection_03: 0
   gunSelection_03: 0
   playerColor3: 3
-  playerActive_04: 0
+  playerActive_04: 1
   characterSelection_04: 0
   gunSelection_04: 0
   playerColor4: 2

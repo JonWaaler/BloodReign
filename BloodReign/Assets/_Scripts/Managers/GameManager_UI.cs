@@ -179,16 +179,41 @@ public class GameManager_UI : MonoBehaviour {
 
     public void Update()
     {
-        if (cameraBehavior.players.Count <= 1)
+        if (SceneManager.GetActiveScene().buildIndex != 1)
         {
-            t_delay += Time.deltaTime;
+            
+            if (cameraBehavior.players.Count <= 1)
+            {
+                t_delay += Time.deltaTime;
 
 
-            if(t_delay > delay){
-                //Restart_Canvus.SetActive(true);
-                
-                SceneManager.LoadScene(0);
-                t_delay = 0;
+                if (t_delay > delay)
+                {
+                    //Restart_Canvus.SetActive(true);
+                    print("Loading Scene 0: Main Menu");
+                    SceneManager.LoadScene(0);
+                    t_delay = 0;
+                }
+            }
+
+        }
+        else
+        {
+            // Tutorial stuff
+            // For iff evveryone dies in tutorial
+            if (cameraBehavior.players.Count <= 5)
+            {
+                t_delay += Time.deltaTime;
+
+
+                if (t_delay > delay)
+                {
+                    //Restart_Canvus.SetActive(true);
+                    print("Loading Scene 1: Tutorial");
+
+                    SceneManager.LoadScene(1);
+                    t_delay = 0;
+                }
             }
         }
 
