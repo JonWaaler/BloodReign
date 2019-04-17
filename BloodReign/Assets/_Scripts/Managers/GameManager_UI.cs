@@ -103,21 +103,21 @@ public class GameManager_UI : MonoBehaviour {
             {
                 GameObject logoInst = Instantiate(logos[4]);
                 logoInst.transform.SetParent(logo_PositionsUI[1]);
-                logo_PositionsUI[1].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
+                logo_PositionsUI[1].GetChild(logo_PositionsUI[1].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
 
             }
             if (playerSettings.playerActive_03)
             {
                 GameObject logoInst = Instantiate(logos[4]);
                 logoInst.transform.SetParent(logo_PositionsUI[2]);
-                logo_PositionsUI[2].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
+                logo_PositionsUI[2].GetChild(logo_PositionsUI[2].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
 
             }
             if (playerSettings.playerActive_04)
             {
                 GameObject logoInst = Instantiate(logos[4]);
                 logoInst.transform.SetParent(logo_PositionsUI[3]);
-                logo_PositionsUI[3].GetChild(logo_PositionsUI[0].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
+                logo_PositionsUI[3].GetChild(logo_PositionsUI[3].childCount - 1).localScale = new Vector3(1f, 0.5f, 1f);
 
             }
         }
